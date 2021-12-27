@@ -1,5 +1,5 @@
 {
-  "name": "my-midway-project",
+  "name": "midway-overview",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -44,7 +44,8 @@
     "check": "luckyeye",
     "prisma:pull": "npx prisma db pull --schema ./src/prisma/schema.prisma",
     "prisma:push": "npx prisma db push --schema ./src/prisma/schema.prisma",
-    "prisma:generate": "npx prisma generate --schema ./src/prisma/schema.prisma"
+    "prisma:generate": "npx prisma generate --schema ./src/prisma/schema.prisma",
+    "prisma:migrate": "npx prisma migrate dev --schema ./src/prisma/schema.prisma"
   },
   "midway-bin-clean": [
     ".vscode/.tsbuildinfo",
