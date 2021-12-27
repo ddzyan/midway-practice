@@ -2,7 +2,7 @@
 
 使用 midway + prisma 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
 
-# 使用
+## 使用
 
 创建数据 lotus 和执行下面 SQL，提现创建相关表
 
