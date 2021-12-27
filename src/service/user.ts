@@ -1,14 +1,17 @@
-import { Provide } from '@midwayjs/decorator';
-import { IUserOptions } from '../interface';
+import { Provide, Inject } from '@midwayjs/decorator';
+import { PrismaClient, User } from '@prisma/client';
 
 @Provide()
 export class UserService {
-  async getUser(options: IUserOptions) {
-    return {
-      uid: options.uid,
-      username: 'mockedName',
-      phone: '12345678901',
-      email: 'xxx.xxx@xxx.com',
-    };
+  @Inject('prisma')
+  prismaClient: PrismaClient;
+
+  async getUser(offset: number, take: number): Promise<User[]> {
+    const res = await this.prismaClient.user.findMany({
+      skip: offset,
+      take,
+    });
+
+    return res;
   }
 }
