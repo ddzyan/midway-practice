@@ -1,3 +1,13 @@
+import {
+  IMidwayWebApplication as Application,
+  IMidwayWebContext as Context,
+  IMidwayWebNext,
+} from '@midwayjs/web';
+
+export { NpmPkg } from '@waiting/shared-types';
+
+export { Application, Context, IMidwayWebNext };
+
 /**
  * @description User-Service parameters
  */

@@ -1,5 +1,5 @@
 {
-  "name": "midway-overview",
+  "name": "midway-prisma",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -7,11 +7,18 @@
     "@midwayjs/bootstrap": "^2.3.0",
     "@midwayjs/core": "^2.3.0",
     "@midwayjs/decorator": "^2.3.0",
+    "@midwayjs/logger": "^2.13.0",
     "@midwayjs/web": "^2.3.0",
+    "@mw-components/jaeger": "^9.0.4",
+    "@mw-components/koid": "^6.0.0",
     "@prisma/client": "^3.7.0",
+    "@waiting/shared-core": "^15.1.0",
+    "@waiting/shared-types": "^15.1.0",
     "chalk": "^5.0.0",
     "egg": "^2.0.0",
-    "egg-scripts": "^2.10.0"
+    "egg-scripts": "^2.10.0",
+    "ipip-ipdb": "^0.6.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@midwayjs/cli": "^1.0.0",
