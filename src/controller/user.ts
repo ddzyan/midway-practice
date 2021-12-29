@@ -32,6 +32,7 @@ export class UserController {
     const offset = Number(reqOffset ?? 0);
     const take = Number(reqTake ?? 10);
     const users = await this.userService.getUser(offset, take);
+    this.ctx.logger.info(JSON.stringify(users));
     return { success: true, message: 'OK', data: users };
   }
 
