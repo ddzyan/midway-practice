@@ -2,6 +2,14 @@
 
 使用 midway + prisma 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
 
+实现功能：
+
+- [ ] 请求日志中间件
+- [ ] 统一响应中间件
+- [ ] DockerFile 编写
+- [x] 请求参数验证
+- [x] swagger 接入
+
 ## 使用
 
 创建数据 lotus 和执行下面 SQL，提现创建相关表
@@ -23,6 +31,8 @@ npm run prisma:generate
 
 npm run dev
 ```
+
+swagger 文档地址：http://127.0.0.1:7001/swagger-ui/index.html
 
 # prisma 介绍
 
