@@ -21,9 +21,9 @@ async function accessLogMiddleware(
   const requestBody =
     ctx.request.method === 'GET' ? ctx.request.query : ctx.request.body || {};
   // 输出请求日志
-  ctx.logger.info('requestBody %j', requestBody);
+  ctx.logger.info('requestQuery %j', requestBody);
   await next();
   const { body } = ctx;
-  ctx.logger.info('response %j', body);
+  ctx.logger.info('responseBody %j', body);
   // 输出响应日志
 }

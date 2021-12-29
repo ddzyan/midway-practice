@@ -39,12 +39,6 @@ export class ContainerLifeCycle implements ILifeCycle {
     // 增加全局x-request-id处理中间件
     coreMiddlewareArr.splice(0, 0, 'requestIdMiddleware');
 
-    // 增加全局请求访问日志（确保在最前）
-    coreMiddlewareArr.splice(1, 0, 'accessLogMiddleware');
-
-    // 增加全局错误处理中间件
-    coreMiddlewareArr.splice(2, 0, 'errorHandlerMiddleware');
-
     // 需要显式在 app 启动时用 getAsync() 的方式进行触发，否则该类只有在首次被业务逻辑调用的时候才能初始化
     // await this.app.getApplicationContext().getAsync('rabbitmqService');
 
