@@ -7,7 +7,7 @@ import { PrismaClient } from '@prisma/client';
 import * as jaeger from '@mw-components/jaeger';
 import * as koid from '@mw-components/koid';
 import { Application, NpmPkg } from '@/interface';
-import { customLogger } from './comm/customLogger';
+import { customLogger } from './app/comm/customLogger';
 
 const client = new PrismaClient();
 @Configuration({
