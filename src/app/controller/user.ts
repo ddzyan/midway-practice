@@ -28,7 +28,7 @@ export class UserController {
   async getUser(@Query(ALL) { offset: reqOffset, take: reqTake }) {
     const offset = Number(reqOffset ?? 0);
     const take = Number(reqTake ?? 10);
-    const users = await this.userService.getUser(offset, take);
+    const users = await this.userService.getUserList(offset, take);
     this.ctx.helper.success(users);
   }
 

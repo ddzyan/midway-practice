@@ -18,6 +18,10 @@ async function accessLogMiddleware(
   ctx: Context,
   next: IMidwayWebNext
 ): Promise<void> {
+  const { url } = ctx.request;
+  const ignoreUrls = [/\/swagger-u.*/u];
+  const exist = ignoreUrls.filter(item => !item.test(url));
+  if (exist) return await next();
   const requestBody =
     ctx.request.method === 'GET' ? ctx.request.query : ctx.request.body || {};
   // 输出请求日志
