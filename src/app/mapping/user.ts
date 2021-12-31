@@ -6,8 +6,18 @@ import { CreateUserInput } from '../dto/user.dot';
 export default class UserMapping {
   @Inject('prisma')
   prismaClient: PrismaClient;
+
+  // 获取用户列表
   async getList(offset: number, take: number): Promise<user[]> {
     const res = await this.prismaClient.user.findMany({
+      include: {
+        classroom: {
+          select: {
+            grade: true,
+            prom: true,
+          },
+        },
+      },
       skip: offset,
       take,
     });
@@ -15,9 +25,11 @@ export default class UserMapping {
     return res;
   }
 
+  // 创建用户
   async create(createParams: CreateUserInput): Promise<user> {
+    const number = Date.now().toString();
     const res = await this.prismaClient.user.create({
-      data: createParams,
+      data: { ...createParams, number },
     });
 
     return res;

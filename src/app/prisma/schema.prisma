@@ -7,8 +7,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model classroom {
+  id    Int    @id @default(autoincrement()) @db.UnsignedInt
+  grade Int    @db.UnsignedTinyInt
+  prom  Int    @db.UnsignedTinyInt
+  user  user[]
+}
+
 model user {
-  id    Int     @id @default(autoincrement())
-  name  String? @db.VarChar(255)
-  email String  @unique(map: "email") @db.VarChar(255)
+  id          Int       @id @default(autoincrement()) @db.UnsignedInt
+  firstName   String    @db.VarChar(20)
+  lastName    String    @db.VarChar(20)
+  number      String    @db.VarChar(32)
+  classroomId Int       @db.UnsignedInt
+  classroom   classroom @relation(fields: [classroomId], references: [id])
+
+  @@index([number], map: "idx_number")
 }

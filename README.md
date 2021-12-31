@@ -15,13 +15,21 @@
 创建数据 lotus 和执行下面 SQL，提现创建相关表
 
 ```sql
-CREATE TABLE `user` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `User` (
+	id INT ( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT,
+	firstName VARCHAR ( 20 ) NOT NULL COMMENT "姓",
+	lastName VARCHAR ( 20 ) NOT NULL COMMENT "名",
+	number VARCHAR ( 32 ) NOT NULL COMMENT "学号",
+	PRIMARY KEY ( `id` ) USING BTREE,
+	KEY idx_number ( `number` ) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 1 COMMENT = '学生表';
+
+CREATE TABLE `Classroom` (
+	id INT ( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT,
+	grade TINYINT ( 2 ) UNSIGNED NOT NULL COMMENT "年级",
+	prom TINYINT ( 2 ) UNSIGNED NOT NULL COMMENT "班级",
+	PRIMARY KEY ( `id` ) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 1 COMMENT = '班级表';
 ```
 
 ```bash
