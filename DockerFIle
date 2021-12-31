@@ -1,4 +1,4 @@
-FROM node:14.17.3-buster-slim AS BUILD_IMAGE
+FROM node:14.17.3-alpine3.14 AS BUILD_IMAGE
 
 WORKDIR /home
 
@@ -11,10 +11,13 @@ RUN npm install --registry=https://registry.npm.taobao.org && \
 
 FROM node:14.17.3-alpine3.14
 
+RUN npm install --registry=https://registry.npm.taobao.org && \
+  npm install pm2 -g
+
 WORKDIR /home
 
 COPY --from=BUILD_IMAGE /home /home
 
 EXPOSE 7001
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["npm", "run", "docker"]
