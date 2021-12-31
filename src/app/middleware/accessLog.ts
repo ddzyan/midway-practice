@@ -20,7 +20,8 @@ export class AccessLogMiddleware implements IWebMiddleware {
     return async (ctx: Context, next: IMidwayWebNext) => {
       const { url } = ctx.request;
       const { ignore } = this.accessLogConfig;
-      const exist = ignore.some(item => item.test(url));
+      // 只有有一个符合条件
+      const exist = ignore.find(item => item.test(url));
       if (exist) return await next();
       const requestBody =
         ctx.request.method === 'GET'
