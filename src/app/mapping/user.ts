@@ -8,9 +8,12 @@ export default class UserMapping {
   prismaClient: PrismaClient;
 
   // 获取用户列表
-  async getList(offset: number, take: number): Promise<user[]> {
+  async getList(offset: number, take: number): Promise<any[]> {
     const res = await this.prismaClient.user.findMany({
-      include: {
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
         classroom: {
           select: {
             grade: true,
