@@ -4,6 +4,8 @@
 
 实现功能：
 
+- [x] prisma 表结构生成
+- [x] prisma CRUD 和关联查询
 - [x] 请求日志中间件
 - [x] 统一响应中间件
 - [x] DockerFile 编写
