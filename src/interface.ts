@@ -22,3 +22,7 @@ export interface IGetUserResponse {
   message: string;
   data: IUserOptions[];
 }
+
+export interface IAccessLogConfig {
+  ignore: RegExp[];
+}

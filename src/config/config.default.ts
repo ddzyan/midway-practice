@@ -1,5 +1,7 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 
+import { IAccessLogConfig } from '../interface';
+
 export type DefaultConfig = PowerPartial<EggAppConfig>;
 
 export default (appInfo: EggAppInfo) => {
@@ -8,9 +10,9 @@ export default (appInfo: EggAppInfo) => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1640593084642_6476';
 
-  config.accessLog = {
-    ignore:[/\/swagger-u.*/u]
-  }
+  config.accessLogConfig = {
+    ignore: [/\/swagger-u.*/u],
+  } as IAccessLogConfig;
 
   // add your config here
   config.middleware = ['accessLogMiddleware', 'errorHandlerMiddleware'];

@@ -1,19 +1,26 @@
-import { Inject, Provide } from '@midwayjs/decorator';
+import { Config, Provide, App } from '@midwayjs/decorator';
 import {
   IMidwayWebNext,
   IWebMiddleware,
   MidwayWebMiddleware,
+  IMidwayWebApplication,
 } from '@midwayjs/web';
-
 import { Context } from 'egg';
+import { IAccessLogConfig } from '../../interface';
 
 @Provide()
 export class AccessLogMiddleware implements IWebMiddleware {
+  @Config('accessLogConfig')
+  accessLogConfig: IAccessLogConfig;
+
+  @App()
+  app: IMidwayWebApplication;
+
   resolve(): MidwayWebMiddleware {
     return async (ctx: Context, next: IMidwayWebNext) => {
       const { url } = ctx.request;
-      const ignoreUrls = [/\/swagger-u.*/u];
-      const exist = ignoreUrls.filter(item => !item.test(url));
+      const { ignore } = this.accessLogConfig;
+      const exist = ignore.some(item => item.test(url));
       if (exist) return await next();
       const requestBody =
         ctx.request.method === 'GET'
