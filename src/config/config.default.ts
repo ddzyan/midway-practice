@@ -8,6 +8,10 @@ export default (appInfo: EggAppInfo) => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1640593084642_6476';
 
+  config.accessLog = {
+    ignore:[/\/swagger-u.*/u]
+  }
+
   // add your config here
   config.middleware = ['accessLogMiddleware', 'errorHandlerMiddleware'];
 
