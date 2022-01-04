@@ -16,7 +16,7 @@ export class UserService {
   async getUserList(offset: number, take: number) {
     const res = await this.userMapping.getList(offset, take);
     const sum = this.ctx.helper.bigAdd(1, 2) as BigNumber;
-    console.log('sum', sum.toNumber());
+    this.ctx.logger.info('sum', sum.toNumber());
     return res;
   }
 
