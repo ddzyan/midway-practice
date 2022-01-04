@@ -20,6 +20,12 @@ export default class UserMapping {
             prom: true,
           },
         },
+        parent_info: {
+          select: {
+            username: true,
+            tel: true,
+          },
+        },
       },
       skip: offset,
       take,

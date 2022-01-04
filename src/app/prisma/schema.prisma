@@ -15,12 +15,23 @@ model classroom {
 }
 
 model user {
-  id          Int       @id @default(autoincrement()) @db.UnsignedInt
-  firstName   String    @db.VarChar(20)
-  lastName    String    @db.VarChar(20)
-  number      String    @db.VarChar(32)
-  classroomId Int       @db.UnsignedInt
-  classroom   classroom @relation(fields: [classroomId], references: [id])
+  id          Int          @id @default(autoincrement()) @db.UnsignedInt
+  firstName   String       @db.VarChar(20)
+  lastName    String       @db.VarChar(20)
+  number      String       @db.VarChar(32)
+  classroomId Int          @db.UnsignedInt
+  parent_info parent_info? @relation(fields: [id], references: [user_id])
+  classroom   classroom    @relation(fields: [classroomId], references: [id])
 
   @@index([number], map: "idx_number")
+}
+
+model parent_info {
+  id       Int    @id @default(autoincrement()) @db.UnsignedInt
+  username String @db.VarChar(20)
+  tel      String @db.VarChar(20)
+  user_id  Int    @db.UnsignedInt
+
+  user user[]
+  @@index([user_id], map: "idx_user_id")
 }

@@ -34,6 +34,15 @@ CREATE TABLE `Classroom` (
 	prom TINYINT ( 2 ) UNSIGNED NOT NULL COMMENT "班级",
 	PRIMARY KEY ( `id` ) USING BTREE
 ) ENGINE = INNODB AUTO_INCREMENT = 1 COMMENT = '班级表';
+
+CREATE TABLE `parent_info` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL COMMENT '姓名',
+  `tel` varchar(20) NOT NULL COMMENT '电话',
+  `user_id` int(11) unsigned NOT NULL COMMENT '学生id',
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_user_id` (`user_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='学生父母信息表';
 ```
 
 ```bash
