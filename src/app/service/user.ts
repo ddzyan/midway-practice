@@ -1,16 +1,22 @@
 import { Provide, Inject } from '@midwayjs/decorator';
+import BigNumber from 'bignumber.js';
 
 import UserMapping from '../mapping/user';
 import { CreateUserInput } from '../dto/user.dot';
+import { Context } from '../../interface';
 
 @Provide()
 export class UserService {
+  @Inject()
+  ctx: Context;
+
   @Inject()
   userMapping: UserMapping;
 
   async getUserList(offset: number, take: number) {
     const res = await this.userMapping.getList(offset, take);
-
+    const sum = this.ctx.helper.bigAdd(1, 2) as BigNumber;
+    console.log('sum', sum.toNumber());
     return res;
   }
 

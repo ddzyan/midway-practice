@@ -1,4 +1,7 @@
+import * as _bigNumber from './bigNumber';
+
 export = {
+  ..._bigNumber,
   /**
    * 处理成功响应
    * @method Helper#success

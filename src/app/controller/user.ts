@@ -11,6 +11,7 @@ import {
 } from '@midwayjs/decorator';
 import { ValidationError } from 'joi';
 import { Context } from 'egg';
+import BigNumber from 'bignumber.js';
 
 import { CreateUserInput } from '../dto/user.dot';
 import { UserService } from '../service/user';
@@ -21,7 +22,7 @@ export class UserController {
   @Inject()
   ctx: Context;
 
-  @Inject()
+  @Inject('userService')
   userService: UserService;
 
   @Get('/users', { summary: '分页获取用户列表', description: '' })
@@ -29,6 +30,8 @@ export class UserController {
     const offset = Number(reqOffset ?? 0);
     const take = Number(reqTake ?? 10);
     const users = await this.userService.getUserList(offset, take);
+    const sum = this.ctx.helper.bigAdd(1, 2) as BigNumber;
+    console.log('sum', sum.toNumber());
     this.ctx.helper.success(users);
   }
 
