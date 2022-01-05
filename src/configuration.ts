@@ -7,13 +7,15 @@ import { PrismaClient } from '@prisma/client';
 import * as jaeger from '@mw-components/jaeger';
 import * as koid from '@mw-components/koid';
 import { Application, NpmPkg } from '@/interface';
+import * as redis from '@midwayjs/redis';
+
 import { customLogger } from './app/comm/customLogger';
 
 const client = new PrismaClient();
 @Configuration({
   importConfigs: [join(__dirname, './config')],
   conflictCheck: true,
-  imports: [jaeger, koid, swagger],
+  imports: [jaeger, koid, swagger, redis],
 })
 export class ContainerLifeCycle implements ILifeCycle {
   @App()
