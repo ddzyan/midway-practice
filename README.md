@@ -4,9 +4,6 @@
 
 实现功能：
 
-- [x] prisma 表结构生成
-- [x] prisma CRUD
-- [x] prisma 关联查询
 - [x] 请求日志中间件
 - [x] 统一响应中间件
 - [x] DockerFile 编写
@@ -14,6 +11,11 @@
 - [x] swagger 接入
 - [x] 添加通用工具类（日后拆除）
 - [x] 增加 redis 相关配置
+- prisma
+  - [x] prisma 表结构生成
+  - [x] prisma CRUD
+  - [x] prisma 关联查询
+  - [x] prisma query 日志
 
 ## 使用
 
