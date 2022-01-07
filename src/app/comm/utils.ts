@@ -1,17 +1,29 @@
-import { Inject, Provide } from '@midwayjs/decorator';
+import * as dayjs from 'dayjs';
 import * as _ from 'lodash';
-import { Context } from 'egg';
 
-@Provide()
-export class Utils {
-  @Inject()
-  baseDir;
+const DATE_FORMATE = 'YYYY-MM-DD HH:mm:ss';
 
-  async getReqIP(ctx: Context) {
-    const { req } = ctx;
-    return (
-      req.headers['x-forwarded-for'] ||
-      req.socket.remoteAddress.replace('::ffff:', '')
-    );
-  }
+export function isEmpty(value?) {
+  return _.isEmpty(value);
+}
+
+export function isNotEmpty(value?) {
+  return !_.isEmpty(value);
+}
+
+export function getDateNow(): string {
+  const dateStr: string = dayjs().format(DATE_FORMATE);
+  return dateStr;
+}
+
+export function getDateEndTime(time?): string {
+  return dayjs(time).endOf('day').format(DATE_FORMATE);
+}
+
+export function getDateStartTime(time?): string {
+  return dayjs(time).startOf('day').format(DATE_FORMATE);
+}
+
+export function getDateSeconds(time?): number {
+  return dayjs(time).unix();
 }
