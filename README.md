@@ -24,18 +24,17 @@
 创建数据 lotus 和执行下面 SQL，提现创建相关表
 
 ```sql
-CREATE TABLE `User` (
+CREATE TABLE `user` (
 	id INT ( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT,
 	firstName VARCHAR ( 20 ) NOT NULL COMMENT "姓",
 	lastName VARCHAR ( 20 ) NOT NULL COMMENT "名",
-	number VARCHAR ( 32 ) NOT NULL COMMENT "学号",
-	classroomId INT ( 11 ) UNSIGNED NOT NULL COMMENT "班级id",
+	number VARCHAR ( 32 ) NOT NULL COMMENT "学号",	classroomId INT ( 11 ) UNSIGNED NOT NULL COMMENT "班级id",
 	PRIMARY KEY ( `id` ) USING BTREE,
 	KEY idx_number ( `number` ) USING BTREE
 ) ENGINE = INNODB AUTO_INCREMENT = 1 COMMENT = '学生表';
 
 
-CREATE TABLE `Classroom` (
+CREATE TABLE `classroom` (
 	id INT ( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT,
 	grade TINYINT ( 2 ) UNSIGNED NOT NULL COMMENT "年级",
 	prom TINYINT ( 2 ) UNSIGNED NOT NULL COMMENT "班级",
