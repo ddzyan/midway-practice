@@ -1,5 +1,6 @@
 import { join } from 'path';
 import { App, Configuration, Logger } from '@midwayjs/decorator';
+import * as task from '@midwayjs/task';
 import { ILifeCycle } from '@midwayjs/core';
 import { IMidwayLogger } from '@midwayjs/logger';
 import * as swagger from '@midwayjs/swagger';
@@ -22,7 +23,7 @@ const client = new PrismaClient({
 @Configuration({
   importConfigs: [join(__dirname, './config')],
   conflictCheck: true,
-  imports: [jaeger, koid, swagger, redis],
+  imports: [jaeger, koid, swagger, redis, task],
 })
 export class ContainerLifeCycle implements ILifeCycle {
   @App()
