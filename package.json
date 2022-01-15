@@ -57,6 +57,7 @@
     "ci": "npm run cov",
     "build": "midway-bin build -c",
     "check": "luckyeye",
+    "clear": "rm -rf ./logs ./run",
     "prisma:pull": "npx prisma db pull --schema ./src/app/prisma/schema.prisma",
     "prisma:push": "npx prisma db push --schema ./src/app/prisma/schema.prisma",
     "prisma:generate": "npx prisma generate --schema ./src/app/prisma/schema.prisma",
