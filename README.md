@@ -22,35 +22,7 @@
 
 ## 使用
 
-创建数据 lotus 和执行下面 SQL，提现创建相关表
-
-```sql
-CREATE TABLE `user` (
-	id INT ( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT,
-	firstName VARCHAR ( 20 ) NOT NULL COMMENT "姓",
-	lastName VARCHAR ( 20 ) NOT NULL COMMENT "名",
-	number VARCHAR ( 32 ) NOT NULL COMMENT "学号",	classroomId INT ( 11 ) UNSIGNED NOT NULL COMMENT "班级id",
-	PRIMARY KEY ( `id` ) USING BTREE,
-	KEY idx_number ( `number` ) USING BTREE
-) ENGINE = INNODB AUTO_INCREMENT = 1 COMMENT = '学生表';
-
-
-CREATE TABLE `classroom` (
-	id INT ( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT,
-	grade TINYINT ( 2 ) UNSIGNED NOT NULL COMMENT "年级",
-	prom TINYINT ( 2 ) UNSIGNED NOT NULL COMMENT "班级",
-	PRIMARY KEY ( `id` ) USING BTREE
-) ENGINE = INNODB AUTO_INCREMENT = 1 COMMENT = '班级表';
-
-CREATE TABLE `parent_info` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL COMMENT '姓名',
-  `tel` varchar(20) NOT NULL COMMENT '电话',
-  `user_id` int(11) unsigned NOT NULL COMMENT '学生id',
-  PRIMARY KEY (`id`) USING BTREE,
-  KEY `idx_user_id` (`user_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='学生父母信息表';
-```
+执行 ./src/app/prisma/migrations/20220115114834_init 下的 migration.sql 初始化数据库
 
 ```bash
 npm i
