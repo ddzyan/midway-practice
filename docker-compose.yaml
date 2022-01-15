@@ -1,0 +1,12 @@
+version: '2'
+services:
+  lotus_gateway:
+    image: midway-example:laster
+    container_name: midway-example
+    restart: unless-stopped
+    ports:
+      - 8001:8001
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    env_file:
+      - ./.env

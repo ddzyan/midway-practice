@@ -19,6 +19,7 @@
   - [x] prisma query 日志
 - 部署
   - [x] DockerFile 编写
+  - [x] docker-compose 编写
 
 ## 使用
 

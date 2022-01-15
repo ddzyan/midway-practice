@@ -46,7 +46,7 @@
   },
   "scripts": {
     "docker": "NODE_ENV=production pm2-runtime start ./bootstrap.js --name midway_prisma -i 1",
-    "start": "egg-scripts start --daemon --title=midway_prisma --framework=@midwayjs/web",
+    "start": "egg-scripts start --title=midway_prisma --framework=@midwayjs/web",
     "stop": "egg-scripts stop --title=midway_prisma",
     "start_build": "npm run build && cross-env NODE_ENV=development midway-bin dev",
     "dev": "cross-env ets && cross-env NODE_ENV=local  midway-bin dev --ts",
