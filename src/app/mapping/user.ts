@@ -1,7 +1,7 @@
 import { Provide, Inject } from '@midwayjs/decorator';
 import { PrismaClient, user } from '@prisma/client';
 
-import { CreateUserInput } from '../dto/user.dot';
+import { CreateUserInput } from '../dto/user.dto';
 @Provide()
 export default class UserMapping {
   @Inject('prisma')
@@ -14,6 +14,8 @@ export default class UserMapping {
         id: true,
         firstName: true,
         lastName: true,
+        created_at: true,
+        updated_at: true,
         classroom: {
           select: {
             grade: true,
@@ -34,11 +36,12 @@ export default class UserMapping {
     return res;
   }
 
-  // 创建用户
-  async create(createParams: CreateUserInput): Promise<user> {
+  // 创建
+  async saveNew(createParams: CreateUserInput): Promise<user> {
+    const { firstName, lastName, classroomId } = createParams;
     const number = Date.now().toString();
     const res = await this.prismaClient.user.create({
-      data: { ...createParams, number },
+      data: { firstName, lastName, classroomId, number },
     });
 
     return res;

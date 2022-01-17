@@ -1,11 +1,11 @@
 import { Provide, Inject } from '@midwayjs/decorator';
 
 import UserMapping from '../mapping/user';
-import { CreateUserInput } from '../dto/user.dot';
+import { CreateUserInput } from '../dto/user.dto';
 import { Context } from '../../interface';
 
 @Provide()
-export class UserService {
+export default class UserService {
   @Inject()
   ctx: Context;
 
@@ -19,7 +19,12 @@ export class UserService {
   }
 
   async createUser(createParams: CreateUserInput) {
-    const res = await this.userMapping.create(createParams);
+    const { firstName, lastName, classroomId } = createParams;
+    const res = await this.userMapping.saveNew({
+      firstName,
+      lastName,
+      classroomId,
+    });
 
     return res;
   }

@@ -7,7 +7,7 @@ export class TaskService {
   ctx: Context;
 
   // 例如下面是每秒钟执行一次
-  @TaskLocal('* * * * * *')
+  @TaskLocal('* * 1 * * *')
   async test() {
     this.ctx.logger.info('hello word');
   }

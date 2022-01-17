@@ -27,3 +27,8 @@ export function getDateStartTime(time?): string {
 export function getDateSeconds(time?): number {
   return dayjs(time).unix();
 }
+
+export function getDateNowAdd8hours(time?): Date {
+  const dateStr: Date = dayjs(time).add(8, 'hour').toDate();
+  return dateStr;
+}

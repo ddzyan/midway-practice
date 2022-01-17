@@ -9,11 +9,10 @@ import {
   Validate,
   Body,
 } from '@midwayjs/decorator';
-import { ValidationError } from 'joi';
 import { Context } from 'egg';
 
-import { CreateUserInput } from '../dto/user.dot';
-import { UserService } from '../service/user';
+import { CreateUserInput } from '../dto/user.dto';
+import UserService from '../service/user';
 
 @Provide()
 @Controller('/api', { tagName: '用户接口', description: 'User Router' })
@@ -39,15 +38,7 @@ export class UserController {
   })
   @Validate()
   async createUser(@Body(ALL) createParams: CreateUserInput) {
-    try {
-      const user = await this.userService.createUser(createParams);
-      this.ctx.helper.success(user);
-    } catch (error) {
-      // 无效代码
-      if (error instanceof ValidationError) {
-        this.ctx.helper.error(403, 'Params Validation Error');
-      }
-      this.ctx.helper.error(500, 'Unknown Errors');
-    }
+    const user = await this.userService.createUser(createParams);
+    this.ctx.helper.success(user);
   }
 }
