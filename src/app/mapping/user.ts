@@ -1,7 +1,7 @@
 import { Provide, Inject } from '@midwayjs/decorator';
 import { PrismaClient, user } from '@prisma/client';
 
-import { CreateUserInput } from '../dto/user.dto';
+import { CreateUserInput } from '../model/dto/user.dto';
 @Provide()
 export default class UserMapping {
   @Inject('prisma')
