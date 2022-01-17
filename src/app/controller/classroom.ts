@@ -10,7 +10,7 @@ import {
 } from '@midwayjs/decorator';
 import { Context } from 'egg';
 
-import { CreateClassroomInput } from '../dto/class.dto';
+import { CreateClassroomInput } from '../model/dto/class.dto';
 import ClassroomService from '../service/classroom';
 
 @Provide()

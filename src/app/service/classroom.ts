@@ -1,7 +1,7 @@
 import { Provide, Inject } from '@midwayjs/decorator';
 
 import ClassroomMapping from '../mapping/classroom';
-import { CreateClassroomInput } from '../dto/class.dto';
+import { CreateClassroomInput } from '../model/dto/class.dto';
 import { Context } from '../../interface';
 
 @Provide()

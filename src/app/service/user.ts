@@ -1,7 +1,7 @@
 import { Provide, Inject } from '@midwayjs/decorator';
 
 import UserMapping from '../mapping/user';
-import { CreateUserInput } from '../dto/user.dto';
+import { CreateUserInput } from '../model/dto/user.dto';
 import { Context } from '../../interface';
 
 @Provide()

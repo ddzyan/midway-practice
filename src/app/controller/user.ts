@@ -11,7 +11,7 @@ import {
 } from '@midwayjs/decorator';
 import { Context } from 'egg';
 
-import { CreateUserInput } from '../dto/user.dto';
+import { CreateUserInput } from '../model/dto/user.dto';
 import UserService from '../service/user';
 
 @Provide()
