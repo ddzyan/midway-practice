@@ -1,6 +1,6 @@
 import { Provide, Inject } from '@midwayjs/decorator';
-import { PrismaClient, classroom } from '@prisma/client';
 
+import { PrismaClient, classroom } from '@prisma/client';
 import * as utils from '../comm/utils';
 import { CreateClassroomInput } from '../model/dto/class.dto';
 

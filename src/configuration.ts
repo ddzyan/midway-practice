@@ -4,11 +4,11 @@ import * as task from '@midwayjs/task';
 import { ILifeCycle } from '@midwayjs/core';
 import { IMidwayLogger } from '@midwayjs/logger';
 import * as swagger from '@midwayjs/swagger';
-import { PrismaClient } from '@prisma/client';
 import * as jaeger from '@mw-components/jaeger';
 import * as koid from '@mw-components/koid';
 import { Application, NpmPkg } from '@/interface';
 import * as redis from '@midwayjs/redis';
+import { PrismaClient } from '@prisma/client';
 
 import { customLogger } from './app/comm/customLogger';
 

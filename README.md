@@ -20,6 +20,7 @@
 - 部署
   - [x] DockerFile 编写
   - [x] docker-compose 编写
+  - [x] 生产环境部署优化
 
 ## 使用
 
