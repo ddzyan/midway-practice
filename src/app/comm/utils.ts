@@ -1,5 +1,6 @@
 import * as dayjs from 'dayjs';
 import * as _ from 'lodash';
+import BigNumber from 'bignumber.js';
 
 const DATE_FORMATE = 'YYYY-MM-DD HH:mm:ss';
 
@@ -31,4 +32,35 @@ export function getDateSeconds(time?): number {
 export function getDateNowAdd8hours(time?): Date {
   const dateStr: Date = dayjs(time).add(8, 'hour').toDate();
   return dateStr;
+}
+
+export function bigEq(a, b) {
+  return new BigNumber(a).eq(b);
+}
+
+export function mapToArray(map: Map<string, any>) {
+  const arr = [];
+  for (const [key, value] of map) {
+    arr.push({
+      [key]: value,
+    });
+  }
+
+  return arr;
+}
+
+export function mapToObject(map: Map<string, any>) {
+  const obj = {};
+  for (const [key, value] of map) {
+    obj[key] = value;
+  }
+  return obj;
+}
+
+export function objectToMap(obj: object) {
+  const map = new Map();
+  for (const key in obj) {
+    map.set(key, obj[key]);
+  }
+  return map;
 }

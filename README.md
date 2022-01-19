@@ -12,6 +12,7 @@
   - [x] swagger 接入
   - [x] 添加通用工具类（日后拆除）
   - [x] 增加 redis 相关配置
+  - [x] 封装 redis 工具类
 - prisma
   - [x] prisma 表结构生成
   - [x] prisma CRUD
