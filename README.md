@@ -1,6 +1,6 @@
 # 简介
 
-使用 midway + prisma 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
+使用 midway + TypeORM 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
 
 实现功能：
 
@@ -13,11 +13,12 @@
   - [x] 添加通用工具类（日后拆除）
   - [x] 增加 redis 相关配置
   - [x] 封装 redis 工具类
-- prisma
-  - [x] prisma 表结构生成
-  - [x] prisma CRUD
-  - [x] prisma 关联查询
-  - [x] prisma query 日志
+- typeORM
+  - [x] 表结构生成
+  - [x] CRUD
+  - [x] 关联查询
+  - [ ] 原始查询
+  - [x] query 日志
 - 部署
   - [x] DockerFile 编写
   - [x] docker-compose 编写

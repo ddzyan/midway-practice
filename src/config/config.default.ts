@@ -1,4 +1,5 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 import { IAccessLogConfig } from '../interface';
 
@@ -25,6 +26,13 @@ export default (appInfo: EggAppInfo) => {
 
   config.security = {
     csrf: false,
+  };
+
+  config.orm = {
+    type: 'mysql',
+    // maxQueryExecutionTime: 1000,
+    namingStrategy: new SnakeNamingStrategy(),
+    timezone: '+08:00', // 服务器上配置的时区
   };
 
   return config;

@@ -12,6 +12,7 @@ import {
 import { Context } from 'egg';
 
 import { CreateUserInput } from '../model/dto/user.dto';
+import { QueryParam } from '../model/dto/base.dto';
 import UserService from '../service/user';
 
 @Provide()
@@ -24,10 +25,9 @@ export class UserController {
   userService: UserService;
 
   @Get('/users', { summary: '分页获取用户列表', description: '' })
-  async getUser(@Query(ALL) { offset: reqOffset, take: reqTake }) {
-    const offset = Number(reqOffset ?? 0);
-    const take = Number(reqTake ?? 10);
-    const users = await this.userService.getUserList(offset, take);
+  async getUser(@Query(ALL) queryParam: QueryParam) {
+    const { page, limit } = queryParam;
+    const users = await this.userService.getUserList(page, limit);
 
     this.ctx.helper.success(users);
   }

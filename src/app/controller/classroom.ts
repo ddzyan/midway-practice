@@ -11,6 +11,7 @@ import {
 import { Context } from 'egg';
 
 import { CreateClassroomInput } from '../model/dto/class.dto';
+import { QueryParam } from '../model/dto/base.dto';
 import ClassroomService from '../service/classroom';
 
 @Provide()
@@ -29,10 +30,9 @@ export class ClassroomController {
   }
 
   @Get('/classroom', { summary: '分页获取班级列表', description: '' })
-  async getUser(@Query(ALL) { offset: reqOffset, take: reqTake }) {
-    const offset = Number(reqOffset ?? 0);
-    const take = Number(reqTake ?? 10);
-    const users = await this.classroomService.getList(offset, take);
+  async getUser(@Query(ALL) queryParam: QueryParam) {
+    const { page, limit } = queryParam;
+    const users = await this.classroomService.getList(page, limit);
 
     this.ctx.helper.success(users);
   }
