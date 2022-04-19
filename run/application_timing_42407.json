@@ -1,0 +1,522 @@
+[
+  {
+    "name": "Process Start",
+    "start": 1644566797846,
+    "end": 1644566801977,
+    "duration": 4131,
+    "pid": 42407,
+    "index": 0
+  },
+  {
+    "name": "Application Start",
+    "start": 1644566801977,
+    "end": 1644566802177,
+    "duration": 200,
+    "pid": 42407,
+    "index": 1
+  },
+  {
+    "name": "Load Plugin",
+    "start": 1644566801978,
+    "end": 1644566801981,
+    "duration": 3,
+    "pid": 42407,
+    "index": 2
+  },
+  {
+    "name": "Load Config",
+    "start": 1644566801981,
+    "end": 1644566801984,
+    "duration": 3,
+    "pid": 42407,
+    "index": 3
+  },
+  {
+    "name": "Require(0) config/config.default.ts",
+    "start": 1644566801981,
+    "end": 1644566801981,
+    "duration": 0,
+    "pid": 42407,
+    "index": 4
+  },
+  {
+    "name": "Require(1) config/config.local.ts",
+    "start": 1644566801981,
+    "end": 1644566801981,
+    "duration": 0,
+    "pid": 42407,
+    "index": 5
+  },
+  {
+    "name": "Require(2) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-session/config/config.default.js",
+    "start": 1644566801981,
+    "end": 1644566801981,
+    "duration": 0,
+    "pid": 42407,
+    "index": 6
+  },
+  {
+    "name": "Require(3) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-security/config/config.default.js",
+    "start": 1644566801981,
+    "end": 1644566801981,
+    "duration": 0,
+    "pid": 42407,
+    "index": 7
+  },
+  {
+    "name": "Require(4) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-jsonp/config/config.default.js",
+    "start": 1644566801982,
+    "end": 1644566801982,
+    "duration": 0,
+    "pid": 42407,
+    "index": 8
+  },
+  {
+    "name": "Require(5) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-onerror/config/config.default.js",
+    "start": 1644566801982,
+    "end": 1644566801982,
+    "duration": 0,
+    "pid": 42407,
+    "index": 9
+  },
+  {
+    "name": "Require(6) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-i18n/config/config.default.js",
+    "start": 1644566801982,
+    "end": 1644566801982,
+    "duration": 0,
+    "pid": 42407,
+    "index": 10
+  },
+  {
+    "name": "Require(7) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-schedule/config/config.default.js",
+    "start": 1644566801982,
+    "end": 1644566801982,
+    "duration": 0,
+    "pid": 42407,
+    "index": 11
+  },
+  {
+    "name": "Require(8) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "start": 1644566801982,
+    "end": 1644566801982,
+    "duration": 0,
+    "pid": 42407,
+    "index": 12
+  },
+  {
+    "name": "Require(9) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-view/config/config.default.js",
+    "start": 1644566801982,
+    "end": 1644566801982,
+    "duration": 0,
+    "pid": 42407,
+    "index": 13
+  },
+  {
+    "name": "Require(10) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
+    "start": 1644566801982,
+    "end": 1644566801982,
+    "duration": 0,
+    "pid": 42407,
+    "index": 14
+  },
+  {
+    "name": "Require(11) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/config/config.default.js",
+    "start": 1644566801983,
+    "end": 1644566801983,
+    "duration": 0,
+    "pid": 42407,
+    "index": 15
+  },
+  {
+    "name": "Require(12) config/config.default.ts",
+    "start": 1644566801983,
+    "end": 1644566801983,
+    "duration": 0,
+    "pid": 42407,
+    "index": 16
+  },
+  {
+    "name": "Require(13) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-security/config/config.local.js",
+    "start": 1644566801983,
+    "end": 1644566801983,
+    "duration": 0,
+    "pid": 42407,
+    "index": 17
+  },
+  {
+    "name": "Require(14) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-view/config/config.local.js",
+    "start": 1644566801984,
+    "end": 1644566801984,
+    "duration": 0,
+    "pid": 42407,
+    "index": 18
+  },
+  {
+    "name": "Require(15) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.local.js",
+    "start": 1644566801984,
+    "end": 1644566801984,
+    "duration": 0,
+    "pid": 42407,
+    "index": 19
+  },
+  {
+    "name": "Require(16) config/config.local.ts",
+    "start": 1644566801984,
+    "end": 1644566801984,
+    "duration": 0,
+    "pid": 42407,
+    "index": 20
+  },
+  {
+    "name": "Before Start in node_modules/@midwayjs/web/dist/framework/web.js:45:22",
+    "start": 1644566801985,
+    "end": 1644566802081,
+    "duration": 96,
+    "pid": 42407,
+    "index": 21
+  },
+  {
+    "name": "Load extend/application.js",
+    "start": 1644566801992,
+    "end": 1644566801997,
+    "duration": 5,
+    "pid": 42407,
+    "index": 22
+  },
+  {
+    "name": "Require(17) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-session/app/extend/application.js",
+    "start": 1644566801992,
+    "end": 1644566801992,
+    "duration": 0,
+    "pid": 42407,
+    "index": 23
+  },
+  {
+    "name": "Require(18) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-security/app/extend/application.js",
+    "start": 1644566801992,
+    "end": 1644566801992,
+    "duration": 0,
+    "pid": 42407,
+    "index": 24
+  },
+  {
+    "name": "Require(19) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-jsonp/app/extend/application.js",
+    "start": 1644566801993,
+    "end": 1644566801993,
+    "duration": 0,
+    "pid": 42407,
+    "index": 25
+  },
+  {
+    "name": "Require(20) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-view/app/extend/application.js",
+    "start": 1644566801993,
+    "end": 1644566801994,
+    "duration": 1,
+    "pid": 42407,
+    "index": 26
+  },
+  {
+    "name": "Require(21) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-mock/app/extend/application.js",
+    "start": 1644566801994,
+    "end": 1644566801995,
+    "duration": 1,
+    "pid": 42407,
+    "index": 27
+  },
+  {
+    "name": "Require(22) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/mock/app/extend/application.js",
+    "start": 1644566801995,
+    "end": 1644566801996,
+    "duration": 1,
+    "pid": 42407,
+    "index": 28
+  },
+  {
+    "name": "Require(23) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/app/extend/application.js",
+    "start": 1644566801996,
+    "end": 1644566801996,
+    "duration": 0,
+    "pid": 42407,
+    "index": 29
+  },
+  {
+    "name": "Load extend/request.js",
+    "start": 1644566801997,
+    "end": 1644566801999,
+    "duration": 2,
+    "pid": 42407,
+    "index": 30
+  },
+  {
+    "name": "Require(24) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/app/extend/request.js",
+    "start": 1644566801998,
+    "end": 1644566801998,
+    "duration": 0,
+    "pid": 42407,
+    "index": 31
+  },
+  {
+    "name": "Load extend/response.js",
+    "start": 1644566801999,
+    "end": 1644566802001,
+    "duration": 2,
+    "pid": 42407,
+    "index": 32
+  },
+  {
+    "name": "Require(25) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/app/extend/response.js",
+    "start": 1644566802000,
+    "end": 1644566802000,
+    "duration": 0,
+    "pid": 42407,
+    "index": 33
+  },
+  {
+    "name": "Load extend/context.js",
+    "start": 1644566802001,
+    "end": 1644566802003,
+    "duration": 2,
+    "pid": 42407,
+    "index": 34
+  },
+  {
+    "name": "Require(26) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-security/app/extend/context.js",
+    "start": 1644566802001,
+    "end": 1644566802001,
+    "duration": 0,
+    "pid": 42407,
+    "index": 35
+  },
+  {
+    "name": "Require(27) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-jsonp/app/extend/context.js",
+    "start": 1644566802001,
+    "end": 1644566802001,
+    "duration": 0,
+    "pid": 42407,
+    "index": 36
+  },
+  {
+    "name": "Require(28) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-i18n/app/extend/context.js",
+    "start": 1644566802001,
+    "end": 1644566802001,
+    "duration": 0,
+    "pid": 42407,
+    "index": 37
+  },
+  {
+    "name": "Require(29) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/app/extend/context.js",
+    "start": 1644566802002,
+    "end": 1644566802002,
+    "duration": 0,
+    "pid": 42407,
+    "index": 38
+  },
+  {
+    "name": "Require(30) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-view/app/extend/context.js",
+    "start": 1644566802002,
+    "end": 1644566802002,
+    "duration": 0,
+    "pid": 42407,
+    "index": 39
+  },
+  {
+    "name": "Require(31) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/app/extend/context.js",
+    "start": 1644566802002,
+    "end": 1644566802002,
+    "duration": 0,
+    "pid": 42407,
+    "index": 40
+  },
+  {
+    "name": "Require(32) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/app/extend/context.js",
+    "start": 1644566802002,
+    "end": 1644566802002,
+    "duration": 0,
+    "pid": 42407,
+    "index": 41
+  },
+  {
+    "name": "Load extend/helper.js",
+    "start": 1644566802003,
+    "end": 1644566802028,
+    "duration": 25,
+    "pid": 42407,
+    "index": 42
+  },
+  {
+    "name": "Require(33) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-security/app/extend/helper.js",
+    "start": 1644566802003,
+    "end": 1644566802010,
+    "duration": 7,
+    "pid": 42407,
+    "index": 43
+  },
+  {
+    "name": "Require(34) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/app/extend/helper.js",
+    "start": 1644566802011,
+    "end": 1644566802011,
+    "duration": 0,
+    "pid": 42407,
+    "index": 44
+  },
+  {
+    "name": "Require(35) app/extend/helper.ts",
+    "start": 1644566802011,
+    "end": 1644566802027,
+    "duration": 16,
+    "pid": 42407,
+    "index": 45
+  },
+  {
+    "name": "Load app.js",
+    "start": 1644566802028,
+    "end": 1644566802040,
+    "duration": 12,
+    "pid": 42407,
+    "index": 46
+  },
+  {
+    "name": "Require(36) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-session/app.js",
+    "start": 1644566802028,
+    "end": 1644566802028,
+    "duration": 0,
+    "pid": 42407,
+    "index": 47
+  },
+  {
+    "name": "Require(37) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-security/app.js",
+    "start": 1644566802028,
+    "end": 1644566802029,
+    "duration": 1,
+    "pid": 42407,
+    "index": 48
+  },
+  {
+    "name": "Require(38) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-onerror/app.js",
+    "start": 1644566802029,
+    "end": 1644566802032,
+    "duration": 3,
+    "pid": 42407,
+    "index": 49
+  },
+  {
+    "name": "Require(39) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-i18n/app.js",
+    "start": 1644566802032,
+    "end": 1644566802038,
+    "duration": 6,
+    "pid": 42407,
+    "index": 50
+  },
+  {
+    "name": "Require(40) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-schedule/app.js",
+    "start": 1644566802038,
+    "end": 1644566802038,
+    "duration": 0,
+    "pid": 42407,
+    "index": 51
+  },
+  {
+    "name": "Require(41) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/app.js",
+    "start": 1644566802038,
+    "end": 1644566802039,
+    "duration": 1,
+    "pid": 42407,
+    "index": 52
+  },
+  {
+    "name": "Require(42) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/midway-schedule/app.js",
+    "start": 1644566802039,
+    "end": 1644566802039,
+    "duration": 0,
+    "pid": 42407,
+    "index": 53
+  },
+  {
+    "name": "Require(43) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-mock/app.js",
+    "start": 1644566802039,
+    "end": 1644566802040,
+    "duration": 1,
+    "pid": 42407,
+    "index": 54
+  },
+  {
+    "name": "Require(44) /Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/app.js",
+    "start": 1644566802040,
+    "end": 1644566802040,
+    "duration": 0,
+    "pid": 42407,
+    "index": 55
+  },
+  {
+    "name": "Did Load in /Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/app.js:didLoad",
+    "start": 1644566802049,
+    "end": 1644566802081,
+    "duration": 32,
+    "pid": 42407,
+    "index": 56
+  },
+  {
+    "name": "Load Service",
+    "start": 1644566802049,
+    "end": 1644566802054,
+    "duration": 5,
+    "pid": 42407,
+    "index": 57
+  },
+  {
+    "name": "Load \"service\" to Context",
+    "start": 1644566802049,
+    "end": 1644566802054,
+    "duration": 5,
+    "pid": 42407,
+    "index": 58
+  },
+  {
+    "name": "Load Middleware",
+    "start": 1644566802054,
+    "end": 1644566802079,
+    "duration": 25,
+    "pid": 42407,
+    "index": 59
+  },
+  {
+    "name": "Load \"middlewares\" to Application",
+    "start": 1644566802054,
+    "end": 1644566802079,
+    "duration": 25,
+    "pid": 42407,
+    "index": 60
+  },
+  {
+    "name": "Load Controller",
+    "start": 1644566802079,
+    "end": 1644566802080,
+    "duration": 1,
+    "pid": 42407,
+    "index": 61
+  },
+  {
+    "name": "Load \"controller\" to Application",
+    "start": 1644566802079,
+    "end": 1644566802080,
+    "duration": 1,
+    "pid": 42407,
+    "index": 62
+  },
+  {
+    "name": "Load Router",
+    "start": 1644566802080,
+    "end": 1644566802080,
+    "duration": 0,
+    "pid": 42407,
+    "index": 63
+  },
+  {
+    "name": "Will Ready in /Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/app.js:willReady",
+    "start": 1644566802081,
+    "end": 1644566802177,
+    "duration": 96,
+    "pid": 42407,
+    "index": 64
+  }
+]

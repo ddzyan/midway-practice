@@ -1,23 +1,24 @@
 # 简介
 
-使用 midway + prisma 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
+使用 midway + orm 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
 
 实现功能：
 
 - 系统功能
-  - [x] 定时任务
   - [x] 请求日志中间件
   - [x] 统一响应中间件
+  - [x] 响应格式统一中间件
+  - [x] 定时任务
   - [x] 请求参数验证
   - [x] swagger 接入
   - [x] 添加通用工具类（日后拆除）
   - [x] 增加 redis 相关配置
   - [x] 封装 redis 工具类
-- prisma
-  - [x] prisma 表结构生成
-  - [x] prisma CRUD
-  - [x] prisma 关联查询
-  - [x] prisma query 日志
+- ORM
+  - [x] prisma/typeORM 表结构生成
+  - [x] prisma/typeORM CRUD
+  - [x] prisma/typeORM 关联查询
+  - [x] prisma/typeORM query 日志
 - 部署
   - [x] DockerFile 编写
   - [x] docker-compose 编写
