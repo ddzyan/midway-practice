@@ -12,7 +12,7 @@ class RedisUtils {
       return false;
     }
 
-    await this.redisService.set(key, 'true', 'ex', expireTime);
+    await this.redisService.set(key, 'true', 'EX', expireTime);
     return true;
   }
 
@@ -30,7 +30,7 @@ class RedisUtils {
     if (!expireTime) {
       await this.redisService.set(key, value);
     } else {
-      await this.redisService.set(key, value, 'ex', expireTime);
+      await this.redisService.set(key, value, 'EX', expireTime);
     }
   }
 

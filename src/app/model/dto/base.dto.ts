@@ -1,18 +1,19 @@
 import { Rule, RuleType } from '@midwayjs/validate';
 import { ApiProperty } from '@midwayjs/swagger';
-export class CreateClassroomInput {
+
+export class QueryParam {
   @ApiProperty({
     type: 'integer',
     example: '1',
-    description: '年',
+    description: '页',
   })
-  @Rule(RuleType.number().min(1).max(2))
-  grade: number;
+  @Rule(RuleType.number().default(1).required())
+  page: number;
   @ApiProperty({
     type: 'integer',
     example: '1',
-    description: '级',
+    description: '条数',
   })
-  @Rule(RuleType.number().min(1).max(2))
-  prom: number;
+  @Rule(RuleType.number().default(10).required())
+  limit: number;
 }

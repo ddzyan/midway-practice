@@ -1,4 +1,5 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 import { IAccessLogConfig } from '../interface';
 
@@ -15,7 +16,12 @@ export default (appInfo: EggAppInfo) => {
   } as IAccessLogConfig;
 
   // add your config here
-  config.middleware = ['accessLogMiddleware', 'errorHandlerMiddleware'];
+  config.middleware = [
+    'requestIdMiddleware',
+    'formatMiddleware',
+    'accessLogMiddleware',
+    'errorHandlerMiddleware',
+  ];
 
   config.midwayFeature = {
     // true 代表使用 midway logger
@@ -25,6 +31,24 @@ export default (appInfo: EggAppInfo) => {
 
   config.security = {
     csrf: false,
+  };
+
+  config.orm = {
+    type: 'mysql',
+    // maxQueryExecutionTime: 1000,
+    namingStrategy: new SnakeNamingStrategy(),
+    timezone: '+08:00', // 服务器上配置的时区
+  };
+
+  config.egg = {
+    contextLoggerFormat: info => {
+      const ctx = info.ctx;
+      return `${info.timestamp} ${info.LEVEL} ${info.pid} [${ctx.reqId} ${
+        ctx.userId
+      } - ${Date.now() - ctx.startTime}ms ${ctx.method} ${ctx.url}] ${
+        info.message
+      }`;
+    },
   };
 
   return config;

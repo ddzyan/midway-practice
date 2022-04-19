@@ -1,22 +1,21 @@
-import { Provide } from '@midwayjs/decorator';
-import {
-  IMidwayWebNext,
-  IWebMiddleware,
-  MidwayWebMiddleware,
-} from '@midwayjs/web';
-import { Context } from 'egg';
+import { IMiddleware } from '@midwayjs/core';
+import { Middleware } from '@midwayjs/decorator';
+import { IMidwayWebNext } from '@midwayjs/web';
+import { NextFunction, Context } from '@midwayjs/koa';
 
 import MyError from '../comm/myError';
 
-@Provide()
-export class ErrorHandlerMiddleware implements IWebMiddleware {
-  resolve(): MidwayWebMiddleware {
+@Middleware()
+export class ErrorHandlerMiddleware
+  implements IMiddleware<Context, NextFunction>
+{
+  resolve() {
     return errHandleMiddleware;
   }
 }
 
 async function errHandleMiddleware(
-  ctx: Context<any>,
+  ctx: Context,
   next: IMidwayWebNext
 ): Promise<void> {
   try {
@@ -42,14 +41,14 @@ async function errHandleMiddleware(
 
     // 生产环境时 500 错误的详细错误内容不返回给客户端，因为可能包含敏感信息
     const error =
-      status === 500 && ctx.app.config.env === 'prod'
+      status === 500 && (ctx.app as any).config.env === 'prod'
         ? 'Internal Server Error'
         : message;
 
     // 从 error 对象上读出各个属性，设置到响应中
     ctx.body = { code: status, message: error };
     if (status === 422) {
-      ctx.body.data = myErr.errors || myErr.details; // 兼容 midway 参数校验
+      (ctx.body as any).data = myErr.errors || myErr.details; // 兼容 midway 参数校验
     }
     ctx.status = status;
   }
