@@ -51,28 +51,6 @@
       "checkAddress": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-security/config/config.default.js"
     }
   },
-  "orm": {
-    "type": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.default.ts",
-    "namingStrategy": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.default.ts",
-    "timezone": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.default.ts",
-    "host": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts",
-    "port": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts",
-    "username": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts",
-    "password": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts",
-    "database": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts",
-    "synchronize": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts",
-    "logging": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts"
-  },
-  "egg": {
-    "contextLoggerFormat": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.default.ts",
-    "dumpConfig": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.default.js",
-    "plugins": {
-      "egg-mock": {
-        "enable": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.local.js",
-        "package": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.local.js"
-      }
-    }
-  },
   "redis": {
     "client": {
       "port": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts",
@@ -81,7 +59,7 @@
       "db": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts"
     }
   },
-  "task": {
+  "taskConfig": {
     "redis": {
       "port": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts",
       "host": "/Users/didi/Documents/work-space/my-github/midway-example/src/config/config.local.ts",
@@ -114,6 +92,48 @@
     "appErrorFilter": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-onerror/config/config.default.js",
     "templatePath": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-onerror/config/config.default.js"
   },
+  "i18n": {
+    "defaultLocale": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-i18n/config/config.default.js",
+    "dirs": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-i18n/config/config.default.js",
+    "queryField": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-i18n/config/config.default.js",
+    "cookieField": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-i18n/config/config.default.js",
+    "cookieDomain": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-i18n/config/config.default.js"
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-schedule/config/config.default.js",
+      "file": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-schedule/config/config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-schedule/config/config.default.js"
+  },
+  "multipart": {
+    "mode": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "autoFields": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "fields": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "fileSize": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "files": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "fileExtensions": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "whitelist": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "allowArrayField": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js",
+      "disable": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-multipart/config/config.default.js"
+    }
+  },
+  "view": {
+    "root": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-view/config/config.default.js",
+    "cache": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-view/config/config.local.js",
+    "defaultExtension": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-view/config/config.default.js",
+    "defaultViewEngine": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-view/config/config.default.js",
+    "mapping": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg-view/config/config.default.js"
+  },
   "env": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
   "name": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
   "cookies": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
@@ -132,13 +152,10 @@
       "@midwayjs/bootstrap": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@midwayjs/core": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@midwayjs/decorator": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "@midwayjs/koa": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@midwayjs/logger": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "@midwayjs/orm": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@midwayjs/redis": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@midwayjs/swagger": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@midwayjs/task": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "@midwayjs/validate": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@midwayjs/web": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@mw-components/jaeger": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@mw-components/koid": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
@@ -151,9 +168,7 @@
       "egg-scripts": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "joi": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "lodash": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "mysql2": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "typeorm": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "typeorm-naming-strategies": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"
+      "prisma": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"
     },
     "devDependencies": {
       "@midwayjs/cli": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
@@ -164,13 +179,11 @@
       "@types/jest": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "@types/node": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "cross-env": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "egg-mock": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "eslint": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "jest": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "mwts": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "swagger-ui-dist": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "ts-jest": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "ts-node": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "typescript": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"
     },
     "engines": {
@@ -189,7 +202,11 @@
       "ci": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "build": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "check": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "clear": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"
+      "clear": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
+      "prisma:pull": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
+      "prisma:push": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
+      "prisma:generate": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
+      "prisma:migrate": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"
     },
     "midway-bin-clean": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
     "midway-luckyeye": {
@@ -204,7 +221,7 @@
   },
   "baseDir": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
   "HOME": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-  "rundir": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.default.js",
+  "rundir": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/config/config.default.js",
   "dump": {
     "ignore": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"
   },
@@ -244,9 +261,9 @@
     "disableConsoleAfterReady": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
     "outputJSON": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
     "buffer": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-    "appLogName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-    "coreLogName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-    "agentLogName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
+    "appLogName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/config/config.default.js",
+    "coreLogName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/config/config.default.js",
+    "agentLogName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/config/config.default.js",
     "errorLogName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
     "coreLogger": {
       "consoleLevel": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.local.js"
@@ -293,21 +310,10 @@
     "responseTimeout": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"
   },
   "onClientError": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-  "midwayLogger": {
-    "clients": {
-      "appLogger": {
-        "fileLogName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.default.js",
-        "aliasName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.default.js"
-      },
-      "agentLogger": {
-        "fileLogName": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.default.js"
-      }
-    }
-  },
-  "pluginOverwrite": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.default.js",
+  "pluginOverwrite": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/config/config.default.js",
   "alinode": {
-    "logdir": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.default.js",
-    "error_log": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.default.js",
-    "packages": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/dist/config/config.default.js"
+    "logdir": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/config/config.default.js",
+    "error_log": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/config/config.default.js",
+    "packages": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/@midwayjs/web/config/config.default.js"
   }
 }
