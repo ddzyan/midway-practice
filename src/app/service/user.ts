@@ -12,10 +12,13 @@ export default class UserService {
   @Inject()
   userMapping: UserMapping;
 
-  async getUserList(offset: number, take: number) {
+  async getUserList(
+    offset: number,
+    take: number
+  ): Promise<{ data: any[]; count: number }> {
     const res = await this.userMapping.getList(offset, take);
 
-    return res;
+    return { ...res };
   }
 
   async createUser(createParams: CreateUserInput) {

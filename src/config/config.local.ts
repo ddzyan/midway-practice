@@ -11,7 +11,7 @@ export const redis = {
   },
 };
 
-export const taskConfig = {
+export const task = {
   redis: {
     port: 16379,
     host: '127.0.0.1',
@@ -32,5 +32,5 @@ export const orm = {
   password: 'B9tiNZ7dXrk2qwr6',
   database: 'test',
   synchronize: false, // 如果第一次使用，不存在表，有同步的需求可以写 true
-  logging: ['query', 'error'],
+  logging: ['error'],
 };

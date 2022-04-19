@@ -11,7 +11,7 @@ export const redis = {
   },
 };
 
-export const taskConfig = {
+export const task = {
   redis: {
     port: 16379,
     host: '127.0.0.1',
