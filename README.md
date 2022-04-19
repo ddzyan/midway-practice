@@ -29,9 +29,7 @@
 执行 ./src/app/prisma/migrations/20220115114834_init 下的 migration.sql 初始化数据库
 
 ```bash
-npm i
-
-npm run prisma:generate
+sh ./install.sh
 
 npm run dev
 ```

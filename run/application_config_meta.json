@@ -164,11 +164,11 @@
       "@waiting/shared-types": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "bignumber.js": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "chalk": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
+      "dotenv": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "egg": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "egg-scripts": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "joi": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "lodash": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
-      "prisma": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"
+      "lodash": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"
     },
     "devDependencies": {
       "@midwayjs/cli": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
@@ -182,6 +182,7 @@
       "eslint": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "jest": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "mwts": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
+      "prisma": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "swagger-ui-dist": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "ts-jest": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js",
       "typescript": "/Users/didi/Documents/work-space/my-github/midway-example/node_modules/egg/config/config.default.js"

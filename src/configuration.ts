@@ -9,9 +9,11 @@ import * as koid from '@mw-components/koid';
 import { Application, NpmPkg } from '@/interface';
 import * as redis from '@midwayjs/redis';
 import { PrismaClient } from '@prisma/client';
+import * as dotenv from 'dotenv';
 
 import { customLogger } from './app/comm/customLogger';
 
+dotenv.config();
 const client = new PrismaClient({
   log: [
     {
@@ -20,6 +22,7 @@ const client = new PrismaClient({
     },
   ],
 });
+
 @Configuration({
   importConfigs: [join(__dirname, './config')],
   conflictCheck: true,

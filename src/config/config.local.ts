@@ -1,3 +1,4 @@
+console.log(process.env);
 export const security = {
   csrf: false,
 };
