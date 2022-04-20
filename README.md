@@ -29,6 +29,8 @@
 
 执行 ./sql/test.sql 初始化数据库
 
+将 .env.local 文件重命名 .env 并且将配置修改正确
+
 ```bash
 npm i
 
