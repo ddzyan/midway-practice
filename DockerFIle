@@ -23,6 +23,6 @@ ENV TZ="Asia/Shanghai"
 
 RUN npm install --registry=https://registry.npm.taobao.org pm2 -g
 
-EXPOSE 8001
+EXPOSE 7001
 
 ENTRYPOINT ["npm", "run", "online"]
