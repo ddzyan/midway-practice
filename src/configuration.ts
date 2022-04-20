@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import * as validateComp from '@midwayjs/validate';
 import * as webFramework from '@midwayjs/web';
 import { App, Configuration, Logger } from '@midwayjs/decorator';
@@ -10,13 +13,11 @@ import * as koid from '@mw-components/koid';
 import { Application, NpmPkg } from '@/interface';
 import * as redis from '@midwayjs/redis';
 import * as orm from '@midwayjs/orm';
-import * as dotenv from 'dotenv';
+
 import * as unittestConfig from './config/config.unittest';
 import * as prodConfig from './config/config.prod';
 import * as localConfig from './config/config.local';
 import * as defaultConfig from './config/config.default';
-
-dotenv.config();
 
 @Configuration({
   importConfigs: [

@@ -7,7 +7,7 @@ export const redis = {
   },
 };
 
-export const taskConfig = {
+export const task = {
   redis: {
     port: process.env.REDIS_CLIENT_PORT,
     host: process.env.REDIS_CLIENT_HOST,

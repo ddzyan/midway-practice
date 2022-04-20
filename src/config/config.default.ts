@@ -35,7 +35,7 @@ export default (appInfo: EggAppInfo) => {
     },
   };
 
-  config.taskConfig = {
+  config.task = {
     prefix: 'midway-task', // 这些任务存储的key，都是midway-task开头，以便区分用户原有redis里面的配置。
     defaultJobOptions: {
       repeat: {
