@@ -9,8 +9,11 @@ import * as koid from '@mw-components/koid';
 import { Application, NpmPkg } from '@/interface';
 import * as redis from '@midwayjs/redis';
 import * as orm from '@midwayjs/orm';
+import * as dotenv from 'dotenv';
 
 import { customLogger } from './app/comm/customLogger';
+
+dotenv.config();
 
 @Configuration({
   importConfigs: [join(__dirname, './config')],

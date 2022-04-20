@@ -1,5 +1,5 @@
 {
-  "name": "midway-example",
+  "name": "midway-practice",
   "version": "1.0.0",
   "description": "使用 midway + TypeORM 完成 数据库 CRUD，Restful 接口基础功能，应用服务基础功能",
   "private": true,
@@ -20,6 +20,7 @@
     "@waiting/shared-types": "^15.1.0",
     "bignumber.js": "^9.0.2",
     "chalk": "^5.0.0",
+    "dotenv": "^16.0.0",
     "egg": "^2.33.1",
     "egg-scripts": "^2.15.2",
     "joi": "^17.5.0",
