@@ -60,6 +60,7 @@ export default (appInfo: EggAppInfo) => {
         info.message
       }`;
     },
+    port: 6001,
   };
 
   return config;
