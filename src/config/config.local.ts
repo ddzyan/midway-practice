@@ -7,7 +7,7 @@ export const redis = {
   },
 };
 
-export const taskConfig = {
+export const task = {
   redis: {
     port: process.env.REDIS_CLIENT_PORT,
     host: process.env.REDIS_CLIENT_HOST,
@@ -22,5 +22,5 @@ export const orm = {
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_DATABASE,
   synchronize: false, // 如果第一次使用，不存在表，有同步的需求可以写 true
-  logging: ['query', 'error'],
+  logging: ['error'],
 };

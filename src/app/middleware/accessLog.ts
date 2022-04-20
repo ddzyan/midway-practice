@@ -1,23 +1,20 @@
-import { Config, Provide, App } from '@midwayjs/decorator';
-import {
-  IMidwayWebNext,
-  IWebMiddleware,
-  MidwayWebMiddleware,
-  IMidwayWebApplication,
-} from '@midwayjs/web';
-import { Context } from 'egg';
+import { Config, Middleware, App } from '@midwayjs/decorator';
+import { IMiddleware } from '@midwayjs/core';
+import { IMidwayWebApplication } from '@midwayjs/web';
+import { NextFunction, Context } from '@midwayjs/koa';
+
 import { IAccessLogConfig } from '../../interface';
 
-@Provide()
-export class AccessLogMiddleware implements IWebMiddleware {
+@Middleware()
+export class AccessLogMiddleware implements IMiddleware<Context, NextFunction> {
   @Config('accessLogConfig')
   accessLogConfig: IAccessLogConfig;
 
   @App()
   app: IMidwayWebApplication;
 
-  resolve(): MidwayWebMiddleware {
-    return async (ctx: Context, next: IMidwayWebNext) => {
+  resolve() {
+    return async (ctx: Context, next: NextFunction) => {
       const { url } = ctx.request;
       const { ignore } = this.accessLogConfig;
       // 只有有一个符合条件
