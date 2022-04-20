@@ -27,7 +27,7 @@
 
 ## 使用
 
-执行 ./src/app/prisma/migrations/20220115114834_init 下的 migration.sql 初始化数据库
+执行 ./sql/test.sql 初始化数据库
 
 ```bash
 npm i

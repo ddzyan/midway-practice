@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import * as validateComp from '@midwayjs/validate';
 import * as webFramework from '@midwayjs/web';
 import { App, Configuration, Logger } from '@midwayjs/decorator';
@@ -15,6 +18,7 @@ import * as unittestConfig from './config/config.unittest';
 import * as prodConfig from './config/config.prod';
 import * as localConfig from './config/config.local';
 import * as defaultConfig from './config/config.default';
+
 @Configuration({
   importConfigs: [
     {
