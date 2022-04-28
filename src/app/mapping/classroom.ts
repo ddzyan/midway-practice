@@ -1,29 +1,26 @@
 import { Provide } from '@midwayjs/decorator';
-import { InjectEntityModel } from '@midwayjs/orm';
-import { Repository } from 'typeorm';
 
 import { Classroom } from '../entity/classroom';
 import { CreateClassroomInput } from '../model/dto/class.dto';
 
 @Provide()
 export default class ClassroomMapping {
-  @InjectEntityModel(Classroom)
-  classroomModel: Repository<Classroom>;
-
   async saveNew(createParams: CreateClassroomInput) {
     return null;
   }
 
   async getList(
-    offset: number,
-    take: number
+    limit: number,
+    page: number
   ): Promise<{ data: Classroom[]; count: number }> {
-    const res = await this.classroomModel.findAndCount({
-      select: ['id', 'grade', 'prom', 'createdAt', 'updatedAt'],
-      skip: offset - 1,
-      take,
+    const res = await Classroom.findAndCountAll({
+      attributes: ['id', 'grade', 'prom', 'createdAt', 'updatedAt'],
+      limit,
+      offset: (page - 1) * limit,
     });
-    const [data, count] = res;
+
+    const { rows: data, count } = res;
+
     return { data, count };
   }
 }

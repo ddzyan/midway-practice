@@ -1,22 +1,36 @@
-// entity/photo.ts
-import { EntityModel } from '@midwayjs/orm';
-import { Column } from 'typeorm';
+import { Column, DataType, Model } from 'sequelize-typescript';
+import { BaseTable } from '@midwayjs/sequelize';
 
-import { BaseEntity } from './base';
-
-@EntityModel('classroom')
-export class Classroom extends BaseEntity {
+@BaseTable({
+  modelName: 'classroom',
+})
+export class Classroom extends Model {
   @Column({
-    type: 'tinyint',
-    width: 3,
+    type: DataType.BIGINT({
+      length: 10,
+      unsigned: true,
+    }),
+    autoIncrement: true,
+    primaryKey: true,
     comment: '年级',
   })
-  grade: string;
+  id: number;
 
   @Column({
-    type: 'tinyint',
-    width: 3,
+    type: DataType.TINYINT({
+      length: 3,
+      unsigned: true,
+    }),
+    comment: '年级',
+  })
+  grade: number;
+
+  @Column({
+    type: DataType.TINYINT({
+      length: 3,
+      unsigned: true,
+    }),
     comment: '班级',
   })
-  prom: string;
+  prom: number;
 }

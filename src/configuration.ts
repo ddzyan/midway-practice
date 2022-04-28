@@ -12,7 +12,7 @@ import * as jaeger from '@mw-components/jaeger';
 import * as koid from '@mw-components/koid';
 import { Application, NpmPkg } from '@/interface';
 import * as redis from '@midwayjs/redis';
-import * as orm from '@midwayjs/orm';
+import * as sequlize from '@midwayjs/sequelize';
 
 import * as unittestConfig from './config/config.unittest';
 import * as prodConfig from './config/config.prod';
@@ -36,8 +36,8 @@ import * as defaultConfig from './config/config.default';
     swagger,
     redis,
     task,
-    orm,
     validateComp,
+    sequlize,
   ],
 })
 export class ContainerLifeCycle implements ILifeCycle {

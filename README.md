@@ -1,6 +1,6 @@
 # 简介
 
-使用 midway + TypeORM 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
+使用 midway + ORM 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
 
 实现功能：
 

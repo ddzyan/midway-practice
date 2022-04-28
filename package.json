@@ -1,7 +1,7 @@
 {
   "name": "midway-practice",
   "version": "1.0.0",
-  "description": "使用 midway + TypeORM 完成 数据库 CRUD，Restful 接口基础功能，应用服务基础功能",
+  "description": "使用 midway + ORM 完成 数据库 CRUD，Restful 接口基础功能，应用服务基础功能",
   "private": true,
   "dependencies": {
     "@midwayjs/bootstrap": "^3.0.0",
@@ -11,6 +11,7 @@
     "@midwayjs/logger": "^2.14.0",
     "@midwayjs/orm": "^3.0.0",
     "@midwayjs/redis": "^3.3.2",
+    "@midwayjs/sequelize": "^3.3.5",
     "@midwayjs/swagger": "^3.0.0",
     "@midwayjs/task": "^3.0.0",
     "@midwayjs/validate": "^3.0.0",
@@ -29,8 +30,7 @@
     "joi": "^17.5.0",
     "lodash": "^4.17.21",
     "mysql2": "^2.3.3",
-    "typeorm": "^0.2.41",
-    "typeorm-naming-strategies": "^2.0.0"
+    "sequelize": "^6.19.0"
   },
   "devDependencies": {
     "@midwayjs/cli": "^1.2.93",

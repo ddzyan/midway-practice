@@ -26,7 +26,9 @@ export class UserController {
     @Query(ALL)
     queryParam: QueryParam
   ) {
-    const { page, limit } = queryParam;
+    let { page, limit } = queryParam;
+    page = Number(page);
+    limit = Number(limit);
     const users = await this.userService.getUserList(page, limit);
     return users;
   }

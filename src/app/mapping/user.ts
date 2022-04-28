@@ -1,33 +1,36 @@
 import { Provide } from '@midwayjs/decorator';
-import { InjectEntityModel } from '@midwayjs/orm';
-import { Repository } from 'typeorm';
 
 import { User } from '../entity/user';
+import { Classroom } from '../entity/classroom';
+import { ParentInfo } from '../entity/parentInfo';
 import { CreateUserInput } from '../model/dto/user.dto';
 @Provide()
 export default class UserMapping {
-  @InjectEntityModel(User)
-  userModel: Repository<User>;
-
   // 获取用户列表
   async getList(
-    offset: number,
-    take: number
+    page: number,
+    limit: number
   ): Promise<{ data: User[]; count: number }> {
-    const res = await this.userModel.findAndCount({
-      select: ['id', 'firstName', 'lastName', 'createdAt', 'updatedAt'],
-      join: {
-        alias: 'user',
-        leftJoinAndSelect: {
-          classroom: 'user.classroom',
-          parentInfo: 'user.parentInfos',
+    const res = await User.findAndCountAll({
+      attributes: ['id', 'firstName', 'lastName'],
+      include: [
+        {
+          model: Classroom,
+          attributes: ['grade', 'prom'],
+          required: true,
         },
-      },
-      skip: offset - 1,
-      take,
+        {
+          model: ParentInfo,
+          attributes: ['username', 'tel'],
+          required: true,
+        },
+      ],
+      limit,
+      offset: (page - 1) * limit,
+      logging: true,
     });
 
-    const [data, count] = res;
+    const { rows: data, count } = res;
     return { data, count };
   }
 

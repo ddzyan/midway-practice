@@ -13,10 +13,11 @@ export default class UserService {
   userMapping: UserMapping;
 
   async getUserList(
-    offset: number,
-    take: number
+    page: number,
+    limit: number
   ): Promise<{ data: any[]; count: number }> {
-    const res = await this.userMapping.getList(offset, take);
+    const res = await this.userMapping.getList(page, limit);
+    console.log('res', res);
 
     return { ...res };
   }
