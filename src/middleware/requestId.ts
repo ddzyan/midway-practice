@@ -2,10 +2,13 @@ import { Middleware } from '@midwayjs/decorator';
 import { IMiddleware } from '@midwayjs/core';
 import { HeadersKey } from '@mw-components/jaeger';
 import { KoidComponent } from '@mw-components/koid';
-import { NextFunction, Context } from '@midwayjs/koa';
+
+import { NextFunction, Context } from '@/interface';
 
 @Middleware()
-export class RequestIdMiddleware implements IMiddleware<Context, NextFunction> {
+export default class RequestIdMiddleware
+  implements IMiddleware<Context, NextFunction>
+{
   resolve() {
     return requestIdMiddleware;
   }

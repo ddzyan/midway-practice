@@ -1,23 +1,25 @@
 import { Provide } from '@midwayjs/decorator';
 
-import { Classroom } from '../entity/classroom';
-import { CreateClassroomInput } from '../model/dto/class.dto';
+import { ClassroomEntity } from '../entity/classroom.entity';
+import BaseMapping from '../core/baseMapping';
 
 @Provide()
-export default class ClassroomMapping {
-  async saveNew(createParams: CreateClassroomInput) {
-    return null;
+export default class ClassroomMapping extends BaseMapping {
+  protected get entity() {
+    return ClassroomEntity;
   }
 
   async getList(
     limit: number,
     page: number
-  ): Promise<{ data: Classroom[]; count: number }> {
-    const res = await Classroom.findAndCountAll({
-      attributes: ['id', 'grade', 'prom', 'createdAt', 'updatedAt'],
-      limit,
-      offset: (page - 1) * limit,
-    });
+  ): Promise<{ data: ClassroomEntity[]; count: number }> {
+    const res = await this.execSql(
+      this.entity.findAndCountAll({
+        attributes: ['id', 'grade', 'prom', 'createdAt', 'updatedAt'],
+        limit,
+        offset: (page - 1) * limit,
+      })
+    );
 
     const { rows: data, count } = res;
 

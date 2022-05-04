@@ -8,13 +8,13 @@ import {
 } from 'sequelize-typescript';
 import { BaseTable } from '@midwayjs/sequelize';
 
-import { Classroom } from './classroom';
-import { ParentInfo } from './parentInfo';
+import { ClassroomEntity } from './classroom.entity';
+import { ParentInfoEntity } from './parentInfo.entity';
 
 @BaseTable({
   modelName: 'user',
 })
-export class User extends Model {
+export class UserEntity extends Model {
   @Column({
     type: DataType.BIGINT({
       length: 10,
@@ -22,7 +22,7 @@ export class User extends Model {
     }),
     autoIncrement: true,
     primaryKey: true,
-    comment: '年级',
+    comment: 'id',
   })
   id: number;
 
@@ -44,15 +44,7 @@ export class User extends Model {
   })
   lastName: string;
 
-  @Column({
-    type: DataType.STRING({
-      length: 32,
-    }),
-    comment: '学号',
-  })
-  number: string;
-
-  @ForeignKey(() => Classroom)
+  @ForeignKey(() => ClassroomEntity)
   @Column({
     type: DataType.BIGINT({
       length: 10,
@@ -63,9 +55,30 @@ export class User extends Model {
   })
   classroomId: number;
 
-  @HasOne(() => Classroom, { sourceKey: 'classroomId', foreignKey: 'id' })
-  classroom: Classroom;
+  @HasOne(() => ClassroomEntity, { sourceKey: 'classroomId', foreignKey: 'id' })
+  classroom: ClassroomEntity;
 
-  @HasMany(() => ParentInfo)
-  parentInfos: ParentInfo[];
+  @HasMany(() => ParentInfoEntity)
+  parentInfos: ParentInfoEntity[];
+
+  @Column({
+    type: DataType.DATE,
+    field: 'created_at',
+    comment: '创建时间',
+  })
+  createdAt: string;
+
+  @Column({
+    type: DataType.DATE,
+    field: 'updated_at',
+    comment: '更新时间',
+  })
+  updatedAt: string;
+
+  @Column({
+    type: DataType.DATE,
+    field: 'deleted_at',
+    comment: '删除时间',
+  })
+  deletedAt: string;
 }

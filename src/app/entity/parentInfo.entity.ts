@@ -7,12 +7,12 @@ import {
 } from 'sequelize-typescript';
 import { BaseTable } from '@midwayjs/sequelize';
 
-import { User } from './user';
+import { UserEntity } from './user.entity';
 
 @BaseTable({
   modelName: 'parent_info',
 })
-export class ParentInfo extends Model {
+export class ParentInfoEntity extends Model {
   @Column({
     type: DataType.BIGINT({
       length: 10,
@@ -40,7 +40,7 @@ export class ParentInfo extends Model {
   })
   tel: string;
 
-  @ForeignKey(() => User)
+  @ForeignKey(() => UserEntity)
   @Column({
     type: DataType.BIGINT({
       length: 10,
@@ -51,6 +51,27 @@ export class ParentInfo extends Model {
   })
   userId: number;
 
-  @BelongsTo(() => User)
-  user: User;
+  @BelongsTo(() => UserEntity)
+  user: UserEntity;
+
+  @Column({
+    type: DataType.DATE,
+    field: 'created_at',
+    comment: '创建时间',
+  })
+  createdAt: string;
+
+  @Column({
+    type: DataType.DATE,
+    field: 'updated_at',
+    comment: '更新时间',
+  })
+  updatedAt: string;
+
+  @Column({
+    type: DataType.DATE,
+    field: 'deleted_at',
+    comment: '删除时间',
+  })
+  deletedAt: string;
 }

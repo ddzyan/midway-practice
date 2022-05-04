@@ -8,34 +8,40 @@ import {
   Query,
   Get,
 } from '@midwayjs/decorator';
-import { Context } from 'egg';
-import { CreateClassroomInput } from '../model/dto/class.dto';
-import { QueryParam } from '../model/dto/base.dto';
-import ClassroomService from '../service/classroom';
-@Provide()
-@Controller('/api', { tagName: '班级接口', description: 'Classroom Router' })
-export class ClassroomController {
-  @Inject()
-  ctx: Context;
-  @Inject()
-  classroomService: ClassroomService;
+import { Validate } from '@midwayjs/validate';
 
-  @Post('/classroom', { summary: '添加班级', description: '' })
-  async createClassroom(
+import { CreateClassroomDTO } from '../dto/class.dto';
+import { QueryParamDTO } from '../dto/base.dto';
+import ClassroomService from '../service/classroom';
+import BaseController from '../core/baseController';
+
+@Provide()
+@Controller('/api/classroom', {
+  tagName: '班级接口',
+  description: 'Classroom Router',
+})
+export class ClassroomController extends BaseController {
+  @Inject()
+  protected service: ClassroomService;
+
+  @Post('/', { summary: '添加班级', description: '' })
+  @Validate()
+  async create(
     @Body(ALL)
-    createParams: CreateClassroomInput
+    createParams: CreateClassroomDTO
   ) {
-    const classroom = await this.classroomService.createClassroom(createParams);
+    const classroom = await this.service.create(createParams);
     return classroom;
   }
 
-  @Get('/classroom', { summary: '分页获取班级列表', description: '' })
-  async getUser(
+  @Get('/', { summary: '分页获取班级列表', description: '' })
+  @Validate()
+  async index(
     @Query(ALL)
-    queryParam: QueryParam
+    queryParam: QueryParamDTO
   ) {
     const { page, limit } = queryParam;
-    const users = await this.classroomService.getList(page, limit);
+    const users = await this.service.findAll(page, limit);
     return users;
   }
 }

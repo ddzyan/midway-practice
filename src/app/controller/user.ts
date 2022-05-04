@@ -9,40 +9,39 @@ import {
   Post,
   Body,
 } from '@midwayjs/decorator';
-import { Context } from 'egg';
-import { CreateUserInput } from '../model/dto/user.dto';
-import { QueryParam } from '../model/dto/base.dto';
+import { CreateUserInput } from '../dto/user.dto';
+import { QueryParamDTO } from '../dto/base.dto';
 import UserService from '../service/user';
-@Provide()
-@Controller('/api', { tagName: '用户接口', description: 'User Router' })
-export class UserController {
-  @Inject()
-  ctx: Context;
-  @Inject('userService')
-  userService: UserService;
+import BaseController from '../core/baseController';
 
-  @Get('/users', { summary: '分页获取用户列表', description: '' })
-  async getUser(
+@Provide()
+@Controller('/api/user', { tagName: '用户接口', description: 'User Router' })
+export class UserController extends BaseController {
+  @Inject()
+  protected service: UserService;
+
+  @Get('/', { summary: '分页获取用户列表', description: '' })
+  async index(
     @Query(ALL)
-    queryParam: QueryParam
+    queryParam: QueryParamDTO
   ) {
     let { page, limit } = queryParam;
     page = Number(page);
     limit = Number(limit);
-    const users = await this.userService.getUserList(page, limit);
+    const users = await this.service.findAll(page, limit);
     return users;
   }
 
-  @Post('/user/create', {
+  @Post('/', {
     summary: '创建用户',
     description: '根据传入的用户名和邮箱地址创建用户，邮箱地址不允许重复',
   })
   @Validate()
-  async createUser(
+  async create(
     @Body(ALL)
     createParams: CreateUserInput
   ) {
-    const user = await this.userService.createUser(createParams);
+    const user = await this.service.create(createParams);
     return user;
   }
 }

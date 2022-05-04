@@ -1,42 +1,38 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-import * as validateComp from '@midwayjs/validate';
 import * as webFramework from '@midwayjs/web';
 import { App, Configuration, Logger } from '@midwayjs/decorator';
 import * as task from '@midwayjs/task';
+import * as validate from '@midwayjs/validate';
+import * as crossDomain from '@midwayjs/cross-domain';
 import { ILifeCycle } from '@midwayjs/core';
 import { IMidwayLogger } from '@midwayjs/logger';
 import * as swagger from '@midwayjs/swagger';
 import * as jaeger from '@mw-components/jaeger';
 import * as koid from '@mw-components/koid';
-import { Application, NpmPkg } from '@/interface';
 import * as redis from '@midwayjs/redis';
 import * as sequlize from '@midwayjs/sequelize';
+import { join } from 'path';
 
-import * as unittestConfig from './config/config.unittest';
-import * as prodConfig from './config/config.prod';
-import * as localConfig from './config/config.local';
-import * as defaultConfig from './config/config.default';
+import { Application, NpmPkg } from '@/interface';
+import RequestIdMiddleware from './middleware/requestId';
+import FormatMiddleware from './middleware/format';
+import AccessLogMiddleware from './middleware/accessLog';
+import NotFoundFilter from './filter/notfound';
 
 @Configuration({
-  importConfigs: [
-    {
-      default: defaultConfig,
-      local: localConfig,
-      prod: prodConfig,
-      unittest: unittestConfig,
-    },
-  ],
+  importConfigs: [join(__dirname, './config')],
   conflictCheck: true,
   imports: [
+    crossDomain,
     webFramework,
     jaeger,
     koid,
     swagger,
     redis,
     task,
-    validateComp,
+    validate,
     sequlize,
   ],
 })
@@ -47,8 +43,13 @@ export class ContainerLifeCycle implements ILifeCycle {
   readonly logger: IMidwayLogger;
 
   async onReady(): Promise<void> {
-    // 需要显式在 app 启动时用 getAsync() 的方式进行触发，否则该类只有在首次被业务逻辑调用的时候才能初始化
-    // await this.app.getApplicationContext().getAsync('rabbitmqService');
+    this.app.useMiddleware([
+      RequestIdMiddleware,
+      AccessLogMiddleware,
+      FormatMiddleware,
+    ]);
+    this.app.useFilter([NotFoundFilter]);
+
     this.app.config.pkgJson = this.app.config.pkg as NpmPkg;
     const { pkgJson } = this.app.config;
     const info = {

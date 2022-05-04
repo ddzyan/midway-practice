@@ -1,5 +1,5 @@
 import { Inject, Provide, TaskLocal } from '@midwayjs/decorator';
-import { Context } from '../../interface';
+import { Context } from '@/interface';
 
 @Provide()
 export class TaskService {

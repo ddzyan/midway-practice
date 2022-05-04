@@ -5,11 +5,11 @@ export class CreateUserInput {
     type: 'string',
     description: '姓',
   })
-  @Rule(RuleType.string().optional().min(1).max(2))
+  @Rule(RuleType.string().min(1).max(3).required())
   firstName: string;
 
   @ApiProperty({ type: 'string', description: '名字' })
-  @Rule(RuleType.string().optional().min(1).max(3))
+  @Rule(RuleType.string().min(1).max(3).required())
   lastName: string;
 
   @ApiProperty({ type: 'integer', example: '1', description: '班级id' })
