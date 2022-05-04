@@ -39,7 +39,7 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
         dialect: 'mysql',
         define: {
           timestamps: true, // 是否需要增加createdAt、updatedAt、deletedAt字段
-          paranoid: false, // 此种模式下，删除数据时不会进行物理删除，而是设置deletedAt为当前时间
+          paranoid: true, // 此种模式下，删除数据时不会进行物理删除，而是设置deletedAt为当前时间
           underscored: false, // 不给所有属性设置下划线
           freezeTableName: true, //不会尝试更改模型名以获取表名。否则，型号名称将是复数
           engine: 'innodb', // 默认的存储引擎
