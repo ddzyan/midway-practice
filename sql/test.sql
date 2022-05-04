@@ -11,7 +11,7 @@
  Target Server Version : 50734
  File Encoding         : 65001
 
- Date: 19/04/2022 18:26:17
+ Date: 04/05/2022 22:38:21
 */
 
 SET NAMES utf8mb4;
@@ -25,10 +25,11 @@ CREATE TABLE `classroom` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `grade` tinyint(3) unsigned NOT NULL,
   `prom` tinyint(3) unsigned NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Table structure for parent_info
@@ -39,38 +40,12 @@ CREATE TABLE `parent_info` (
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tel` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_user_id` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- ----------------------------
--- Table structure for table_date
--- ----------------------------
-DROP TABLE IF EXISTS `table_date`;
-CREATE TABLE `table_date` (
-  `id` int(11) DEFAULT NULL,
-  `created_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- ----------------------------
--- Table structure for table_datetime
--- ----------------------------
-DROP TABLE IF EXISTS `table_datetime`;
-CREATE TABLE `table_datetime` (
-  `id` int(10) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- ----------------------------
--- Table structure for table_timestamp
--- ----------------------------
-DROP TABLE IF EXISTS `table_timestamp`;
-CREATE TABLE `table_timestamp` (
-  `id` int(10) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for user
@@ -80,13 +55,12 @@ CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `first_name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `number` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `classroom_id` int(10) unsigned NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `idx_number` (`number`),
   KEY `user_classroomId_fkey` (`classroom_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 SET FOREIGN_KEY_CHECKS = 1;
