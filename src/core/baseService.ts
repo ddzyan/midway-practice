@@ -1,7 +1,7 @@
 import { App, Inject } from '@midwayjs/decorator';
 import { Application, Context } from '@/interface';
 
-export abstract class BaseService {
+export default abstract class BaseService {
   @App()
   protected app: Application;
 
