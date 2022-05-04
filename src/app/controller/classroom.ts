@@ -13,7 +13,7 @@ import { Validate } from '@midwayjs/validate';
 import { CreateClassroomDTO } from '../dto/class.dto';
 import { QueryParamDTO } from '../dto/base.dto';
 import ClassroomService from '../service/classroom';
-import BaseController from '../core/baseController';
+import BaseController from '../../core/baseController';
 
 @Provide()
 @Controller('/api/classroom', {

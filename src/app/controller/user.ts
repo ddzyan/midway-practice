@@ -12,7 +12,7 @@ import {
 import { CreateUserInput } from '../dto/user.dto';
 import { QueryParamDTO } from '../dto/base.dto';
 import UserService from '../service/user';
-import BaseController from '../core/baseController';
+import BaseController from '../../core/baseController';
 
 @Provide()
 @Controller('/api/user', { tagName: '用户接口', description: 'User Router' })

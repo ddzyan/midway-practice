@@ -1,6 +1,6 @@
 import { Provide, Inject } from '@midwayjs/decorator';
 
-import { BaseService } from '../core/baseService';
+import { BaseService } from '../../core/baseService';
 import ClassroomMapping from '../mapping/classroom';
 
 @Provide()

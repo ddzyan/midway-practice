@@ -1,7 +1,7 @@
 import { Provide, Inject } from '@midwayjs/decorator';
 
 import UserMapping from '../mapping/user';
-import { BaseService } from '../core/baseService';
+import { BaseService } from '../../core/baseService';
 
 @Provide()
 export default class UserService extends BaseService {

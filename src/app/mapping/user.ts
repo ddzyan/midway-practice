@@ -3,7 +3,7 @@ import { Provide } from '@midwayjs/decorator';
 import { UserEntity } from '../entity/user.entity';
 import { ClassroomEntity } from '../entity/classroom.entity';
 import { ParentInfoEntity } from '../entity/parentInfo.entity';
-import BaseMapping from '../core/baseMapping';
+import BaseMapping from '../../core/baseMapping';
 @Provide()
 export default class UserMapping extends BaseMapping {
   protected get entity() {
