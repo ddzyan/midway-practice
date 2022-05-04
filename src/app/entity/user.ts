@@ -1,20 +1,20 @@
 import {
   Column,
   DataType,
-  Model,
   HasOne,
   HasMany,
   ForeignKey,
 } from 'sequelize-typescript';
 import { BaseTable } from '@midwayjs/sequelize';
 
-import { ClassroomEntity } from './classroom.entity';
-import { ParentInfoEntity } from './parentInfo.entity';
+import BaseEntity from '../../core/baseEntity';
+import ClassroomEntity from './classroom';
+import ParentInfoEntity from './parentInfo';
 
 @BaseTable({
   modelName: 'user',
 })
-export class UserEntity extends Model {
+export default class UserEntity extends BaseEntity {
   @Column({
     type: DataType.BIGINT({
       length: 10,
@@ -60,25 +60,4 @@ export class UserEntity extends Model {
 
   @HasMany(() => ParentInfoEntity)
   parentInfos: ParentInfoEntity[];
-
-  @Column({
-    type: DataType.DATE,
-    field: 'created_at',
-    comment: '创建时间',
-  })
-  createdAt: string;
-
-  @Column({
-    type: DataType.DATE,
-    field: 'updated_at',
-    comment: '更新时间',
-  })
-  updatedAt: string;
-
-  @Column({
-    type: DataType.DATE,
-    field: 'deleted_at',
-    comment: '删除时间',
-  })
-  deletedAt: string;
 }

@@ -10,8 +10,8 @@ import {
 } from '@midwayjs/decorator';
 import { Validate } from '@midwayjs/validate';
 
-import { CreateClassroomDTO } from '../dto/class.dto';
-import { QueryParamDTO } from '../dto/base.dto';
+import { CreateClassroomDTO } from '../dto/class';
+import { QueryParamDTO } from '../dto/base';
 import ClassroomService from '../service/classroom';
 import BaseController from '../../core/baseController';
 

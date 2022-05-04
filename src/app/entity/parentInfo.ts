@@ -1,18 +1,13 @@
-import {
-  Column,
-  DataType,
-  Model,
-  BelongsTo,
-  ForeignKey,
-} from 'sequelize-typescript';
+import { Column, DataType, BelongsTo, ForeignKey } from 'sequelize-typescript';
 import { BaseTable } from '@midwayjs/sequelize';
 
-import { UserEntity } from './user.entity';
+import UserEntity from './user';
+import BaseEntity from '../../core/baseEntity';
 
 @BaseTable({
   modelName: 'parent_info',
 })
-export class ParentInfoEntity extends Model {
+export default class ParentInfoEntity extends BaseEntity {
   @Column({
     type: DataType.BIGINT({
       length: 10,
@@ -53,25 +48,4 @@ export class ParentInfoEntity extends Model {
 
   @BelongsTo(() => UserEntity)
   user: UserEntity;
-
-  @Column({
-    type: DataType.DATE,
-    field: 'created_at',
-    comment: '创建时间',
-  })
-  createdAt: string;
-
-  @Column({
-    type: DataType.DATE,
-    field: 'updated_at',
-    comment: '更新时间',
-  })
-  updatedAt: string;
-
-  @Column({
-    type: DataType.DATE,
-    field: 'deleted_at',
-    comment: '删除时间',
-  })
-  deletedAt: string;
 }

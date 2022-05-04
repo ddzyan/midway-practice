@@ -9,8 +9,8 @@ import {
   Post,
   Body,
 } from '@midwayjs/decorator';
-import { CreateUserInput } from '../dto/user.dto';
-import { QueryParamDTO } from '../dto/base.dto';
+import { CreateUserInput } from '../dto/user';
+import { QueryParamDTO } from '../dto/base';
 import UserService from '../service/user';
 import BaseController from '../../core/baseController';
 

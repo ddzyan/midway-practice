@@ -1,10 +1,12 @@
-import { Column, DataType, Model } from 'sequelize-typescript';
+import { Column, DataType } from 'sequelize-typescript';
 import { BaseTable } from '@midwayjs/sequelize';
+
+import BaseEntity from '../../core/baseEntity';
 
 @BaseTable({
   modelName: 'classroom',
 })
-export class ClassroomEntity extends Model {
+export default class ClassroomEntity extends BaseEntity {
   @Column({
     type: DataType.BIGINT({
       length: 10,
@@ -33,25 +35,4 @@ export class ClassroomEntity extends Model {
     comment: '班级',
   })
   prom: number;
-
-  @Column({
-    type: DataType.DATE,
-    field: 'created_at',
-    comment: '创建时间',
-  })
-  createdAt: string;
-
-  @Column({
-    type: DataType.DATE,
-    field: 'updated_at',
-    comment: '更新时间',
-  })
-  updatedAt: string;
-
-  @Column({
-    type: DataType.DATE,
-    field: 'deleted_at',
-    comment: '删除时间',
-  })
-  deletedAt: string;
 }
