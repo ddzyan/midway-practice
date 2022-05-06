@@ -55,9 +55,9 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "online": "NODE_ENV=production pm2-runtime start ./bootstrap.js --name midway_prisma -i 1",
-    "start": "egg-scripts start --title=midway_prisma --framework=@midwayjs/web",
-    "stop": "egg-scripts stop --title=midway_prisma",
+    "online": "NODE_ENV=production pm2-runtime start ./bootstrap.js --name midway-practice -i 1",
+    "start": "egg-scripts start --title=midway-practice --framework=@midwayjs/web",
+    "stop": "egg-scripts stop --title=midway-practice",
     "start_build": "npm run build && cross-env NODE_ENV=development midway-bin dev",
     "dev": "cross-env ets && cross-env NODE_ENV=local  midway-bin dev --ts",
     "test": "midway-bin test --ts",
