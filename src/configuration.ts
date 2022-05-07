@@ -29,7 +29,7 @@ import NotFoundFilter from './filter/notfound';
     webFramework,
     jaeger,
     koid,
-    swagger,
+    { component: swagger, enabledEnvironment: ['local'] },
     redis,
     task,
     validate,
