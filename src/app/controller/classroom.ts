@@ -16,7 +16,7 @@ import ClassroomService from '../service/classroom';
 import BaseController from '../../core/baseController';
 
 @Provide()
-@Controller('/api/classroom', {
+@Controller('/classroom', {
   tagName: '班级接口',
   description: 'Classroom Router',
 })

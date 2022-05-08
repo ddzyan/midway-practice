@@ -1,7 +1,8 @@
-import { Provide, Inject } from '@midwayjs/decorator';
+import { Provide, Inject, Scope, ScopeEnum } from '@midwayjs/decorator';
 import { RedisService } from '@midwayjs/redis';
 
 @Provide()
+@Scope(ScopeEnum.Singleton) // 单例
 class RedisUtils {
   @Inject()
   redisService: RedisService;

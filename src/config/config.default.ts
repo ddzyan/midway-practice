@@ -3,7 +3,6 @@ import { MidwayAppInfo, MidwayConfig } from '@midwayjs/core';
 export default (appInfo: MidwayAppInfo): MidwayConfig => {
   return {
     keys: appInfo.name + '_1640593084642_6476',
-    koa: { port: 7001, globalPrefix: '/v1' },
     accessLogConfig: {
       ignore: [/\/swagger-u.*/u],
     },
@@ -72,6 +71,8 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
           info.message
         }`;
       },
+      port: 7001,
+      globalPrefix: '/api',
     },
   };
 };

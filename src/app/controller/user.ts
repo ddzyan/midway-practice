@@ -15,7 +15,7 @@ import UserService from '../service/user';
 import BaseController from '../../core/baseController';
 
 @Provide()
-@Controller('/api/user', { tagName: '用户接口', description: 'User Router' })
+@Controller('/user', { tagName: '用户接口', description: 'User Router' })
 export class UserController extends BaseController {
   @Inject()
   protected service: UserService;
