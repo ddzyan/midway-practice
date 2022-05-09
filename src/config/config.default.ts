@@ -62,7 +62,7 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
       },
       sync: false, // 本地的时候，可以通过sync: true直接createTable
     },
-    egg: {
+    koa: {
       contextLoggerFormat: info => {
         const ctx = info.ctx;
         return `${info.timestamp} ${info.LEVEL} ${info.pid} [${ctx.reqId} ${

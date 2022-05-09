@@ -1,7 +1,7 @@
 import { Inject } from '@midwayjs/decorator';
 import { DatabaseError, ValidationError } from 'sequelize';
 
-import { Context } from '@/interface';
+import { Context } from '@midwayjs/koa';
 
 export default abstract class BaseMapping {
   @Inject()

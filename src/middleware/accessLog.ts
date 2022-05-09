@@ -1,8 +1,8 @@
 import { Config, Middleware, App } from '@midwayjs/decorator';
 import { IMiddleware } from '@midwayjs/core';
-import { IMidwayWebApplication } from '@midwayjs/web';
+import { Context, NextFunction, Application } from '@midwayjs/koa';
 
-import { NextFunction, Context, IAccessLogConfig } from '@/interface';
+import { IAccessLogConfig } from '@/interface';
 
 @Middleware()
 export default class AccessLogMiddleware
@@ -12,7 +12,7 @@ export default class AccessLogMiddleware
   accessLogConfig: IAccessLogConfig;
 
   @App()
-  app: IMidwayWebApplication;
+  app: Application;
 
   resolve() {
     return async (ctx: Context, next: NextFunction) => {

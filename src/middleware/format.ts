@@ -2,7 +2,7 @@ import { IMiddleware } from '@midwayjs/core';
 import { Middleware } from '@midwayjs/decorator';
 
 import MyError from '../app/comm/myError';
-import { NextFunction, Context } from '@/interface';
+import { Context, NextFunction } from '@midwayjs/koa';
 
 @Middleware()
 export default class FormatMiddleware
