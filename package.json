@@ -25,6 +25,7 @@
     "dayjs": "^1.11.1",
     "dotenv": "^16.0.0",
     "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mysql2": "^2.3.3",
     "sequelize": "^6.19.0"
