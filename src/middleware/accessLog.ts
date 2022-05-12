@@ -2,7 +2,7 @@ import { Config, Middleware, App } from '@midwayjs/decorator';
 import { IMiddleware } from '@midwayjs/core';
 import { Context, NextFunction, Application } from '@midwayjs/koa';
 
-import { IAccessLogConfig } from '@/interface';
+import { IAccessLogConfig } from '../interface';
 
 @Middleware()
 export default class AccessLogMiddleware
