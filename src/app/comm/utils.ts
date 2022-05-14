@@ -1,6 +1,5 @@
 import { Provide, Inject, Scope, ScopeEnum } from '@midwayjs/decorator';
 
-import * as _ from 'lodash';
 import BigNumber from 'bignumber.js';
 
 const DATE_FORMATE = 'YYYY-MM-DD HH:mm:ss';
@@ -11,12 +10,15 @@ export default class Utils {
   @Inject('dayjs')
   dayjsTool;
 
+  @Inject('lodash')
+  lodash;
+
   isEmpty(value?) {
-    return _.isEmpty(value);
+    return this.lodash.isEmpty(value);
   }
 
   isNotEmpty(value?) {
-    return !_.isEmpty(value);
+    return !this.lodash.isEmpty(value);
   }
 
   getDateNow(): string {

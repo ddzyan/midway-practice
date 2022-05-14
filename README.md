@@ -1,6 +1,6 @@
 # 简介
 
-使用 midway + egg + ORM 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
+使用 midway + koa + ORM 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
 
 实现功能：
 

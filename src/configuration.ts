@@ -6,7 +6,7 @@ import { App, Configuration, Logger } from '@midwayjs/decorator';
 import * as task from '@midwayjs/task';
 import * as validate from '@midwayjs/validate';
 import * as crossDomain from '@midwayjs/cross-domain';
-import { ILifeCycle } from '@midwayjs/core';
+import { ILifeCycle, IMidwayContainer } from '@midwayjs/core';
 import { IMidwayLogger } from '@midwayjs/logger';
 import * as swagger from '@midwayjs/swagger';
 import * as jaeger from '@mw-components/jaeger';
@@ -14,6 +14,8 @@ import * as koid from '@mw-components/koid';
 import * as redis from '@midwayjs/redis';
 import * as sequlize from '@midwayjs/sequelize';
 import { join } from 'path';
+import * as dayjs from 'dayjs';
+import * as lodash from 'lodash';
 
 import RequestIdMiddleware from './middleware/requestId';
 import FormatMiddleware from './middleware/format';
@@ -41,13 +43,16 @@ export class ContainerLifeCycle implements ILifeCycle {
   @Logger()
   readonly logger: IMidwayLogger;
 
-  async onReady(): Promise<void> {
+  async onReady(applicationContext: IMidwayContainer): Promise<void> {
     this.app.useMiddleware([
       RequestIdMiddleware,
       AccessLogMiddleware,
       FormatMiddleware,
     ]);
     this.app.useFilter([NotFoundFilter]);
+
+    applicationContext.registerObject('dayjs', dayjs);
+    applicationContext.registerObject('lodash', lodash);
   }
 
   async onStop(): Promise<void> {}
