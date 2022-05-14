@@ -1,6 +1,6 @@
 import { Column, DataType, Model } from 'sequelize-typescript';
 
-export default class BaseEntity extends Model {
+export class BaseEntity extends Model {
   @Column({
     type: DataType.DATE,
     field: 'created_at',

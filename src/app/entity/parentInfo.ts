@@ -1,13 +1,13 @@
 import { Column, DataType, BelongsTo, ForeignKey } from 'sequelize-typescript';
 import { BaseTable } from '@midwayjs/sequelize';
 
-import UserEntity from './user';
-import BaseEntity from '../../core/baseEntity';
+import { UserEntity } from './user';
+import { BaseEntity } from '../../core/baseEntity';
 
 @BaseTable({
   modelName: 'parent_info',
 })
-export default class ParentInfoEntity extends BaseEntity {
+export class ParentInfoEntity extends BaseEntity {
   @Column({
     type: DataType.BIGINT({
       length: 10,

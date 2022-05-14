@@ -20,6 +20,7 @@
   - [x] 关联查询
   - [ ] 原始查询
   - [x] query 日志
+  - [x] 事务
 - 部署
   - [x] DockerFile 编写
   - [x] docker-compose 编写

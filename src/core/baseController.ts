@@ -1,7 +1,7 @@
 import { App, Inject } from '@midwayjs/decorator';
 import * as koa from '@midwayjs/koa';
 
-export default abstract class BaseController {
+export abstract class BaseController {
   @App()
   protected app: koa.Application;
 
