@@ -14,7 +14,8 @@
     "pretty": true,
     "declaration": true,
     "typeRoots": ["./typings", "./node_modules/@types"],
-    "outDir": "dist"
+    "outDir": "dist",
+    "baseUrl": "./"
   },
   "exclude": ["dist", "node_modules", "test"]
 }
