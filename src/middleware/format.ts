@@ -1,13 +1,11 @@
 import { IMiddleware } from '@midwayjs/core';
 import { Middleware } from '@midwayjs/decorator';
+import { Context, NextFunction } from '@midwayjs/koa';
 
 import MyError from '../app/comm/myError';
-import { NextFunction, Context } from '@/interface';
 
 @Middleware()
-export default class FormatMiddleware
-  implements IMiddleware<Context, NextFunction>
-{
+export class FormatMiddleware implements IMiddleware<Context, NextFunction> {
   resolve() {
     return async (ctx: Context, next: NextFunction) => {
       try {
@@ -35,7 +33,7 @@ export default class FormatMiddleware
 
         // 生产环境时 500 错误的详细错误内容不返回给客户端，因为可能包含敏感信息
         const error =
-          status === 500 && (ctx.app as any).config.env === 'prod'
+          status === 500 && process.env.NODE_ENV === 'prod'
             ? 'Internal Server Error'
             : message;
 

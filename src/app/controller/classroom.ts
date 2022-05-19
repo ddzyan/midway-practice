@@ -7,13 +7,14 @@ import {
   ALL,
   Query,
   Get,
+  Param,
 } from '@midwayjs/decorator';
 import { Validate } from '@midwayjs/validate';
 
 import { CreateClassroomDTO } from '../dto/class';
 import { QueryParamDTO } from '../dto/base';
-import ClassroomService from '../service/classroom';
-import BaseController from '../../core/baseController';
+import { ClassroomService } from '../service/classroom';
+import { BaseController } from '../../core/baseController';
 
 @Provide()
 @Controller('/classroom', {
@@ -43,5 +44,15 @@ export class ClassroomController extends BaseController {
     const { page, limit } = queryParam;
     const users = await this.service.findAll(page, limit);
     return users;
+  }
+
+  @Get('/destroy/:classroomId', {
+    summary: '删除管理员',
+    description: '删除管理员',
+  })
+  @Validate()
+  async destroy(@Param('classroomId') classroomId: number) {
+    const res = await this.service.destroyClassroomAndUser(classroomId);
+    return this.success(res);
   }
 }

@@ -1,12 +1,12 @@
 import { Column, DataType } from 'sequelize-typescript';
 import { BaseTable } from '@midwayjs/sequelize';
 
-import BaseEntity from '../../core/baseEntity';
+import { BaseEntity } from '../../core/baseEntity';
 
 @BaseTable({
   modelName: 'classroom',
 })
-export default class ClassroomEntity extends BaseEntity {
+export class ClassroomEntity extends BaseEntity {
   @Column({
     type: DataType.BIGINT({
       length: 10,

@@ -2,7 +2,6 @@ import { MidwayAppInfo, MidwayConfig } from '@midwayjs/core';
 
 export default (appInfo: MidwayAppInfo): MidwayConfig => {
   const config = {} as MidwayConfig;
-
   config.keys = appInfo.name + '_1640593084642_6476';
   config.accessLogConfig = {
     ignore: [/\/swagger-u.*/u],
@@ -11,6 +10,12 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     csrf: {
       enable: false,
     },
+  };
+  config.jwt = {
+    secret: '123456',
+    signOptions: { expiresIn: 1000 * 60 * 60 * 24 },
+    verifyOptions: { complete: true },
+    whitelist: ['/swagger-ui', '/auth/login', '/github'],
   };
   config.cors = {
     allowHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
@@ -55,7 +60,7 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     },
     sync: false, // 本地的时候，可以通过sync: true直接createTable
   };
-  config.egg = {
+  config.koa = {
     contextLoggerFormat: info => {
       const ctx = info.ctx;
       return `${info.timestamp} ${info.LEVEL} ${info.pid} [${ctx.reqId} ${
@@ -67,6 +72,5 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     port: 7001,
     globalPrefix: '/api',
   };
-
   return config;
 };

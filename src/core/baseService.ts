@@ -1,12 +1,12 @@
 import { App, Inject } from '@midwayjs/decorator';
-import { Application, Context } from '@/interface';
+import * as koa from '@midwayjs/koa';
 
-export default abstract class BaseService {
+export abstract class BaseService {
   @App()
-  protected app: Application;
+  protected app: koa.Application;
 
   @Inject()
-  protected ctx: Context;
+  protected ctx: koa.Context;
 
   protected mapping;
 
@@ -17,8 +17,28 @@ export default abstract class BaseService {
     return res;
   }
 
+  async findOne(where) {
+    const res = await this.mapping.findOne(where);
+    return res;
+  }
+
   async create(createParams) {
     const res = await this.mapping.saveNew(createParams);
+    return res;
+  }
+
+  async update(updateParams, where) {
+    const res = await this.mapping.modify(updateParams, where);
+    return res;
+  }
+
+  async destroy(where) {
+    const res = await this.mapping.destroy(where);
+    return res;
+  }
+
+  async findByPk(id: number) {
+    const res = await this.mapping.findByPk(id);
     return res;
   }
 }

@@ -1,10 +1,9 @@
 import { Catch } from '@midwayjs/decorator';
 import { httpError, MidwayHttpError } from '@midwayjs/core';
-
-import { Context } from '@/interface';
+import { Context } from '@midwayjs/koa';
 
 @Catch(httpError.NotFoundError)
-export default class NotFoundFilter {
+export class NotFoundFilter {
   async catch(err: MidwayHttpError, ctx: Context) {
     return {
       message: '404, ' + ctx.path,

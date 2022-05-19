@@ -1,66 +1,76 @@
-import * as dayjs from 'dayjs';
-import * as _ from 'lodash';
+import { Provide, Inject, Scope, ScopeEnum } from '@midwayjs/decorator';
+
 import BigNumber from 'bignumber.js';
 
 const DATE_FORMATE = 'YYYY-MM-DD HH:mm:ss';
 
-export function isEmpty(value?) {
-  return _.isEmpty(value);
-}
+@Provide()
+@Scope(ScopeEnum.Singleton)
+export default class Utils {
+  @Inject('dayjs')
+  dayjsTool;
 
-export function isNotEmpty(value?) {
-  return !_.isEmpty(value);
-}
+  @Inject('lodash')
+  lodash;
 
-export function getDateNow(): string {
-  const dateStr: string = dayjs().format(DATE_FORMATE);
-  return dateStr;
-}
-
-export function getDateEndTime(time?): string {
-  return dayjs(time).endOf('day').format(DATE_FORMATE);
-}
-
-export function getDateStartTime(time?): string {
-  return dayjs(time).startOf('day').format(DATE_FORMATE);
-}
-
-export function getDateSeconds(time?): number {
-  return dayjs(time).unix();
-}
-
-export function getDateNowAdd8hours(time?): Date {
-  const dateStr: Date = dayjs(time).add(8, 'hour').toDate();
-  return dateStr;
-}
-
-export function bigEq(a, b) {
-  return new BigNumber(a).eq(b);
-}
-
-export function mapToArray(map: Map<string, any>) {
-  const arr = [];
-  for (const [key, value] of map) {
-    arr.push({
-      [key]: value,
-    });
+  isEmpty(value?) {
+    return this.lodash.isEmpty(value);
   }
 
-  return arr;
-}
-
-export function mapToObject(map: Map<string, any>) {
-  const obj = {};
-  for (const [key, value] of map) {
-    obj[key] = value;
+  isNotEmpty(value?) {
+    return !this.lodash.isEmpty(value);
   }
-  return obj;
-}
 
-export function objectToMap(obj: object) {
-  const map = new Map();
-  for (const key in obj) {
-    map.set(key, obj[key]);
+  getDateNow(): string {
+    const dateStr: string = this.dayjsTool().format(DATE_FORMATE);
+    return dateStr;
   }
-  return map;
+
+  getDateEndTime(time?): string {
+    return this.dayjsTool(time).endOf('day').format(DATE_FORMATE);
+  }
+
+  getDateStartTime(time?): string {
+    return this.dayjsTool(time).startOf('day').format(DATE_FORMATE);
+  }
+
+  getDateSeconds(time?): number {
+    return this.dayjsTool(time).unix();
+  }
+
+  getDateNowAdd8hours(time?): Date {
+    const dateStr: Date = this.dayjsTool(time).add(8, 'hour').toDate();
+    return dateStr;
+  }
+
+  bigEq(a, b) {
+    return new BigNumber(a).eq(b);
+  }
+
+  mapToArray(map: Map<string, any>) {
+    const arr = [];
+    for (const [key, value] of map) {
+      arr.push({
+        [key]: value,
+      });
+    }
+
+    return arr;
+  }
+
+  mapToObject(map: Map<string, any>) {
+    const obj = {};
+    for (const [key, value] of map) {
+      obj[key] = value;
+    }
+    return obj;
+  }
+
+  objectToMap(obj: object) {
+    const map = new Map();
+    for (const key in obj) {
+      map.set(key, obj[key]);
+    }
+    return map;
+  }
 }

@@ -1,10 +1,10 @@
 import { Provide } from '@midwayjs/decorator';
 
-import ClassroomEntity from '../entity/classroom';
-import BaseMapping from '../../core/baseMapping';
+import { ClassroomEntity } from '../entity/classroom';
+import { BaseMapping } from '../../core/baseMapping';
 
 @Provide()
-export default class ClassroomMapping extends BaseMapping {
+export class ClassroomMapping extends BaseMapping {
   protected get entity() {
     return ClassroomEntity;
   }

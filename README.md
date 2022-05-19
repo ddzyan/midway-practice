@@ -1,6 +1,6 @@
 # 简介
 
-使用 midway + egg + ORM 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
+使用 midway + koa + ORM 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
 
 实现功能：
 
@@ -11,6 +11,7 @@
   - [x] 定时任务
   - [x] 请求参数验证
   - [x] swagger 接入
+  - [x] JWT 验证
   - [x] 添加通用工具类（日后拆除）
   - [x] 增加 redis 相关配置
   - [x] 封装 redis 工具类
@@ -20,6 +21,7 @@
   - [x] 关联查询
   - [ ] 原始查询
   - [x] query 日志
+  - [x] 事务
 - 部署
   - [x] DockerFile 编写
   - [x] docker-compose 编写

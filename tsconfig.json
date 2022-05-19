@@ -15,9 +15,7 @@
     "declaration": true,
     "typeRoots": ["./typings", "./node_modules/@types"],
     "outDir": "dist",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "baseUrl": "./"
   },
   "exclude": ["dist", "node_modules", "test"]
 }
