@@ -6,9 +6,7 @@ import { KoidComponent } from '@mw-components/koid';
 import { Context, NextFunction } from '@midwayjs/koa';
 
 @Middleware()
-export default class RequestIdMiddleware
-  implements IMiddleware<Context, NextFunction>
-{
+export class RequestIdMiddleware implements IMiddleware<Context, NextFunction> {
   resolve() {
     return requestIdMiddleware;
   }

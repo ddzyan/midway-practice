@@ -5,9 +5,7 @@ import { Context, NextFunction, Application } from '@midwayjs/koa';
 import { IAccessLogConfig } from '../interface';
 
 @Middleware()
-export default class AccessLogMiddleware
-  implements IMiddleware<Context, NextFunction>
-{
+export class AccessLogMiddleware implements IMiddleware<Context, NextFunction> {
   @Config('accessLogConfig')
   accessLogConfig: IAccessLogConfig;
 

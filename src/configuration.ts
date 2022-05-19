@@ -17,10 +17,11 @@ import { join } from 'path';
 import * as dayjs from 'dayjs';
 import * as lodash from 'lodash';
 
-import RequestIdMiddleware from './middleware/requestId';
-import FormatMiddleware from './middleware/format';
-import AccessLogMiddleware from './middleware/accessLog';
-import NotFoundFilter from './filter/notfound';
+import { RequestIdMiddleware } from './middleware/requestId';
+import { FormatMiddleware } from './middleware/format';
+import { AccessLogMiddleware } from './middleware/accessLog';
+// import { JwtMiddleware } from './middleware/jwt';
+import { NotFoundFilter } from './filter/notfound';
 
 @Configuration({
   importConfigs: [join(__dirname, './config')],
@@ -48,6 +49,7 @@ export class ContainerLifeCycle implements ILifeCycle {
       RequestIdMiddleware,
       AccessLogMiddleware,
       FormatMiddleware,
+      // JwtMiddleware,
     ]);
     this.app.useFilter([NotFoundFilter]);
 
