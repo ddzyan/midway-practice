@@ -28,6 +28,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mysql2": "^2.3.3",
+    "path-to-regexp": "^6.2.1",
     "sequelize": "^6.19.0"
   },
   "devDependencies": {
