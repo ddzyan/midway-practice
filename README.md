@@ -26,6 +26,10 @@
   - [x] DockerFile 编写
   - [x] docker-compose 编写
   - [x] 生产环境部署优化
+- 单元测试
+  - [x] controller
+  - [ ] service
+  - [ ] task
 
 ## 使用
 
