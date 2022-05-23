@@ -9,7 +9,6 @@
     "@midwayjs/cross-domain": "^3.3.5",
     "@midwayjs/koa": "^3.3.5",
     "@midwayjs/logger": "^2.14.0",
-    "@midwayjs/orm": "^3.0.0",
     "@midwayjs/redis": "^3.3.2",
     "@midwayjs/sequelize": "^3.3.5",
     "@midwayjs/swagger": "^3.0.0",
