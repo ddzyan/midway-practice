@@ -2,16 +2,14 @@ import { Inject } from '@midwayjs/decorator';
 import { DatabaseError, ValidationError } from 'sequelize';
 import { Context } from '@midwayjs/koa';
 
-import { ClassroomEntity } from '../app/entity/classroom';
-
-export  abstract class BaseMapping {
+export abstract class BaseMapping {
   @Inject()
   ctx: Context;
 
   protected abstract entity;
 
   async getTransaction() {
-    const t = await ClassroomEntity.sequelize.transaction();
+    const t = await this.entity.sequelize.transaction();
     return t;
   }
 
@@ -42,30 +40,37 @@ export  abstract class BaseMapping {
     return res;
   }
 
-  async findOne(where) {
+  async findOne(where, options = {}) {
     const res = await this.execSql(
       this.entity.findOne({
         where,
         order: [['createdAt', 'desc']],
+        ...options,
       })
     );
     return res;
   }
 
-  async findAll(limit: number, offset: number) {
+  async findAll(where = {}, options = {}) {
     const res = await this.execSql(
       this.entity.findAll({
-        limit,
-        offset,
+        where,
+        ...options,
         order: [['createdAt', 'desc']],
       })
     );
     return res;
   }
 
-  async findAndCountAll(limit: number, offset: number) {
+  async findByPk(id: number, options = {}) {
+    const res = await this.execSql(this.entity.findByPk(id, { ...options }));
+    return res;
+  }
+
+  async findAndCountAll(limit: number, offset: number, where = {}) {
     const res = await this.execSql(
       this.entity.findAndCountAll({
+        where,
         limit,
         offset,
         order: [['createdAt', 'desc']],
@@ -74,27 +79,23 @@ export  abstract class BaseMapping {
     return res;
   }
 
-  async modify(updateParams, where) {
+  async modify(updateParams, where, options = {}) {
     const [effect] = await this.execSql(
       this.entity.update(updateParams, {
         where,
+        ...options,
       })
     );
     return effect;
   }
 
-  async destroy(where, t) {
+  async destroy(where, options = {}) {
     const res = await this.execSql(
       this.entity.destroy({
         where,
-        t,
+        ...options,
       })
     );
-    return res;
-  }
-
-  async findByPk(id: number) {
-    const res = await this.execSql(this.entity.findByPk(id));
     return res;
   }
 }
