@@ -67,12 +67,13 @@ export abstract class BaseMapping {
     return res;
   }
 
-  async findAndCountAll(limit: number, offset: number, where = {}) {
+  async findAndCountAll(page: number, limit: number, where = {}) {
+    const offset = (page - 1) * limit;
     const res = await this.execSql(
       this.entity.findAndCountAll({
         where,
         limit,
-        offset,
+        offset: offset > 0 ? offset : 0,
         order: [['createdAt', 'desc']],
       })
     );

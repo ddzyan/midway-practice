@@ -21,15 +21,14 @@ export class UserController extends BaseController {
   protected service: UserService;
 
   @Get('/', { summary: '分页获取用户列表', description: '' })
+  @Validate()
   async index(
     @Query(ALL)
     queryParam: QueryParamDTO
   ) {
-    let { page, limit } = queryParam;
-    page = Number(page);
-    limit = Number(limit);
-    const users = await this.service.findAll(page, limit);
-    return users;
+    const { page, limit } = queryParam;
+    const res = await this.service.findAndCountAll(page, limit);
+    return this.success(res);
   }
 
   @Post('/', {
@@ -41,7 +40,7 @@ export class UserController extends BaseController {
     @Body(ALL)
     createParams: CreateUserInput
   ) {
-    const user = await this.service.create(createParams);
-    return user;
+    const res = await this.service.create(createParams);
+    return this.success(res);
   }
 }

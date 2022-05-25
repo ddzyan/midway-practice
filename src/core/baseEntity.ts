@@ -6,19 +6,19 @@ export class BaseEntity extends Model {
     field: 'created_at',
     comment: '创建时间',
   })
-  createdAt: string;
+  createdAt: Date;
 
   @Column({
     type: DataType.DATE,
     field: 'updated_at',
     comment: '更新时间',
   })
-  updatedAt: string;
+  updatedAt: Date;
 
   @Column({
     type: DataType.DATE,
     field: 'deleted_at',
     comment: '删除时间',
   })
-  deletedAt: string;
+  deletedAt: Date;
 }

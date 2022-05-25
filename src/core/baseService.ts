@@ -10,10 +10,13 @@ export abstract class BaseService {
 
   protected mapping;
 
-  async findAll(page: number, limit: number) {
-    const offset = (page - 1) * limit;
+  async findAndCountAll(page: number, limit: number, where = {}) {
+    const res = await this.mapping.findAndCountAll(page, limit, where);
+    return res;
+  }
 
-    const res = await this.mapping.findAll(page, offset);
+  async findAll(where = {}, options = {}) {
+    const res = await this.mapping.findAll(where, options);
     return res;
   }
 
