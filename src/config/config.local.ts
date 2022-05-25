@@ -1,27 +1,29 @@
-export default {
-  redis: {
+import { MidwayConfig, MidwayAppInfo } from '@midwayjs/core';
+
+export default (appInfo: MidwayAppInfo): MidwayConfig => {
+  const config = {} as MidwayConfig;
+  config.redis = {
     client: {
-      port: process.env.REDIS_CLIENT_PORT,
-      host: process.env.REDIS_CLIENT_HOST,
-      password: process.env.REDIS_CLIENT_PASSWORD,
-      db: process.env.REDIS_CLIENT_DB,
+      port: 16379,
+      host: '127.0.0.1',
+      db: 0,
     },
-  },
-  task: {
+  };
+  config.task = {
     redis: {
-      port: process.env.REDIS_CLIENT_PORT,
-      host: process.env.REDIS_CLIENT_HOST,
-      password: process.env.REDIS_CLIENT_PASSWORD,
+      port: 16379,
+      host: '127.0.0.1',
     },
-  },
-  sequelize: {
+  };
+  config.sequelize = {
     options: {
-      database: process.env.DATABASE_DATABASE,
-      username: process.env.DATABASE_USERNAME,
-      password: process.env.DATABASE_PASSWORD,
-      host: process.env.DATABASE_HOST,
-      port: process.env.DATABASE_PORT,
+      database: 'test',
+      username: 'root',
+      password: 'B9tiNZ7dXrk2qwr6',
+      host: '127.0.0.1',
+      port: 13306,
       logging: true,
     },
-  },
+  };
+  return config;
 };

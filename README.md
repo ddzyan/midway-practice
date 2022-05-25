@@ -28,7 +28,7 @@
   - [x] 生产环境部署优化
 - 单元测试
   - [x] controller
-  - [ ] service
+  - [x] service
   - [ ] task
 
 ## 使用

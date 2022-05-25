@@ -12,10 +12,24 @@ describe('test/controller/home.test.ts', () => {
     await close(app);
   });
 
-  it('should GET /api', async () => {
-    const result = await createHttpRequest(app).get('/api');
+  describe('test home', () => {
+    it('should GET /api', async () => {
+      const result = await createHttpRequest(app).get('/api');
 
-    assert.equal(result.status, 200);
-    assert.equal(result.body.data, 'Hello Midwayjs!');
+      assert.equal(result.status, 200);
+      assert.equal(result.body.data, 'Hello Midwayjs!');
+    });
+  });
+
+  describe('test user', () => {
+    it('should GET /api/user', async () => {
+      const result = await createHttpRequest(app)
+        .get('/api/user')
+        .query({ page: 1, limit: 10 });
+
+      assert.equal(result.status, 200);
+      assert.equal(result.body.data.count, 1);
+      assert.equal(result.body.data.rows.length, 1);
+    });
   });
 });
