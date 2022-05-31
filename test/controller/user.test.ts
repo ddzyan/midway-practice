@@ -1,20 +1,14 @@
-import { createApp, close, createHttpRequest } from '@midwayjs/mock';
-import { Framework, Application } from '@midwayjs/koa';
 import * as assert from 'assert';
+import { relative } from 'path';
 
-describe.skip('test/controller/user.test.ts', () => {
-  let app: Application;
-  before(async () => {
-    app = await createApp<Framework>();
-  });
+import { testConfig } from '../root.config';
 
-  after(async () => {
-    await close(app, { sleep: 0 });
-    console.log('user close');
-  });
-
+const filename = relative(process.cwd(), __filename).replace(/\\/gu, '/');
+describe(filename, () => {
   it('should GET /api/user', async () => {
-    const result = await createHttpRequest(app)
+    const { httpRequest } = testConfig;
+
+    const result = await httpRequest
       .get('/api/user')
       .query({ page: 1, limit: 10 });
 

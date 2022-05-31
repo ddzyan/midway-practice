@@ -28,7 +28,6 @@ export class UserController extends BaseController {
   ) {
     const { page, limit } = queryParam;
     const res = await this.service.findAndCountAll(page, limit);
-    console.log('-------------');
     return this.success(res);
   }
 

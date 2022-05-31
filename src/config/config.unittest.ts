@@ -22,7 +22,7 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
       password: 'B9tiNZ7dXrk2qwr6',
       host: '127.0.0.1',
       port: 13306,
-      logging: true,
+      logging: false,
     },
   };
   return config;
