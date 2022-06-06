@@ -1,5 +1,5 @@
 import { Column, DataType } from 'sequelize-typescript';
-import { BaseTable } from '@midwayjs/sequelize';
+import { BaseTable } from 'mw3-sequelize';
 
 import { BaseEntity } from '../../core/baseEntity';
 

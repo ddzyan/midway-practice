@@ -1,5 +1,5 @@
 import { Column, DataType, BelongsTo, ForeignKey } from 'sequelize-typescript';
-import { BaseTable } from '@midwayjs/sequelize';
+import { BaseTable } from 'mw3-sequelize';
 
 import { UserEntity } from './user';
 import { BaseEntity } from '../../core/baseEntity';
