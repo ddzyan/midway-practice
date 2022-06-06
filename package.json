@@ -27,6 +27,7 @@
     "joi": "^17.5.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
+    "mw3-sequelize": "^1.0.8",
     "mysql2": "^2.3.3",
     "path-to-regexp": "^6.2.1",
     "sequelize": "^6.19.0"

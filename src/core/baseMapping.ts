@@ -1,15 +1,19 @@
 import { Inject } from '@midwayjs/decorator';
 import { DatabaseError, ValidationError } from 'sequelize';
 import { Context } from '@midwayjs/koa';
+import { SequelizeService } from 'mw3-sequelize';
 
 export abstract class BaseMapping {
   @Inject()
   ctx: Context;
 
+  @Inject()
+  private sequelize: SequelizeService;
+
   protected abstract entity;
 
   async getTransaction() {
-    const t = await this.entity.sequelize.transaction();
+    const t = await this.sequelize.transaction();
     return t;
   }
 

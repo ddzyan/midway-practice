@@ -43,6 +43,7 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
       },
       timezone: '+08:00',
       benchmark: true,
+      sync: { force: false }, // 每次强制同步表结构
       logging: (sql, timing) => {
         // 每次日志输出都会调用的函数，可以在此进行重写
         if (typeof timing === 'number' && timing > 5000) {
