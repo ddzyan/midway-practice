@@ -29,7 +29,8 @@
     "lodash": "^4.17.21",
     "mysql2": "^2.3.3",
     "path-to-regexp": "^6.2.1",
-    "sequelize": "^6.19.0"
+    "sequelize": "^6.19.0",
+    "tsconfig-paths": "^4.0.0"
   },
   "devDependencies": {
     "@midwayjs/cli": "^1.2.93",
@@ -52,7 +53,6 @@
     "swagger-ui-dist": "^4.1.3",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.7.0",
-    "tsconfig-paths": "^4.0.0",
     "typescript": "^4.5.4"
   },
   "engines": {
@@ -61,7 +61,6 @@
   "scripts": {
     "online": "NODE_ENV=production pm2-runtime start ./bootstrap.js --name midway-practice -i 1",
     "start": "NODE_ENV=production node ./bootstrap.js",
-    "stop": "egg-scripts stop --title=midway-practice",
     "start_build": "npm run build && cross-env NODE_ENV=development midway-bin dev",
     "dev": "cross-env NODE_ENV=local midway-bin dev --ts",
     "test": "midway-bin test --ts --mocha --parallel=false",

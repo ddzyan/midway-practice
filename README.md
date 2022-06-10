@@ -1,6 +1,6 @@
 # 简介
 
-使用 midway + koa + ORM 完成 数据库 CRUD ， Restful 接口基础功能，应用服务基础功能
+使用 midway + koa + ORM + Restful 接口基础功能，应用服务基础功能，做到业务开发开箱即用。
 
 实现功能：
 
