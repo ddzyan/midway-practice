@@ -12,7 +12,11 @@ export class AccessLogMiddleware implements IMiddleware<Context, NextFunction> {
   @App()
   app: Application;
 
-  resolve() {
+  public static getName(): string {
+    return 'accessLog';
+  }
+
+  public resolve() {
     return async (ctx: Context, next: NextFunction) => {
       const { url } = ctx.request;
       const { ignore } = this.accessLogConfig;
@@ -32,5 +36,9 @@ export class AccessLogMiddleware implements IMiddleware<Context, NextFunction> {
         ctx.logger.info('---> responseBody %j', body);
       }
     };
+  }
+
+  public match(ctx: Context): boolean {
+    return ctx.path.indexOf('/api') !== -1;
   }
 }

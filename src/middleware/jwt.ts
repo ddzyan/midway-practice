@@ -23,10 +23,8 @@ export class JwtMiddleware implements IMiddleware<Context, NextFunction> {
 
   public resolve() {
     return async (ctx: Context, next: NextFunction) => {
-      const { path } = ctx;
       const [, token] = ctx.get('authorization')?.trim().split(' ') || ['', ''];
-      const ignore = this.pathToRegexp.pathMatch(this.whitelist, path, false);
-      if (!token && !ignore) {
+      if (!token) {
         throw new httpError.UnauthorizedError();
       }
       try {
@@ -34,11 +32,15 @@ export class JwtMiddleware implements IMiddleware<Context, NextFunction> {
         ctx.state.token = token;
         ctx.state.user = user;
       } catch (error) {
-        if (!ignore) {
-          throw new httpError.UnauthorizedError();
-        }
+        throw new httpError.UnauthorizedError();
       }
       await next();
     };
+  }
+
+  public match(ctx: Context): boolean {
+    const { path } = ctx;
+    const ignore = this.pathToRegexp.pathMatch(this.whitelist, path, false);
+    return !ignore;
   }
 }

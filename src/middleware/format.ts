@@ -6,7 +6,11 @@ import MyError from '../app/comm/myError';
 
 @Middleware()
 export class FormatMiddleware implements IMiddleware<Context, NextFunction> {
-  resolve() {
+  public static getName(): string {
+    return 'format';
+  }
+
+  public resolve() {
     return async (ctx: Context, next: NextFunction) => {
       try {
         const result = await next();
@@ -47,7 +51,7 @@ export class FormatMiddleware implements IMiddleware<Context, NextFunction> {
     };
   }
 
-  match(ctx) {
+  public match(ctx: Context): boolean {
     return ctx.path.indexOf('/api') !== -1;
   }
 }
