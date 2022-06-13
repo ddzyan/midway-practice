@@ -7,6 +7,7 @@
     "@midwayjs/bootstrap": "^3.3.5",
     "@midwayjs/core": "^3.0.0",
     "@midwayjs/cross-domain": "^3.3.5",
+    "@midwayjs/jwt": "^3.3.11",
     "@midwayjs/koa": "^3.3.5",
     "@midwayjs/logger": "^2.14.0",
     "@midwayjs/redis": "^3.3.2",

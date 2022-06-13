@@ -16,11 +16,12 @@ import * as sequlize from '@midwayjs/sequelize';
 import { join } from 'path';
 import * as dayjs from 'dayjs';
 import * as lodash from 'lodash';
+import * as jwt from '@midwayjs/jwt';
 
 import { RequestIdMiddleware } from './middleware/requestId';
 import { FormatMiddleware } from './middleware/format';
 import { AccessLogMiddleware } from './middleware/accessLog';
-// import { JwtMiddleware } from './middleware/jwt';
+import { JwtMiddleware } from './middleware/jwt';
 import { NotFoundFilter } from './filter/notfound';
 
 @Configuration({
@@ -36,6 +37,7 @@ import { NotFoundFilter } from './filter/notfound';
     task,
     validate,
     sequlize,
+    jwt,
   ],
 })
 export class ContainerLifeCycle implements ILifeCycle {
@@ -49,7 +51,7 @@ export class ContainerLifeCycle implements ILifeCycle {
       RequestIdMiddleware,
       AccessLogMiddleware,
       FormatMiddleware,
-      // JwtMiddleware,
+      JwtMiddleware,
     ]);
     this.app.useFilter([NotFoundFilter]);
 

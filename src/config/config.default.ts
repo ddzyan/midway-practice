@@ -13,7 +13,7 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
   };
   config.jwt = {
     secret: '123456',
-    signOptions: { expiresIn: 1000 * 60 * 60 * 24 },
+    expiresIn: 1000 * 60 * 60 * 24,
     verifyOptions: { complete: true },
     whitelist: ['/swagger-ui', '/auth/login', '/github'],
   };

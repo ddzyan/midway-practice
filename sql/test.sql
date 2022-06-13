@@ -3,19 +3,34 @@
 
  Source Server         : Local
  Source Server Type    : MySQL
- Source Server Version : 50734
+ Source Server Version : 50738
  Source Host           : localhost:13306
  Source Schema         : test
 
  Target Server Type    : MySQL
- Target Server Version : 50734
+ Target Server Version : 50738
  File Encoding         : 65001
 
- Date: 04/05/2022 22:38:21
+ Date: 13/06/2022 11:29:34
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for admin
+-- ----------------------------
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `account` varchar(255) DEFAULT NULL COMMENT '邮箱',
+  `pwd` varchar(255) NOT NULL COMMENT '密码',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:正常 -1:禁用',
+  `created_at` datetime NOT NULL COMMENT '创建时间',
+  `updated_at` datetime NOT NULL COMMENT '更新时间',
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`admin_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='管理员表';
 
 -- ----------------------------
 -- Table structure for classroom

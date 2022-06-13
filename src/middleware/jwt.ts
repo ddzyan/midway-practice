@@ -1,20 +1,21 @@
-import { IMiddleware, MidwayHttpError } from '@midwayjs/core';
+import { IMiddleware } from '@midwayjs/core';
 import { Config, Inject, Middleware } from '@midwayjs/decorator';
 import { Context, NextFunction } from '@midwayjs/koa';
+import { httpError } from '@midwayjs/core';
+import { JwtService } from '@midwayjs/jwt';
 
-import { Jwt } from '../app/comm/jwt';
 import { PathToRegexp } from '../app/comm/pathToRegexp';
 
 @Middleware()
 export class JwtMiddleware implements IMiddleware<Context, NextFunction> {
   @Inject()
-  private jwt: Jwt;
+  private jwtService: JwtService;
 
   @Inject()
   private pathToRegexp: PathToRegexp;
 
-  @Config('jwt.whitelist')
-  private whitelist;
+  @Config('jwt')
+  private jwtConfig;
 
   public static getName(): string {
     return 'jwt';
@@ -22,19 +23,26 @@ export class JwtMiddleware implements IMiddleware<Context, NextFunction> {
 
   public resolve() {
     return async (ctx: Context, next: NextFunction) => {
-      const { path, header } = ctx;
-      const [, token] = header.authorization?.trim().split(' ') || ['', ''];
-      const ignore = this.pathToRegexp.pathMatch(this.whitelist, path, false);
+      const { path } = ctx;
+      const [, token] = ctx.get('authorization')?.trim().split(' ') || ['', ''];
+      const ignore = this.pathToRegexp.pathMatch(
+        this.jwtConfig.whitelist,
+        path,
+        false
+      );
       if (!token && !ignore) {
-        throw new MidwayHttpError('请先登录', 401);
+        throw new httpError.UnauthorizedError();
       }
       try {
-        const user = this.jwt.verify(token);
+        const user = await this.jwtService.verify(
+          token,
+          this.jwtConfig.verifyOptions
+        );
         ctx.state.token = token;
         ctx.state.user = user;
       } catch (error) {
         if (!ignore) {
-          throw new MidwayHttpError('登录失效', 401);
+          throw new httpError.UnauthorizedError();
         }
       }
       await next();
