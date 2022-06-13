@@ -29,7 +29,7 @@
 - 单元测试
   - [x] controller
   - [x] service
-  - [ ] task
+  - [x] task
 
 ## 使用
 

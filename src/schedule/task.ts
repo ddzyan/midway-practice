@@ -1,14 +1,18 @@
 import { Inject, Provide, TaskLocal } from '@midwayjs/decorator';
 import { Context } from '@midwayjs/koa';
+import { UserService } from '@/app/service/user';
 
 @Provide()
 export class TaskService {
   @Inject()
   ctx: Context;
 
+  @Inject()
+  userService: UserService;
+
   // 例如下面是每秒钟执行一次
-  @TaskLocal('* * 1 * * *')
+  @TaskLocal('* * * * * *')
   async test() {
-    this.ctx.logger.info('hello word');
+    console.log(this.userService.getName());
   }
 }

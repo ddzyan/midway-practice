@@ -19,4 +19,8 @@ export class UserService extends BaseService {
 
     return res;
   }
+
+  getName() {
+    return 'user';
+  }
 }
