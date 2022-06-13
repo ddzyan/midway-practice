@@ -14,8 +14,8 @@ export class JwtMiddleware implements IMiddleware<Context, NextFunction> {
   @Inject()
   private pathToRegexp: PathToRegexp;
 
-  @Config('jwt')
-  private jwtConfig;
+  @Config('jwtWhitelist')
+  private whitelist;
 
   public static getName(): string {
     return 'jwt';
@@ -25,19 +25,12 @@ export class JwtMiddleware implements IMiddleware<Context, NextFunction> {
     return async (ctx: Context, next: NextFunction) => {
       const { path } = ctx;
       const [, token] = ctx.get('authorization')?.trim().split(' ') || ['', ''];
-      const ignore = this.pathToRegexp.pathMatch(
-        this.jwtConfig.whitelist,
-        path,
-        false
-      );
+      const ignore = this.pathToRegexp.pathMatch(this.whitelist, path, false);
       if (!token && !ignore) {
         throw new httpError.UnauthorizedError();
       }
       try {
-        const user = await this.jwtService.verify(
-          token,
-          this.jwtConfig.verifyOptions
-        );
+        const user = await this.jwtService.verify(token, { complete: true });
         ctx.state.token = token;
         ctx.state.user = user;
       } catch (error) {

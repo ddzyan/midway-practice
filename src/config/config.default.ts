@@ -14,9 +14,8 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
   config.jwt = {
     secret: '123456',
     expiresIn: 1000 * 60 * 60 * 24,
-    verifyOptions: { complete: true },
-    whitelist: ['/swagger-ui', '/auth/login', '/github'],
   };
+  config.jwtWhitelist = ['/swagger-ui', '/api/admin/login'];
   config.cors = {
     allowHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
     allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
