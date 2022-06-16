@@ -5,26 +5,11 @@ import { testConfig } from '../root.config';
 
 const filename = relative(process.cwd(), __filename).replace(/\\/gu, '/');
 describe(filename, () => {
-  describe('test home', () => {
-    it('should GET /api', async () => {
-      const { httpRequest } = testConfig;
-      const result = await httpRequest.get('/api');
+  it('should GET /api', async () => {
+    const { httpRequest } = testConfig;
+    const result = await httpRequest.get('/api');
 
-      assert.equal(result.status, 200);
-      assert.equal(result.body.data, 'Hello Midwayjs!');
-    });
-  });
-
-  describe('test user', () => {
-    it('should GET /api/user', async () => {
-      const { httpRequest } = testConfig;
-      const result = await httpRequest
-        .get('/api/user')
-        .query({ page: 1, limit: 10 });
-
-      assert.equal(result.status, 200);
-      assert.equal(result.body.data.count, 1);
-      assert.equal(result.body.data.rows.length, 1);
-    });
+    assert.equal(result.status, 200);
+    assert.equal(result.body.data, 'Hello Midwayjs!');
   });
 });
