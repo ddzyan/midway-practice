@@ -23,10 +23,11 @@ export class RequestIdMiddleware implements IMiddleware<Context, NextFunction> {
         reqId = koid.idGenerator.toString();
         ctx.reqId = reqId;
       }
-
+      const startTime = Date.now();
       ctx.set(key, reqId);
-
       await next();
+      const reportTime = Date.now() - startTime;
+      ctx.set('X-Response-Time', reportTime.toString());
     };
   }
 

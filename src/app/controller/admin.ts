@@ -15,8 +15,8 @@ import { AdminLoginDTO } from '@/app/dto/admin';
 
 @Provide()
 @Controller('/admin', {
-  tagName: '管理员接口',
-  description: '管理员接口',
+  tagName: 'Admin',
+  description: '后台登录控制器',
 })
 export class AdminController extends BaseController {
   @Inject()

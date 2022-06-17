@@ -18,8 +18,8 @@ import { BaseController } from '../../core/baseController';
 
 @Provide()
 @Controller('/classroom', {
-  tagName: '班级接口',
-  description: 'Classroom Router',
+  tagName: 'Classroom',
+  description: '班级管理控制器',
 })
 export class ClassroomController extends BaseController {
   @Inject()
