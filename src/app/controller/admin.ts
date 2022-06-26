@@ -13,7 +13,6 @@ import { BaseController } from '@/core/baseController';
 import { Validate } from '@midwayjs/validate';
 import { AdminLoginDTO } from '@/app/dto/admin';
 
-@Provide()
 @Controller('/admin', {
   tagName: 'Admin',
   description: '后台登录控制器',

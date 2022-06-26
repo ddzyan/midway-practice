@@ -14,7 +14,6 @@ import { QueryParamDTO } from '../dto/base';
 import { UserService } from '../service/user';
 import { BaseController } from '../../core/baseController';
 
-@Provide()
 @Controller('/user', { tagName: 'User', description: '用户管理控制器' })
 export class UserController extends BaseController {
   @Inject()

@@ -16,7 +16,6 @@ import { QueryParamDTO } from '../dto/base';
 import { ClassroomService } from '../service/classroom';
 import { BaseController } from '../../core/baseController';
 
-@Provide()
 @Controller('/classroom', {
   tagName: 'Classroom',
   description: '班级管理控制器',
