@@ -1,11 +1,4 @@
-import {
-  Inject,
-  Controller,
-  Provide,
-  Post,
-  ALL,
-  Body,
-} from '@midwayjs/decorator';
+import { Inject, Controller, Post, ALL, Body } from '@midwayjs/decorator';
 import { AdminService } from '@/app/service/admin';
 
 import { BaseController } from '@/core/baseController';

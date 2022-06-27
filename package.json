@@ -33,6 +33,8 @@
     "tsconfig-paths": "^4.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "@midwayjs/cli": "^1.3.6",
     "@midwayjs/luckyeye": "^1.0.3",
     "@midwayjs/mock": "^3.0.0",
@@ -47,6 +49,7 @@
     "cross-env": "^7.0.3",
     "egg-mock": "^4.2.0",
     "eslint": "^7.5.0",
+    "husky": "^8.0.0",
     "intelli-espower-loader": "^1.1.0",
     "jest": "^27.4.5",
     "mocha": "^10.0.0",
@@ -71,7 +74,8 @@
     "ci": "npm run cov",
     "build": "midway-bin build -c",
     "check": "luckyeye",
-    "clear": "rm -rf ./logs ./run ./dist"
+    "clear": "rm -rf ./logs ./run ./dist",
+    "prepare": "husky install"
   },
   "midway-bin-clean": [
     ".vscode/.tsbuildinfo",

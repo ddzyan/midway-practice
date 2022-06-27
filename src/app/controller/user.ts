@@ -2,7 +2,6 @@ import { Validate } from '@midwayjs/validate';
 import {
   Inject,
   Controller,
-  Provide,
   Query,
   ALL,
   Get,
