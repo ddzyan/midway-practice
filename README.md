@@ -30,6 +30,9 @@
   - [x] controller
   - [x] service
   - [x] task
+- 工程化
+  - [x] 添加 husky
+    - 提交检查 commit 格式，运行单元测试和代码格式检查
 
 ## 使用
 
