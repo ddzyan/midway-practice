@@ -14,8 +14,6 @@ import * as koid from '@mw-components/koid';
 import * as redis from '@midwayjs/redis';
 import * as sequlize from '@midwayjs/sequelize';
 import { join } from 'path';
-import * as dayjs from 'dayjs';
-import * as lodash from 'lodash';
 import * as jwt from '@midwayjs/jwt';
 
 import { RequestIdMiddleware } from './middleware/requestId';
@@ -54,9 +52,6 @@ export class ContainerLifeCycle implements ILifeCycle {
       JwtMiddleware,
     ]);
     this.app.useFilter([NotFoundFilter]);
-
-    applicationContext.registerObject('dayjs', dayjs);
-    applicationContext.registerObject('lodash', lodash);
   }
 
   async onStop(): Promise<void> {}
