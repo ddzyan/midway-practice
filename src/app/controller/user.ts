@@ -41,4 +41,13 @@ export class UserController extends BaseController {
     const res = await this.service.create(createParams);
     return this.success(res);
   }
+
+  @Get('/number', {
+    summary: '获取用户数量',
+  })
+  @Validate()
+  async getNumberUser() {
+    const res = await this.service.getNumberUser();
+    return this.success(res);
+  }
 }
