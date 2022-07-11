@@ -67,7 +67,7 @@
     "start": "NODE_ENV=production node ./bootstrap.js",
     "start_build": "npm run build && cross-env NODE_ENV=development midway-bin dev",
     "dev": "cross-env NODE_ENV=local midway-bin dev --ts",
-    "test": "midway-bin test --ts --mocha --parallel=false",
+    "test": "midway-bin test --ts --mocha",
     "cov": "midway-bin cov --ts",
     "lint": "mwts check",
     "lint:fix": "mwts fix",
