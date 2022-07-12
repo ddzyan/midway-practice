@@ -2,6 +2,7 @@ import { Provide, Inject } from '@midwayjs/decorator';
 
 import { UserMapping } from '../mapping/user';
 import { BaseService } from '@/core/baseService';
+import { QueryTypes } from 'sequelize';
 
 @Provide()
 export class UserService extends BaseService {
@@ -18,6 +19,14 @@ export class UserService extends BaseService {
     );
 
     return res;
+  }
+
+  async getNumberUser() {
+    const res = await this.mapping.queryRaw(
+      'select count(1) as totalUser from user;',
+      { type: QueryTypes.SELECT }
+    );
+    return res[0];
   }
 
   getName() {

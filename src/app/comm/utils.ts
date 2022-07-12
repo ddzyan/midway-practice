@@ -1,45 +1,40 @@
-import { Provide, Inject, Scope, ScopeEnum } from '@midwayjs/decorator';
-
+import { Provide, Scope, ScopeEnum } from '@midwayjs/decorator';
+import * as _ from 'lodash';
 import BigNumber from 'bignumber.js';
+import * as dayjs from 'dayjs';
 
 const DATE_FORMATE = 'YYYY-MM-DD HH:mm:ss';
 
 @Provide()
 @Scope(ScopeEnum.Singleton)
 export default class Utils {
-  @Inject('dayjs')
-  dayjsTool;
-
-  @Inject('lodash')
-  lodash;
-
   isEmpty(value?) {
-    return this.lodash.isEmpty(value);
+    return _.isEmpty(value);
   }
 
   isNotEmpty(value?) {
-    return !this.lodash.isEmpty(value);
+    return !_.isEmpty(value);
   }
 
   getDateNow(): string {
-    const dateStr: string = this.dayjsTool().format(DATE_FORMATE);
+    const dateStr: string = dayjs().format(DATE_FORMATE);
     return dateStr;
   }
 
   getDateEndTime(time?): string {
-    return this.dayjsTool(time).endOf('day').format(DATE_FORMATE);
+    return dayjs(time).endOf('day').format(DATE_FORMATE);
   }
 
   getDateStartTime(time?): string {
-    return this.dayjsTool(time).startOf('day').format(DATE_FORMATE);
+    return dayjs(time).startOf('day').format(DATE_FORMATE);
   }
 
   getDateSeconds(time?): number {
-    return this.dayjsTool(time).unix();
+    return dayjs(time).unix();
   }
 
   getDateNowAdd8hours(time?): Date {
-    const dateStr: Date = this.dayjsTool(time).add(8, 'hour').toDate();
+    const dateStr: Date = dayjs(time).add(8, 'hour').toDate();
     return dateStr;
   }
 

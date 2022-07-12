@@ -99,4 +99,9 @@ export abstract class BaseMapping {
     );
     return res;
   }
+
+  async queryRaw(sqlStr: string, option?: any) {
+    const res = await this.entity.sequelize.query(sqlStr, option);
+    return res;
+  }
 }
