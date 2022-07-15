@@ -1,8 +1,7 @@
-import { Inject, Controller, Post, ALL, Body } from '@midwayjs/decorator';
+import { Inject, Controller, Post, Body } from '@midwayjs/decorator';
+
 import { AdminService } from '@/app/service/admin';
-
 import { BaseController } from '@/core/baseController';
-
 import { Validate } from '@midwayjs/validate';
 import { AdminLoginDTO } from '@/app/dto/admin';
 
@@ -17,7 +16,7 @@ export class AdminController extends BaseController {
   @Validate()
   @Post('/login', { summary: '管理员登录' })
   async login(
-    @Body(ALL)
+    @Body()
     param: AdminLoginDTO
   ) {
     const res = await this.adminService.login(param);

@@ -3,7 +3,6 @@ import {
   Inject,
   Controller,
   Query,
-  ALL,
   Get,
   Post,
   Body,
@@ -21,7 +20,7 @@ export class UserController extends BaseController {
   @Get('/', { summary: '分页获取用户列表', description: '' })
   @Validate()
   async index(
-    @Query(ALL)
+    @Query()
     queryParam: QueryParamDTO
   ) {
     const { page, limit } = queryParam;
@@ -35,7 +34,7 @@ export class UserController extends BaseController {
   })
   @Validate()
   async create(
-    @Body(ALL)
+    @Body()
     createParams: CreateUserInput
   ) {
     const res = await this.service.create(createParams);
