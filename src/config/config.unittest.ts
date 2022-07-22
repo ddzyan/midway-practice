@@ -16,13 +16,15 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     },
   };
   config.sequelize = {
-    options: {
-      database: 'test',
-      username: 'root',
-      password: 'B9tiNZ7dXrk2qwr6',
-      host: '127.0.0.1',
-      port: 13306,
-      logging: false,
+    dataSource: {
+      default: {
+        database: 'test',
+        username: 'root',
+        password: 'B9tiNZ7dXrk2qwr6',
+        host: '127.0.0.1',
+        port: 13306,
+        logging: true,
+      },
     },
   };
   return config;

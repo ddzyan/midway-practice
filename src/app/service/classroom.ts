@@ -1,4 +1,5 @@
 import { Provide, Inject } from '@midwayjs/decorator';
+import { SequelizeDataSourceManager } from '@midwayjs/sequelize';
 
 import { BaseService } from '@/core/baseService';
 import { ClassroomMapping } from '../mapping/classroom';
@@ -10,10 +11,15 @@ export class ClassroomService extends BaseService {
   protected mapping: ClassroomMapping;
 
   @Inject()
+  private sequelizeDataSourceManager: SequelizeDataSourceManager;
+
+  @Inject()
   protected userMapping: UserMapping;
 
   async destroyClassroomAndUser(classroomId: number) {
-    const t = await this.mapping.getTransaction();
+    const t = await this.sequelizeDataSourceManager
+      .getDataSource('default')
+      .transaction();
     try {
       await this.mapping.destroy({ id: classroomId }, t);
       await this.userMapping.destroy({ classroomId }, t);

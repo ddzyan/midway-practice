@@ -1,9 +1,8 @@
-import { Column, DataType } from 'sequelize-typescript';
-import { BaseTable } from '@midwayjs/sequelize';
+import { Column, DataType, Table } from 'sequelize-typescript';
 import { BaseEntity } from '@/core/baseEntity';
 import * as bcrypt from 'bcryptjs';
 
-@BaseTable({
+@Table({
   modelName: 'admin',
 })
 export class AdminEntity extends BaseEntity {

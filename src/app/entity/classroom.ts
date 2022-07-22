@@ -1,9 +1,8 @@
-import { Column, DataType } from 'sequelize-typescript';
-import { BaseTable } from '@midwayjs/sequelize';
+import { Column, DataType, Table } from 'sequelize-typescript';
 
 import { BaseEntity } from '../../core/baseEntity';
 
-@BaseTable({
+@Table({
   modelName: 'classroom',
 })
 export class ClassroomEntity extends BaseEntity {

@@ -4,14 +4,14 @@ import {
   HasOne,
   HasMany,
   ForeignKey,
+  Table,
 } from 'sequelize-typescript';
-import { BaseTable } from '@midwayjs/sequelize';
 
 import { BaseEntity } from '../../core/baseEntity';
 import { ClassroomEntity } from './classroom';
 import { ParentInfoEntity } from './parentInfo';
 
-@BaseTable({
+@Table({
   modelName: 'user',
 })
 export class UserEntity extends BaseEntity {

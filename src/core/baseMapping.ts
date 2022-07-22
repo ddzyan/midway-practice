@@ -6,12 +6,7 @@ export abstract class BaseMapping {
   @Inject()
   ctx: Context;
 
-  protected abstract entity;
-
-  async getTransaction() {
-    const t = await this.entity.sequelize.transaction();
-    return t;
-  }
+  protected repository;
 
   async execSql(func) {
     try {
@@ -36,13 +31,13 @@ export abstract class BaseMapping {
   }
 
   async saveNew(createParams) {
-    const res = await this.execSql(this.entity.create(createParams));
+    const res = await this.execSql(this.repository.create(createParams));
     return res;
   }
 
   async findOne(where, options = {}) {
     const res = await this.execSql(
-      this.entity.findOne({
+      this.repository.findOne({
         where,
         order: [['createdAt', 'desc']],
         ...options,
@@ -53,7 +48,7 @@ export abstract class BaseMapping {
 
   async findAll(where = {}, options = {}) {
     const res = await this.execSql(
-      this.entity.findAll({
+      this.repository.findAll({
         where,
         ...options,
         order: [['createdAt', 'desc']],
@@ -63,14 +58,16 @@ export abstract class BaseMapping {
   }
 
   async findByPk(id: number, options = {}) {
-    const res = await this.execSql(this.entity.findByPk(id, { ...options }));
+    const res = await this.execSql(
+      this.repository.findByPk(id, { ...options })
+    );
     return res;
   }
 
   async findAndCountAll(page: number, limit: number, where = {}) {
     const offset = (page - 1) * limit;
     const res = await this.execSql(
-      this.entity.findAndCountAll({
+      this.repository.findAndCountAll({
         where,
         limit,
         offset: offset > 0 ? offset : 0,
@@ -82,7 +79,7 @@ export abstract class BaseMapping {
 
   async modify(updateParams, where, options = {}) {
     const [effect] = await this.execSql(
-      this.entity.update(updateParams, {
+      this.repository.update(updateParams, {
         where,
         ...options,
       })
@@ -92,7 +89,7 @@ export abstract class BaseMapping {
 
   async destroy(where, options = {}) {
     const res = await this.execSql(
-      this.entity.destroy({
+      this.repository.destroy({
         where,
         ...options,
       })
@@ -101,7 +98,7 @@ export abstract class BaseMapping {
   }
 
   async queryRaw(sqlStr: string, option?: any) {
-    const res = await this.entity.sequelize.query(sqlStr, option);
+    const res = await this.repository.sequelize.query(sqlStr, option);
     return res;
   }
 }

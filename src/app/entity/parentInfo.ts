@@ -1,10 +1,15 @@
-import { Column, DataType, BelongsTo, ForeignKey } from 'sequelize-typescript';
-import { BaseTable } from '@midwayjs/sequelize';
+import {
+  Column,
+  DataType,
+  BelongsTo,
+  ForeignKey,
+  Table,
+} from 'sequelize-typescript';
 
 import { UserEntity } from './user';
 import { BaseEntity } from '../../core/baseEntity';
 
-@BaseTable({
+@Table({
   modelName: 'parent_info',
 })
 export class ParentInfoEntity extends BaseEntity {
