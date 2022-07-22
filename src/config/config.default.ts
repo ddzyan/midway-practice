@@ -1,8 +1,4 @@
 import { MidwayAppInfo, MidwayConfig } from '@midwayjs/core';
-import { UserEntity } from '../app/entity/user';
-import { AdminEntity } from '../app/entity/admin';
-import { ParentInfoEntity } from '../app/entity/parentInfo';
-import { ClassroomEntity } from '../app/entity/classroom';
 
 export default (appInfo: MidwayAppInfo): MidwayConfig => {
   const config = {} as MidwayConfig;
@@ -67,7 +63,7 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
           bigNumberStrings: true, // bigInt和decimal 以字符串返回
         },
         sync: false, // 本地的时候，可以通过sync: true直接createTable
-        entities: [UserEntity, AdminEntity, ParentInfoEntity, ClassroomEntity],
+        entities: ['/app/entity'],
       },
     },
   };
