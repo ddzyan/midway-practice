@@ -9,7 +9,7 @@ import { ParentInfoEntity } from '../entity/parentInfo';
 import { BaseMapping } from '@/core/baseMapping';
 
 @Provide()
-export class UserMapping extends BaseMapping {
+export class UserMapping extends BaseMapping<UserEntity> {
   @InjectRepository(UserEntity)
   repository: Repository<UserEntity>;
 
@@ -41,37 +41,5 @@ export class UserMapping extends BaseMapping {
 
     const { rows, count } = res;
     return { rows, count };
-  }
-
-  async destroy(where, options = {}) {
-    const res = await this.repository.destroy({
-      where,
-      ...options,
-    });
-
-    return res;
-  }
-
-  async queryRaw(sqlStr: string, option?: any) {
-    const res = await this.sequelizeDataSourceManager
-      .getDataSource('default')
-      .query(sqlStr, option);
-    return res;
-  }
-
-  async findAndCountAll(page: number, limit: number, where = {}) {
-    const offset = (page - 1) * limit;
-
-    try {
-      const res = await this.repository.findAndCountAll({
-        where,
-        limit,
-        offset: offset > 0 ? offset : 0,
-        order: [['createdAt', 'desc']],
-      });
-      return res;
-    } catch (error) {
-      console.log(error);
-    }
   }
 }

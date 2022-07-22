@@ -24,13 +24,4 @@ export class ClassroomMapping extends BaseMapping {
 
     return { data, count };
   }
-
-  async destroy(where, options = {}) {
-    const res = await this.repository.destroy({
-      where,
-      ...options,
-    });
-
-    return res;
-  }
 }
