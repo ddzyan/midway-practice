@@ -31,8 +31,8 @@ export abstract class BaseMapping<T extends Model = Model> {
     }
   }
 
-  async saveNew(createParams) {
-    const res = await this.repository.create(createParams);
+  async saveNew(param) {
+    const res = await this.repository.create(param);
     return res;
   }
 

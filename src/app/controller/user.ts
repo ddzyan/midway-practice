@@ -17,7 +17,7 @@ export class UserController extends BaseController {
   @Inject()
   protected service: UserService;
 
-  @Get('/', { summary: '分页获取用户列表', description: '' })
+  @Get('/', { summary: '分页获取用户列表' })
   @Validate()
   async index(
     @Query()

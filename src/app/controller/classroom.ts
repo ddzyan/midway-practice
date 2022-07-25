@@ -22,7 +22,7 @@ export class ClassroomController extends BaseController {
   @Inject()
   protected service: ClassroomService;
 
-  @Post('/', { summary: '添加班级', description: '' })
+  @Post('/', { summary: '添加班级' })
   @Validate()
   async create(
     @Body()
@@ -32,7 +32,7 @@ export class ClassroomController extends BaseController {
     return classroom;
   }
 
-  @Get('/', { summary: '分页获取班级列表', description: '' })
+  @Get('/', { summary: '分页获取班级列表' })
   @Validate()
   async index(
     @Query()
