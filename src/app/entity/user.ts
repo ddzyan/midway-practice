@@ -5,16 +5,17 @@ import {
   HasMany,
   ForeignKey,
   Table,
+  Model,
 } from 'sequelize-typescript';
 
-import { BaseEntity } from '../../core/baseEntity';
 import { ClassroomEntity } from './classroom';
 import { ParentInfoEntity } from './parentInfo';
 
 @Table({
   modelName: 'user',
+  timestamps: true,
 })
-export class UserEntity extends BaseEntity {
+export class UserEntity extends Model {
   @Column({
     type: DataType.BIGINT({
       length: 10,

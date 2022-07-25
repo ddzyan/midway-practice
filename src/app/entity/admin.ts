@@ -1,11 +1,11 @@
-import { Column, DataType, Table } from 'sequelize-typescript';
-import { BaseEntity } from '@/core/baseEntity';
+import { Column, DataType, Table, Model } from 'sequelize-typescript';
 import * as bcrypt from 'bcryptjs';
 
 @Table({
   modelName: 'admin',
+  timestamps: true,
 })
-export class AdminEntity extends BaseEntity {
+export class AdminEntity extends Model {
   @Column({
     type: DataType.INTEGER({
       length: 11,

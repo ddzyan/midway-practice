@@ -4,15 +4,16 @@ import {
   BelongsTo,
   ForeignKey,
   Table,
+  Model,
 } from 'sequelize-typescript';
 
 import { UserEntity } from './user';
-import { BaseEntity } from '../../core/baseEntity';
 
 @Table({
   modelName: 'parent_info',
+  timestamps: true,
 })
-export class ParentInfoEntity extends BaseEntity {
+export class ParentInfoEntity extends Model {
   @Column({
     type: DataType.BIGINT({
       length: 10,

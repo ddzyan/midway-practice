@@ -1,11 +1,10 @@
-import { Column, DataType, Table } from 'sequelize-typescript';
-
-import { BaseEntity } from '../../core/baseEntity';
+import { Column, DataType, Table, Model } from 'sequelize-typescript';
 
 @Table({
   modelName: 'classroom',
+  timestamps: true,
 })
-export class ClassroomEntity extends BaseEntity {
+export class ClassroomEntity extends Model {
   @Column({
     type: DataType.BIGINT({
       length: 10,
