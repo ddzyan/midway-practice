@@ -7,7 +7,7 @@ import { UserService } from '../../src/app/service/user';
 const filename = relative(process.cwd(), __filename).replace(/\\/gu, '/');
 
 describe(filename, () => {
-  it('should GET /api/user', async () => {
+  it('should getUserList', async () => {
     const userService = await testConfig.app
       .getApplicationContext()
       .getAsync<UserService>(UserService);
