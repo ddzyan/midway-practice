@@ -70,11 +70,9 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
   config.koa = {
     contextLoggerFormat: info => {
       const ctx = info.ctx;
-      return `${info.timestamp} ${info.LEVEL} ${info.pid} [${ctx.reqId} ${
-        ctx.userId
-      } - ${Date.now() - ctx.startTime}ms ${ctx.method} ${ctx.url}] ${
-        info.message
-      }`;
+      return `${info.timestamp} ${info.LEVEL} ${info.pid} [${ctx.reqId} - ${
+        Date.now() - ctx.startTime
+      }ms ${ctx.method} ${ctx.url}] ${info.message}`;
     },
     port: 7001,
     globalPrefix: '/api',

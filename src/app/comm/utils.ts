@@ -2,12 +2,21 @@ import { Provide, Scope, ScopeEnum } from '@midwayjs/decorator';
 import * as _ from 'lodash';
 import BigNumber from 'bignumber.js';
 import * as dayjs from 'dayjs';
+import * as randomstring from 'randomstring';
 
 const DATE_FORMATE = 'YYYY-MM-DD HH:mm:ss';
 
 @Provide()
 @Scope(ScopeEnum.Singleton)
 export default class Utils {
+  getRandom(length = 15, charset = 'alphabetic') {
+    const randomString = randomstring.generate({
+      length,
+      charset,
+    });
+    return randomString;
+  }
+
   isEmpty(value?) {
     return _.isEmpty(value);
   }

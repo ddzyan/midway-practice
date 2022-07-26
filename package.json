@@ -28,6 +28,7 @@
     "lodash": "^4.17.21",
     "mysql2": "^2.3.3",
     "path-to-regexp": "^6.2.1",
+    "randomstring": "^1.2.2",
     "sequelize": "^6.21.3",
     "tsconfig-paths": "^4.0.0"
   },
