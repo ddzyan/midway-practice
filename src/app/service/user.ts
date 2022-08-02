@@ -1,8 +1,8 @@
 import { Provide, Inject } from '@midwayjs/decorator';
+import { QueryTypes } from 'sequelize';
 
 import { UserMapping } from '../mapping/user';
-import { BaseService } from '@/core/baseService';
-import { QueryTypes } from 'sequelize';
+import { BaseService } from '../../core/baseService';
 
 @Provide()
 export class UserService extends BaseService {

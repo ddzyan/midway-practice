@@ -3,7 +3,6 @@ full-trace: true
 enable-source-maps: true
 require:
   - intelli-espower-loader
-  - tsconfig-paths/register.js
   - test/root.hooks.ts
 spec:
   - test/**/*.test.ts

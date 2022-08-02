@@ -3,7 +3,7 @@ import { InjectRepository } from '@midwayjs/sequelize';
 import { Repository } from 'sequelize-typescript';
 
 import { ClassroomEntity } from '../entity/classroom';
-import { BaseMapping } from '@/core/baseMapping';
+import { BaseMapping } from '../../core/baseMapping';
 
 @Provide()
 export class ClassroomMapping extends BaseMapping {

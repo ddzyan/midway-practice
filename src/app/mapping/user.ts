@@ -1,12 +1,12 @@
 import { Provide, Inject } from '@midwayjs/decorator';
 import { InjectRepository } from '@midwayjs/sequelize';
 import { Repository } from 'sequelize-typescript';
-
 import { SequelizeDataSourceManager } from '@midwayjs/sequelize';
+
 import { UserEntity } from '../entity/user';
 import { ClassroomEntity } from '../entity/classroom';
 import { ParentInfoEntity } from '../entity/parentInfo';
-import { BaseMapping } from '@/core/baseMapping';
+import { BaseMapping } from '../../core/baseMapping';
 
 @Provide()
 export class UserMapping extends BaseMapping<UserEntity> {

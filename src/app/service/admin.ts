@@ -2,10 +2,10 @@ import { Provide, Inject } from '@midwayjs/decorator';
 import { JwtService } from '@midwayjs/jwt';
 
 import { AdminMapping } from '../mapping/admin';
-import { BaseService } from '@/core/baseService';
-import { AdminLoginDTO } from '@/app/dto/admin';
-import MyError from '@/app/comm/myError';
-import Crypto from '@/app/comm/crypto';
+import { BaseService } from '../../core/baseService';
+import { AdminLoginDTO } from '../../app/dto/admin';
+import MyError from '../../app/comm/myError';
+import Crypto from '../../app/comm/crypto';
 
 enum AdminStaus {
   NORMAL = 1,

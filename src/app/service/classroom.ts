@@ -1,7 +1,7 @@
 import { Provide, Inject } from '@midwayjs/decorator';
 import { SequelizeDataSourceManager } from '@midwayjs/sequelize';
 
-import { BaseService } from '@/core/baseService';
+import { BaseService } from '../../core/baseService';
 import { ClassroomMapping } from '../mapping/classroom';
 import { UserMapping } from '../mapping/user';
 

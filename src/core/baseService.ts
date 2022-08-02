@@ -1,12 +1,12 @@
 import { App, Inject } from '@midwayjs/decorator';
-import * as koa from '@midwayjs/koa';
+import { Application, Context } from '@midwayjs/koa';
 
 export abstract class BaseService {
   @App()
-  protected app: koa.Application;
+  protected app: Application;
 
   @Inject()
-  protected ctx: koa.Context;
+  protected ctx: Context;
 
   protected mapping;
 

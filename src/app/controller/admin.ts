@@ -1,9 +1,9 @@
 import { Inject, Controller, Post, Body } from '@midwayjs/decorator';
-
-import { AdminService } from '@/app/service/admin';
-import { BaseController } from '@/core/baseController';
 import { Validate } from '@midwayjs/validate';
-import { AdminLoginDTO } from '@/app/dto/admin';
+
+import { AdminService } from '../../app/service/admin';
+import { BaseController } from '../../core/baseController';
+import { AdminLoginDTO } from '../../app/dto/admin';
 
 @Controller('/admin', {
   tagName: 'Admin',
