@@ -1,4 +1,5 @@
 import { MidwayAppInfo, MidwayConfig } from '@midwayjs/core';
+import { join } from 'path';
 
 export default (appInfo: MidwayAppInfo): MidwayConfig => {
   const config = {} as MidwayConfig;
@@ -77,5 +78,16 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     port: 7001,
     globalPrefix: '/api',
   };
+
+  config.grpc = {
+    services: [
+      {
+        url: 'email.dev.cryptomint.space',
+        protoPath: join(appInfo.appDir, 'proto/email.proto'),
+        package: 'email',
+      },
+    ],
+  };
+
   return config;
 };

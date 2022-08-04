@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package email;
+
+// 服务的定义
+service Email {
+  // Sends a greeting
+  rpc sendEmail (SendEmailRequest) returns (SendEmailReply) {}
+
+  rpc getVerificationCode (GetVerificationCodeRequest) returns (GetVerificationCodeReply) {}
+}
+
+message SendEmailRequest {
+  string emailType = 1;
+  string toEmailAddress = 2;
+  string cacheValue = 3;
+  string content = 4;
+  ReplaceContent replaceContent = 5;
+}
+
+message ReplaceContent {
+  string content = 1;
+  string recommendCode = 2;
+}
+
+message SendEmailReply {
+  string code = 1;
+}
+
+
+message GetVerificationCodeRequest {
+  string emailType = 1;
+  string cacheValue = 2;
+}
+
+message GetVerificationCodeReply {
+  string code = 1;
+}
+

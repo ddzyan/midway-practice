@@ -6,7 +6,7 @@ import { ClassroomService } from '../../src/app/service/classroom';
 
 const filename = relative(process.cwd(), __filename).replace(/\\/gu, '/');
 
-describe(filename, () => {
+describe.skip(filename, () => {
   it('should create', async () => {
     const classroomService = await testConfig.app
       .getApplicationContext()
