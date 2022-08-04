@@ -5,7 +5,7 @@ import cases from '../cases';
 import { EmailService } from '../../src/app/service/email';
 
 const filename = relative(process.cwd(), __filename).replace(/\\/gu, '/');
-describe(filename, () => {
+describe.skip(filename, () => {
   cases.forEach(esac => {
     it(esac.name, async () => {
       const emailService = await testConfig.app
