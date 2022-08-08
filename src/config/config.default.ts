@@ -82,7 +82,7 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
   config.grpc = {
     services: [
       {
-        url: 'email.dev.cryptomint.space',
+        url: 'localhost:6565',
         protoPath: join(appInfo.appDir, 'proto/email.proto'),
         package: 'email',
       },

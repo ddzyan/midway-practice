@@ -21,12 +21,16 @@ export class EmailService {
   // 发送邮件
   async sendEmail(param: ISendEmailParam): Promise<string> {
     const { emailType, toEmailAddress, replaceContent, cacheValue } = param;
-    const result = await this.emailGrpcService.sendEmail().sendMessage({
-      emailType,
-      toEmailAddress,
-      replaceContent,
-      cacheValue,
-    });
+    const result = await this.emailGrpcService
+      .sendEmail({
+        timeout: 5000,
+      })
+      .sendMessage({
+        emailType,
+        toEmailAddress,
+        replaceContent,
+        cacheValue,
+      });
 
     // 返回结果
     return result.code;
@@ -36,7 +40,9 @@ export class EmailService {
   async getVerificationCode(param: IGetVerificationCode): Promise<string> {
     const { emailType, cacheValue } = param;
     const result = await this.emailGrpcService
-      .getVerificationCode()
+      .getVerificationCode({
+        timeout: 5000,
+      })
       .sendMessage({
         emailType,
         cacheValue,

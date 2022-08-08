@@ -1,4 +1,5 @@
 import { MidwayConfig, MidwayAppInfo } from '@midwayjs/core';
+import { join } from 'path';
 
 export default (appInfo: MidwayAppInfo): MidwayConfig => {
   const config = {} as MidwayConfig;
@@ -9,12 +10,14 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
       db: 0,
     },
   };
+
   config.task = {
     redis: {
       port: 16379,
       host: '127.0.0.1',
     },
   };
+
   config.sequelize = {
     dataSource: {
       default: {
@@ -26,6 +29,16 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
         logging: true,
       },
     },
+  };
+
+  config.grpc = {
+    services: [
+      {
+        url: 'localhost:6565',
+        protoPath: join(appInfo.appDir, 'proto/email.proto'),
+        package: 'email',
+      },
+    ],
   };
   return config;
 };
