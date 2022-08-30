@@ -3,11 +3,11 @@ import { JwtService } from '@midwayjs/jwt';
 
 import { AdminMapping } from '../mapping/admin';
 import { BaseService } from '../../core/baseService';
-import { AdminLoginDTO } from '../../app/dto/admin';
+import { AdminLoginDTO } from '../../app/model/dto/admin';
 import MyError from '../../app/comm/myError';
 import Crypto from '../../app/comm/crypto';
 
-enum AdminStaus {
+enum ADMIN_STATUS {
   NORMAL = 1,
   BAN = -1,
 }
@@ -36,7 +36,7 @@ export class AdminService extends BaseService {
       throw new MyError('用户不存在');
     }
 
-    if (admin.status === AdminStaus.BAN) {
+    if (admin.status === ADMIN_STATUS.BAN) {
       throw new MyError('账户未激活或被禁用');
     }
     const correct = this.crypto.compareSync(pwd, admin.pwd);
