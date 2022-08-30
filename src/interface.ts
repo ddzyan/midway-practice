@@ -18,3 +18,8 @@ export interface IGetUserResponse {
 export interface IAccessLogConfig {
   ignore: RegExp[];
 }
+
+export interface IImageCaptchaResult {
+  img: string;
+  id: string;
+}

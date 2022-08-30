@@ -30,6 +30,7 @@
     "path-to-regexp": "^6.2.1",
     "randomstring": "^1.2.2",
     "sequelize": "^6.21.4",
+    "svg-captcha": "^1.4.0",
     "tsconfig-paths": "^4.1.0"
   },
   "devDependencies": {

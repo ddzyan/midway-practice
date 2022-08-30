@@ -8,7 +8,7 @@ const DATE_FORMATE = 'YYYY-MM-DD HH:mm:ss';
 
 @Provide()
 @Scope(ScopeEnum.Singleton)
-export default class Utils {
+export class Utils {
   getRandom(length = 15, charset = 'alphabetic') {
     const randomString = randomstring.generate({
       length,

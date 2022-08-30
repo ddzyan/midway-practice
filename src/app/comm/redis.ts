@@ -3,7 +3,7 @@ import { RedisService } from '@midwayjs/redis';
 
 @Provide()
 @Scope(ScopeEnum.Singleton) // 单例
-class RedisUtils {
+export class Redis {
   @Inject()
   private redis: RedisService;
 
@@ -47,6 +47,12 @@ class RedisUtils {
 
     return await this.redis.get(key);
   }
-}
 
-export default RedisUtils;
+  public async delKey(key: string) {
+    if (!key) {
+      return null;
+    }
+
+    return await this.redis.del(key);
+  }
+}
