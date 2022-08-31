@@ -3,7 +3,7 @@ import { Validate } from '@midwayjs/validate';
 
 import { AdminService } from '../../app/service/admin';
 import { BaseController } from '../../core/baseController';
-import { AdminLoginDTO } from '../../app/dto/admin';
+import { AdminLoginDTO } from '../../app/model/dto/admin';
 
 @Controller('/admin', {
   tagName: 'Admin',
