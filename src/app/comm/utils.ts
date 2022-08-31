@@ -1,14 +1,55 @@
-import { Provide, Scope, ScopeEnum } from '@midwayjs/decorator';
+import { Provide, Scope, ScopeEnum, Inject } from '@midwayjs/decorator';
 import * as _ from 'lodash';
 import BigNumber from 'bignumber.js';
 import * as dayjs from 'dayjs';
 import * as randomstring from 'randomstring';
+import { Context } from '@midwayjs/koa';
+import * as ipdb from 'ipip-ipdb';
 
 const DATE_FORMATE = 'YYYY-MM-DD HH:mm:ss';
 
 @Provide()
 @Scope(ScopeEnum.Singleton)
 export default class Utils {
+  @Inject()
+  baseDir;
+
+  // 获得请求IP
+  async getReqIP(ctx: Context) {
+    const req = ctx.req;
+    return (
+      req.headers['x-forwarded-for'] ||
+      req.socket.remoteAddress.replace('::ffff:', '')
+    );
+  }
+
+  // 根据IP获得请求地址
+  async getIpAddr(ctx: Context, ip?: string | string[]) {
+    try {
+      if (!ip) {
+        ip = await this.getReqIP(ctx);
+      }
+      const bst = new ipdb.BaseStation(
+        `${this.baseDir}/app/comm/ipipfree.ipdb`
+      );
+      const result = bst.findInfo(ip, 'CN');
+      const addArr: any = [];
+      if (result) {
+        addArr.push(result.countryName);
+        addArr.push(result.regionName);
+        addArr.push(result.cityName);
+        return _.uniq(addArr).join('');
+      }
+    } catch (err) {
+      return '无法获取地址信息';
+    }
+  }
+
+  // 线程阻塞毫秒数
+  sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   getRandom(length = 15, charset = 'alphabetic') {
     const randomString = randomstring.generate({
       length,
