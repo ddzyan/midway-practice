@@ -8,7 +8,7 @@ import {
   Param,
 } from '@midwayjs/decorator';
 import { Validate } from '@midwayjs/validate';
-
+import { ApiResponse } from '@midwayjs/swagger';
 import { CreateClassroomDTO } from '../model/dto/class';
 import { QueryParamDTO } from '../model/dto/base';
 import { ClassroomService } from '../service/classroom';
@@ -43,6 +43,10 @@ export class ClassroomController extends BaseController {
     return users;
   }
 
+  @ApiResponse({
+    status: 200,
+    description: '删除结果',
+  })
   @Get('/destroy/:classroomId', {
     summary: '删除管理员',
     description: '删除管理员',
