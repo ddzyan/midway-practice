@@ -1,5 +1,6 @@
 import { App, Inject } from '@midwayjs/decorator';
 import { Application, Context } from '@midwayjs/koa';
+import Utils from '../app/comm/utils';
 
 export abstract class BaseService {
   @App()
@@ -7,6 +8,9 @@ export abstract class BaseService {
 
   @Inject()
   protected ctx: Context;
+
+  @Inject()
+  protected utils: Utils;
 
   protected mapping;
 

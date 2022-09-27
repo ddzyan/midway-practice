@@ -20,6 +20,7 @@ import { RequestIdMiddleware } from './middleware/requestId';
 import { FormatMiddleware } from './middleware/format';
 import { AccessLogMiddleware } from './middleware/accessLog';
 import { JwtMiddleware } from './middleware/jwt';
+import { AdminReqLogMiddleware } from './middleware/adminReqLog';
 import { NotFoundFilter } from './filter/notfound';
 
 @Configuration({
@@ -50,6 +51,7 @@ export class ContainerLifeCycle implements ILifeCycle {
       AccessLogMiddleware,
       FormatMiddleware,
       JwtMiddleware,
+      AdminReqLogMiddleware,
     ]);
     this.app.useFilter([NotFoundFilter]);
   }
