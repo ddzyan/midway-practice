@@ -1,6 +1,6 @@
-import { Config, Middleware, App } from '@midwayjs/decorator';
+import { Config, Middleware } from '@midwayjs/decorator';
 import { IMiddleware } from '@midwayjs/core';
-import { Context, NextFunction, Application } from '@midwayjs/koa';
+import { Context, NextFunction } from '@midwayjs/koa';
 
 import { IAccessLogConfig } from '../interface';
 
@@ -8,9 +8,6 @@ import { IAccessLogConfig } from '../interface';
 export class AccessLogMiddleware implements IMiddleware<Context, NextFunction> {
   @Config('accessLogConfig')
   accessLogConfig: IAccessLogConfig;
-
-  @App()
-  app: Application;
 
   public static getName(): string {
     return 'accessLog';
@@ -39,6 +36,6 @@ export class AccessLogMiddleware implements IMiddleware<Context, NextFunction> {
   }
 
   public match(ctx: Context): boolean {
-    return ctx.path.indexOf('/api') !== -1;
+    return ctx.path.startsWith('/api');
   }
 }

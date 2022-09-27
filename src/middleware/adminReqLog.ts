@@ -7,6 +7,10 @@ import { SysReqLogService } from '../app/service/sysReqLog';
 export class AdminReqLogMiddleware
   implements IMiddleware<Context, NextFunction>
 {
+  public static getName(): string {
+    return 'adminReqLog';
+  }
+
   resolve() {
     return async (ctx: Context, next: NextFunction) => {
       const startTime = Date.now();
@@ -14,18 +18,20 @@ export class AdminReqLogMiddleware
       const reportTime = Date.now() - startTime;
       ctx.set('X-Response-Time', reportTime.toString());
       const { url } = ctx;
-      if (url.startsWith('/api/classroom')) {
-        ctx.requestContext.getAsync(SysReqLogService).then(service => {
-          service.save(
-            url.split('?')[0],
-            ctx.req.method === 'GET' ? ctx.request.query : ctx.request.body,
-            ctx.status,
-            reportTime,
-            ctx.req.method,
-            ctx.admin ? ctx.admin.uid : 1
-          );
-        });
-      }
+      ctx.requestContext.getAsync(SysReqLogService).then(service => {
+        service.save(
+          url.split('?')[0],
+          ctx.req.method === 'GET' ? ctx.request.query : ctx.request.body,
+          ctx.status,
+          reportTime,
+          ctx.req.method,
+          ctx.admin ? ctx.admin.uid : 1
+        );
+      });
     };
+  }
+
+  match(ctx: Context): boolean {
+    return ctx.path.startsWith('/api/classroom');
   }
 }

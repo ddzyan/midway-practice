@@ -52,6 +52,6 @@ export class FormatMiddleware implements IMiddleware<Context, NextFunction> {
   }
 
   public match(ctx: Context): boolean {
-    return ctx.path.indexOf('/api') !== -1;
+    return ctx.path.startsWith('/api');
   }
 }
