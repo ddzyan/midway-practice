@@ -1,58 +1,61 @@
 import {
   Column,
   DataType,
-  HasOne,
-  HasMany,
-  ForeignKey,
   Table,
   Model,
+  HasMany,
+  HasOne,
+  ForeignKey,
 } from 'sequelize-typescript';
 
 import { ClassroomEntity } from './classroom';
 import { ParentInfoEntity } from './parentInfo';
-
 @Table({
-  modelName: 'user',
+  tableName: 'user',
   timestamps: true,
+  paranoid: true,
+  indexes: [
+    {
+      name: 'PRIMARY',
+      unique: true,
+      using: 'BTREE',
+      fields: [{ name: 'id' }],
+    },
+    {
+      name: 'user_classroomId_fkey',
+      using: 'BTREE',
+      fields: [{ name: 'classroom_id' }],
+    },
+  ],
 })
 export class UserEntity extends Model {
   @Column({
-    type: DataType.BIGINT({
-      length: 10,
-      unsigned: true,
-    }),
     autoIncrement: true,
+    type: DataType.INTEGER.UNSIGNED,
+    allowNull: false,
     primaryKey: true,
-    comment: 'id',
   })
   id: number;
 
   @Column({
-    type: DataType.STRING({
-      length: 20,
-    }),
+    type: DataType.STRING(20),
+    allowNull: false,
     field: 'first_name',
-    comment: '姓',
   })
   firstName: string;
 
   @Column({
-    type: DataType.STRING({
-      length: 20,
-    }),
+    type: DataType.STRING(20),
+    allowNull: false,
     field: 'last_name',
-    comment: '名',
   })
   lastName: string;
 
   @ForeignKey(() => ClassroomEntity)
   @Column({
-    type: DataType.BIGINT({
-      length: 10,
-      unsigned: true,
-    }),
+    type: DataType.INTEGER.UNSIGNED,
+    allowNull: false,
     field: 'classroom_id',
-    comment: '班级id',
   })
   classroomId: number;
 

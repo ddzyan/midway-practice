@@ -1,36 +1,38 @@
 import { Column, DataType, Table, Model } from 'sequelize-typescript';
 
 @Table({
-  modelName: 'classroom',
+  tableName: 'classroom',
   timestamps: true,
+  paranoid: true,
+  indexes: [
+   {
+    name: "PRIMARY",
+    unique: true,
+    using: "BTREE",
+    fields: [
+     { name: "id" },
+    ]
+   },
+  ]
 })
 export class ClassroomEntity extends Model {
   @Column({
-    type: DataType.BIGINT({
-      length: 10,
-      unsigned: true,
-    }),
-    autoIncrement: true,
-    primaryKey: true,
-    comment: '年级',
+   autoIncrement: true,
+   type: DataType.INTEGER.UNSIGNED,
+   allowNull: false,
+   primaryKey: true
   })
   id: number;
 
   @Column({
-    type: DataType.TINYINT({
-      length: 3,
-      unsigned: true,
-    }),
-    comment: '年级',
+   type: DataType.TINYINT.UNSIGNED,
+   allowNull: false
   })
   grade: number;
 
   @Column({
-    type: DataType.TINYINT({
-      length: 3,
-      unsigned: true,
-    }),
-    comment: '班级',
+   type: DataType.TINYINT.UNSIGNED,
+   allowNull: false
   })
   prom: number;
 }
