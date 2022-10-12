@@ -13,6 +13,10 @@ export class FormatMiddleware implements IMiddleware<Context, NextFunction> {
     return async (ctx: Context, next: NextFunction) => {
       try {
         const result = await next();
+        if (result === null) {
+          ctx.status = 200;
+        }
+
         return {
           code: 0,
           msg: 'OK',
