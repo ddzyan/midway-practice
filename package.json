@@ -15,7 +15,6 @@
     "@midwayjs/redis": "^3.6.0",
     "@midwayjs/sequelize": "^3.6.0",
     "@midwayjs/swagger": "^3.6.0",
-    "@midwayjs/task": "^3.6.0",
     "@midwayjs/validate": "^3.6.0",
     "@mw-components/jaeger": "^13.1.4",
     "@mw-components/koid": "^9.1.1",
