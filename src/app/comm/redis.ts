@@ -1,4 +1,4 @@
-import { Provide, Inject, Scope, ScopeEnum } from '@midwayjs/decorator';
+import { Provide, Inject, Scope, ScopeEnum } from '@midwayjs/core';
 import { RedisService } from '@midwayjs/redis';
 
 @Provide()

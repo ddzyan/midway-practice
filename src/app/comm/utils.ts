@@ -1,4 +1,4 @@
-import { Provide, Scope, ScopeEnum, Inject } from '@midwayjs/decorator';
+import { Provide, Scope, ScopeEnum, Inject } from '@midwayjs/core';
 import * as _ from 'lodash';
 import BigNumber from 'bignumber.js';
 import * as dayjs from 'dayjs';

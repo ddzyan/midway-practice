@@ -1,4 +1,4 @@
-import { App, Inject } from '@midwayjs/decorator';
+import { App, Inject } from '@midwayjs/core';
 import * as koa from '@midwayjs/koa';
 
 export abstract class BaseController {

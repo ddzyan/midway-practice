@@ -1,12 +1,5 @@
 import { Validate } from '@midwayjs/validate';
-import {
-  Inject,
-  Controller,
-  Query,
-  Get,
-  Post,
-  Body,
-} from '@midwayjs/decorator';
+import { Inject, Controller, Query, Get, Post, Body } from '@midwayjs/core';
 import { CreateUserInput } from '../model/dto/user';
 import { QueryParamDTO } from '../model/dto/base';
 import { UserService } from '../service/user';

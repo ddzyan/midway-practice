@@ -1,4 +1,4 @@
-import { Provide, Inject } from '@midwayjs/decorator';
+import { Provide, Inject } from '@midwayjs/core';
 import { JwtService } from '@midwayjs/jwt';
 
 import { AdminMapping } from '../mapping/admin';

@@ -1,4 +1,4 @@
-import { Provide, Inject } from '@midwayjs/decorator';
+import { Provide, Inject } from '@midwayjs/core';
 import { QueryTypes } from 'sequelize';
 
 import { UserMapping } from '../mapping/user';

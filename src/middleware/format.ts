@@ -1,5 +1,4 @@
-import { IMiddleware } from '@midwayjs/core';
-import { Middleware } from '@midwayjs/decorator';
+import { IMiddleware, Middleware } from '@midwayjs/core';
 import { Context, NextFunction } from '@midwayjs/koa';
 
 import MyError from '../app/comm/myError';

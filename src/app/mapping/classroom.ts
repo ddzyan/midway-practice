@@ -1,4 +1,4 @@
-import { Provide } from '@midwayjs/decorator';
+import { Provide } from '@midwayjs/core';
 import { InjectRepository } from '@midwayjs/sequelize';
 import { Repository } from 'sequelize-typescript';
 
