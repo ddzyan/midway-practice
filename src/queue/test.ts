@@ -2,7 +2,7 @@ import { Processor, IProcessor } from '@midwayjs/bull';
 
 @Processor('task', {
   repeat: {
-    cron: '* * * * * *',
+    cron: '*/5 * * * * *',
   },
 })
 export class TestProcessor implements IProcessor {
