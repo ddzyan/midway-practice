@@ -10,14 +10,6 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
       password: process.env.REDIS_CLIENT_PASSWORD,
     },
   };
-  config.task = {
-    redis: {
-      port: +process.env.REDIS_CLIENT_PORT,
-      host: process.env.REDIS_CLIENT_HOST,
-      db: +process.env.REDIS_CLIENT_DB,
-      password: process.env.REDIS_CLIENT_PASSWORD,
-    },
-  };
   config.sequelize = {
     dataSource: {
       default: {
