@@ -2,11 +2,16 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import * as koa from '@midwayjs/koa';
-import { App, Configuration, Logger } from '@midwayjs/decorator';
-import * as task from '@midwayjs/task';
+import * as bull from '@midwayjs/bull';
 import * as validate from '@midwayjs/validate';
 import * as crossDomain from '@midwayjs/cross-domain';
-import { ILifeCycle, IMidwayContainer } from '@midwayjs/core';
+import {
+  ILifeCycle,
+  IMidwayContainer,
+  App,
+  Configuration,
+  Logger,
+} from '@midwayjs/core';
 import { IMidwayLogger } from '@midwayjs/logger';
 import * as swagger from '@midwayjs/swagger';
 import * as jaeger from '@mw-components/jaeger';
@@ -31,9 +36,9 @@ import { NotFoundFilter } from './filter/notfound';
     koa,
     jaeger,
     koid,
+    bull,
     { component: swagger, enabledEnvironment: ['local'] },
     redis,
-    task,
     validate,
     sequlize,
     jwt,

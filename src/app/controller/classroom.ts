@@ -6,7 +6,7 @@ import {
   Query,
   Get,
   Param,
-} from '@midwayjs/decorator';
+} from '@midwayjs/core';
 import { Validate } from '@midwayjs/validate';
 import { ApiResponse } from '@midwayjs/swagger';
 import { CreateClassroomDTO } from '../model/dto/class';

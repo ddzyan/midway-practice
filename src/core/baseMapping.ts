@@ -1,4 +1,4 @@
-import { Inject } from '@midwayjs/decorator';
+import { Inject } from '@midwayjs/core';
 import { DatabaseError, ValidationError } from 'sequelize';
 import { Repository, Model } from 'sequelize-typescript';
 import { Context } from '@midwayjs/koa';

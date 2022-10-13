@@ -1,5 +1,4 @@
-import { Middleware } from '@midwayjs/decorator';
-import { IMiddleware } from '@midwayjs/core';
+import { Middleware, IMiddleware } from '@midwayjs/core';
 import { HeadersKey } from '@mw-components/jaeger';
 import { KoidComponent } from '@mw-components/koid';
 import { Context, NextFunction } from '@midwayjs/koa';

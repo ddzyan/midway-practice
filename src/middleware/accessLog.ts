@@ -1,5 +1,4 @@
-import { Config, Middleware } from '@midwayjs/decorator';
-import { IMiddleware } from '@midwayjs/core';
+import { Config, Middleware, IMiddleware } from '@midwayjs/core';
 import { Context, NextFunction } from '@midwayjs/koa';
 
 import { IAccessLogConfig } from '../interface';

@@ -1,5 +1,4 @@
-import { IMiddleware } from '@midwayjs/core';
-import { Middleware } from '@midwayjs/decorator';
+import { IMiddleware, Middleware } from '@midwayjs/core';
 import { Context, NextFunction } from '@midwayjs/koa';
 
 import MyError from '../app/comm/myError';
@@ -14,6 +13,10 @@ export class FormatMiddleware implements IMiddleware<Context, NextFunction> {
     return async (ctx: Context, next: NextFunction) => {
       try {
         const result = await next();
+        if (result === null) {
+          ctx.status = 200;
+        }
+
         return {
           code: 0,
           msg: 'OK',

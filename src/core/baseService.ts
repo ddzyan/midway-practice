@@ -1,4 +1,4 @@
-import { App, Inject } from '@midwayjs/decorator';
+import { App, Inject } from '@midwayjs/core';
 import { Application, Context } from '@midwayjs/koa';
 import Utils from '../app/comm/utils';
 

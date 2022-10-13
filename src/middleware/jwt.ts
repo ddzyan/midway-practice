@@ -1,7 +1,11 @@
-import { IMiddleware } from '@midwayjs/core';
-import { Config, Inject, Middleware } from '@midwayjs/decorator';
+import {
+  IMiddleware,
+  httpError,
+  Config,
+  Inject,
+  Middleware,
+} from '@midwayjs/core';
 import { Context, NextFunction } from '@midwayjs/koa';
-import { httpError } from '@midwayjs/core';
 import { JwtService } from '@midwayjs/jwt';
 
 import { PathToRegexp } from '../app/comm/pathToRegexp';

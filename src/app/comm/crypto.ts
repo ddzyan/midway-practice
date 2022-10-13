@@ -1,4 +1,4 @@
-import { Provide, Scope, ScopeEnum, Config } from '@midwayjs/decorator';
+import { Provide, Scope, ScopeEnum, Config } from '@midwayjs/core';
 import * as bcrypt from 'bcryptjs';
 import * as crypto from 'crypto';
 

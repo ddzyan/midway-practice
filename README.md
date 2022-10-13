@@ -48,3 +48,20 @@ npm run dev
 ```
 
 swagger 文档地址：http://127.0.0.1:7001/swagger-ui/index.html
+
+## 根据数据库表快速生产 Midway Sequelize Entity
+
+```
+npx sequelize-auto-midway -h localhost -d yourDBname -u root -x yourPassword -p 13306  --dialect mysql -o ./src/app/entity --noInitModels true --caseModel c --caseProp c --caseFile c --indentation 1 -a ./additional.json
+```
+
+additional.json
+
+```json
+{
+  "timestamps": true,
+  "paranoid": true
+}
+```
+
+具体请参考 [sequelize-auto-midway](https://github.com/happyNode/sequelize-auto-midway)

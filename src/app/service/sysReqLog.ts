@@ -1,4 +1,4 @@
-import { Provide, Inject } from '@midwayjs/decorator';
+import { Provide, Inject } from '@midwayjs/core';
 
 import { BaseService } from '../../core/baseService';
 import { SysReqLogMapping } from '../mapping/sysReqLog';
