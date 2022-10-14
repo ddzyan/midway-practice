@@ -1,7 +1,7 @@
 {
   "name": "midway-practice",
   "version": "1.0.0",
-  "description": "使用 midway + egg + ORM 完成 数据库 CRUD，Restful 接口基础功能，应用服务基础功能",
+  "description": "使用 midway + koa + ORM 完成 数据库 CRUD，Restful 接口基础功能，应用服务基础功能",
   "private": true,
   "dependencies": {
     "@midwayjs/bootstrap": "^3.6.0",
