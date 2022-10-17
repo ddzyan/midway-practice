@@ -10,6 +10,24 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
       password: process.env.REDIS_CLIENT_PASSWORD,
     },
   };
+  config.task = {
+    redis: {
+      port: +process.env.REDIS_CLIENT_PORT,
+      host: process.env.REDIS_CLIENT_HOST,
+      db: +process.env.REDIS_CLIENT_DB,
+      password: process.env.REDIS_CLIENT_PASSWORD,
+    },
+  };
+
+  config.cache = {
+    options: {
+      host: process.env.REDIS_CLIENT_HOST,
+      port: +process.env.REDIS_CLIENT_PORT,
+      password: process.env.REDIS_CLIENT_PASSWORD,
+      db: +process.env.REDIS_CLIENT_DB,
+    },
+  };
+
   config.sequelize = {
     dataSource: {
       default: {
@@ -22,16 +40,10 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
       },
     },
   };
-  config.bull = {
-    defaultQueueOptions: {
-      redis: {
-        port: +process.env.REDIS_CLIENT_PORT,
-        host: process.env.REDIS_CLIENT_HOST,
-        db: +process.env.REDIS_CLIENT_DB,
-        password: process.env.REDIS_CLIENT_PASSWORD,
-      },
-      prefix: 'midway-task',
-    },
+
+  config.jwt = {
+    secret: process.env.SECRET,
   };
+
   return config;
 };
