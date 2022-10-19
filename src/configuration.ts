@@ -2,8 +2,6 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import * as koa from '@midwayjs/koa';
-import * as bull from '@midwayjs/bull';
-import * as validate from '@midwayjs/validate';
 import * as crossDomain from '@midwayjs/cross-domain';
 import {
   ILifeCycle,
@@ -17,15 +15,13 @@ import * as swagger from '@midwayjs/swagger';
 import * as jaeger from '@mw-components/jaeger';
 import * as koid from '@mw-components/koid';
 import * as redis from '@midwayjs/redis';
-import * as sequlize from '@midwayjs/sequelize';
 import { join } from 'path';
-import * as jwt from '@midwayjs/jwt';
+import * as passport from '@midwayjs/passport';
 
 import { RequestIdMiddleware } from './middleware/requestId';
 import { FormatMiddleware } from './middleware/format';
 import { AccessLogMiddleware } from './middleware/accessLog';
-import { JwtMiddleware } from './middleware/jwt';
-import { AdminReqLogMiddleware } from './middleware/adminReqLog';
+import { GithubPassportMiddleware } from './middleware/github';
 import { NotFoundFilter } from './filter/notfound';
 
 @Configuration({
@@ -36,12 +32,9 @@ import { NotFoundFilter } from './filter/notfound';
     koa,
     jaeger,
     koid,
-    bull,
     { component: swagger, enabledEnvironment: ['local'] },
     redis,
-    validate,
-    sequlize,
-    jwt,
+    passport,
   ],
 })
 export class ContainerLifeCycle implements ILifeCycle {
@@ -55,8 +48,7 @@ export class ContainerLifeCycle implements ILifeCycle {
       RequestIdMiddleware,
       AccessLogMiddleware,
       FormatMiddleware,
-      JwtMiddleware,
-      AdminReqLogMiddleware,
+      GithubPassportMiddleware,
     ]);
     this.app.useFilter([NotFoundFilter]);
   }

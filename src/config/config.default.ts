@@ -67,7 +67,6 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
       }ms ${ctx.method} ${ctx.url}] ${info.message}`;
     },
     port: 7001,
-    globalPrefix: '/api',
   };
   return config;
 };

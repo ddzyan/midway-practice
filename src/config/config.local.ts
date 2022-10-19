@@ -45,5 +45,16 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     secret: process.env.SECRET,
   };
 
+  config.bull = {
+    defaultQueueOptions: {
+      redis: {
+        host: process.env.REDIS_CLIENT_HOST,
+        port: +process.env.REDIS_CLIENT_PORT,
+        password: process.env.REDIS_CLIENT_PASSWORD,
+        db: +process.env.REDIS_CLIENT_DB,
+      },
+    },
+  };
+
   return config;
 };
