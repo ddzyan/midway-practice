@@ -68,5 +68,10 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     },
     port: 7001,
   };
+  config.githubAuth = {
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK_URL,
+  };
   return config;
 };
