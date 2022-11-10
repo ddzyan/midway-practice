@@ -25,6 +25,7 @@
     "chalk": "^5.0.1",
     "dayjs": "^1.11.5",
     "dotenv": "^16.0.1",
+    "happy-node-utils": "^1.0.3",
     "ipip-ipdb": "^0.6.0",
     "joi": "^17.6.0",
     "lodash": "^4.17.21",

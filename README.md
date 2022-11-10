@@ -65,3 +65,7 @@ additional.json
 ```
 
 具体请参考 [sequelize-auto-midway](https://github.com/happyNode/sequelize-auto-midway)
+
+# 更新记录
+
+- [2022-11-10] 通用模块化，使用 happy-node-utils 集成
