@@ -69,5 +69,12 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     port: 7001,
     globalPrefix: '/api',
   };
+
+  config.prometheus = {
+    labels: {
+      APP_NAME: 'midway-practice',
+    },
+  };
+
   return config;
 };

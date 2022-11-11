@@ -20,6 +20,7 @@ import * as redis from '@midwayjs/redis';
 import * as sequlize from '@midwayjs/sequelize';
 import { join } from 'path';
 import * as jwt from '@midwayjs/jwt';
+import * as prometheus from '@midwayjs/prometheus';
 
 import { RequestIdMiddleware } from './middleware/requestId';
 import { FormatMiddleware } from './middleware/format';
@@ -37,6 +38,7 @@ import { NotFoundFilter } from './filter/notfound';
     jaeger,
     koid,
     bull,
+    prometheus,
     { component: swagger, enabledEnvironment: ['local'] },
     redis,
     validate,

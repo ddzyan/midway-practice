@@ -12,6 +12,7 @@
     "@midwayjs/jwt": "^3.7.3",
     "@midwayjs/koa": "^3.7.3",
     "@midwayjs/logger": "^2.17.0",
+    "@midwayjs/prometheus": "^3.7.3",
     "@midwayjs/redis": "^3.7.3",
     "@midwayjs/sequelize": "^3.7.3",
     "@midwayjs/swagger": "^3.7.3",
