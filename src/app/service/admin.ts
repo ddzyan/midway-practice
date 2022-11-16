@@ -1,7 +1,7 @@
 import { Provide, Inject } from '@midwayjs/core';
 import { JwtService } from '@midwayjs/jwt';
 
-import { AdminMapping } from '../mapping/admin';
+import { AdminEntity } from '../entity/admin';
 import { BaseService } from '../../core/baseService';
 import { AdminLoginDTO } from '../../app/model/dto/admin';
 import MyError from '../../app/comm/myError';
@@ -13,15 +13,16 @@ enum ADMIN_STATUS {
 }
 
 @Provide()
-export class AdminService extends BaseService {
-  @Inject()
-  protected mapping: AdminMapping;
-
+export class AdminService extends BaseService<AdminEntity> {
   @Inject()
   protected crypto: Crypto;
 
   @Inject()
   private jwtService: JwtService;
+
+  getModel() {
+    return AdminEntity;
+  }
 
   /**
    * @description 管理员
@@ -29,7 +30,7 @@ export class AdminService extends BaseService {
    */
   async login(param: AdminLoginDTO) {
     const { account, pwd } = param;
-    const admin = await this.mapping.findOne({
+    const admin = await this.findOne({
       account,
     });
     if (!admin) {

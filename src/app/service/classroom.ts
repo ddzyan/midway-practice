@@ -1,28 +1,25 @@
 import { Provide, Inject } from '@midwayjs/core';
 import { SequelizeDataSourceManager } from '@midwayjs/sequelize';
 
+import { ClassroomEntity } from '../entity/classroom';
 import { BaseService } from '../../core/baseService';
-import { ClassroomMapping } from '../mapping/classroom';
-import { UserMapping } from '../mapping/user';
 
 @Provide()
-export class ClassroomService extends BaseService {
-  @Inject()
-  protected mapping: ClassroomMapping;
-
+export class ClassroomService extends BaseService<ClassroomEntity> {
   @Inject()
   private sequelizeDataSourceManager: SequelizeDataSourceManager;
 
-  @Inject()
-  protected userMapping: UserMapping;
+  getModel() {
+    return ClassroomEntity;
+  }
 
   async destroyClassroomAndUser(classroomId: number) {
     const t = await this.sequelizeDataSourceManager
       .getDataSource('default')
       .transaction();
     try {
-      await this.mapping.destroy({ id: classroomId }, t);
-      await this.userMapping.destroy({ classroomId }, t);
+      await this.destroy({ id: classroomId }, t);
+      await this.destroy({ classroomId }, t);
       await t.commit();
       return true;
     } catch (error) {

@@ -30,7 +30,7 @@ export class UserController extends BaseController {
     @Body()
     createParams: CreateUserInput
   ) {
-    const res = await this.service.create(createParams);
+    const res = await this.service.save(createParams);
     return this.success(res);
   }
 

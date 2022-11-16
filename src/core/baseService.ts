@@ -1,47 +1,98 @@
 import { App, Inject } from '@midwayjs/core';
 import { Application, Context } from '@midwayjs/koa';
+import { DatabaseError, ValidationError } from 'sequelize';
 
-export abstract class BaseService {
+import { Model, Repository } from 'sequelize-typescript';
+
+export abstract class BaseService<T extends Model> {
   @App()
   protected app: Application;
 
   @Inject()
   protected ctx: Context;
 
-  protected mapping;
+  abstract getModel(): Repository<T>;
+
+  async execSql(func) {
+    try {
+      const res = await func;
+      return res;
+    } catch (error) {
+      let logText;
+      if (error instanceof DatabaseError) {
+        const { message, sql, stack, parameters, name } = error;
+        const parametersStr =
+          typeof parameters === 'object'
+            ? JSON.stringify(parameters)
+            : parameters;
+        logText = `[sequelize error] DatabaseError||name=${name} message=${message} sql=${sql} parameters=${parametersStr} stack=${stack}`;
+      } else if (error instanceof ValidationError) {
+        const { message, stack, name, errors } = error;
+        logText = `[sequelize error] ValidationError||name=${name} message=${message} errors=${errors} stack=${stack}`;
+      }
+      (this as any).ctx.logger.error(logText);
+      throw error;
+    }
+  }
 
   async findAndCountAll(page: number, limit: number, where = {}) {
-    const res = await this.mapping.findAndCountAll(page, limit, where);
+    const offset = (page - 1) * limit;
+    const res = await this.getModel().findAndCountAll({
+      where,
+      limit,
+      offset: offset > 0 ? offset : 0,
+      order: [['createdAt', 'desc']],
+    });
+
     return res;
   }
 
   async findAll(where = {}, options = {}) {
-    const res = await this.mapping.findAll(where, options);
+    const res = await this.getModel().findAll({
+      where,
+      ...options,
+      order: [['createdAt', 'desc']],
+    });
     return res;
   }
 
-  async findOne(where) {
-    const res = await this.mapping.findOne(where);
+  async findOne(where = {}, options = {}) {
+    const res = await this.getModel().findOne({
+      where,
+      order: [['createdAt', 'desc']],
+      ...options,
+    });
     return res;
   }
 
-  async create(createParams) {
-    const res = await this.mapping.saveNew(createParams);
+  async save(param) {
+    const res = await this.getModel().create(param);
     return res;
   }
 
-  async update(updateParams, where) {
-    const res = await this.mapping.modify(updateParams, where);
+  async modify(param, where, options) {
+    const [effect] = await this.getModel().update(param, {
+      where,
+      ...options,
+    });
+    return effect;
+  }
+
+  async destroy(where = {}, options = {}) {
+    const res = await this.getModel().destroy({
+      where,
+      ...options,
+    });
     return res;
   }
 
-  async destroy(where) {
-    const res = await this.mapping.destroy(where);
+  async findByPk(id: number, options = {}) {
+    const res = await this.getModel().findByPk(id, { ...options });
     return res;
   }
 
-  async findByPk(id: number) {
-    const res = await this.mapping.findByPk(id);
+  async queryRaw(sqlStr: string, option?: any) {
+    const res = await this.getModel().sequelize.query(sqlStr, option);
     return res;
   }
 }

@@ -26,9 +26,9 @@ export class ClassroomController extends BaseController {
   @Validate()
   async create(
     @Body()
-    createParams: CreateClassroomDTO
+    param: CreateClassroomDTO
   ) {
-    const classroom = await this.service.create(createParams);
+    const classroom = await this.service.save(param);
     return classroom;
   }
 

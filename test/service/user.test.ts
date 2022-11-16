@@ -12,7 +12,7 @@ describe(filename, () => {
       .getApplicationContext()
       .getAsync<UserService>(UserService);
 
-    const res = await userService.getUserList(1, 10);
+    const res = await userService.getUserAndClassroomAndParentList(1, 10);
     assert(res);
   });
 });

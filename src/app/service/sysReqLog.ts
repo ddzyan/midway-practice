@@ -1,15 +1,16 @@
-import { Provide, Inject } from '@midwayjs/core';
+import { Provide } from '@midwayjs/core';
 import * as utils from 'happy-node-utils';
 
+import { SysReqLogEntity } from '../entity/sysReqLog';
 import { BaseService } from '../../core/baseService';
-import { SysReqLogMapping } from '../mapping/sysReqLog';
 
 @Provide()
-export class SysReqLogService extends BaseService {
-  @Inject()
-  protected mapping: SysReqLogMapping;
+export class SysReqLogService extends BaseService<SysReqLogEntity> {
+  getModel() {
+    return SysReqLogEntity;
+  }
 
-  async save(
+  async create(
     url: string,
     params: string,
     status: number,
@@ -18,7 +19,7 @@ export class SysReqLogService extends BaseService {
     adminId: number | null
   ): Promise<void> {
     const ip = utils.getReqIP(this.ctx);
-    await this.mapping.saveNew({
+    await this.save({
       action: url,
       param: JSON.stringify(params),
       adminId: adminId || 1,
