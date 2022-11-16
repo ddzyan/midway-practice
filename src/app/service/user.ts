@@ -5,6 +5,7 @@ import { UserEntity } from '../entity/user';
 import { ClassroomEntity } from '../entity/classroom';
 import { ParentInfoEntity } from '../entity/parentInfo';
 import { BaseService } from '../../core/baseService';
+import { Page } from '../comm/page';
 
 @Provide()
 export class UserService extends BaseService<UserEntity> {
@@ -22,7 +23,7 @@ export class UserService extends BaseService<UserEntity> {
   async getUserAndClassroomAndParentList(
     page: number,
     limit: number
-  ): Promise<{ rows: UserEntity[]; count: number }> {
+  ): Promise<Page<UserEntity>> {
     const res = await this.getModel().findAndCountAll({
       attributes: ['id', 'firstName', 'lastName'],
       include: [
@@ -42,7 +43,7 @@ export class UserService extends BaseService<UserEntity> {
     });
 
     const { rows, count } = res;
-    return { rows, count };
+    return Page.build<UserEntity>(rows, count);
   }
 
   getName() {

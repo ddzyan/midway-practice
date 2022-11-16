@@ -1,4 +1,5 @@
 export { NpmPkg } from '@waiting/shared-types';
+import { UserContext } from './app/comm/userContext';
 
 /**
  * @description User-Service parameters
@@ -17,4 +18,10 @@ export interface IGetUserResponse {
 
 export interface IAccessLogConfig {
   ignore: RegExp[];
+}
+
+declare module '@midwayjs/core' {
+  interface Context {
+    userContext: UserContext;
+  }
 }

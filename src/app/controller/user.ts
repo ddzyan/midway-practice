@@ -17,7 +17,10 @@ export class UserController extends BaseController {
     queryParam: QueryParamDTO
   ) {
     const { page, limit } = queryParam;
-    const res = await this.service.findAndCountAll(page, limit);
+    const res = await this.service.getUserAndClassroomAndParentList(
+      page,
+      limit
+    );
     return this.success(res);
   }
 

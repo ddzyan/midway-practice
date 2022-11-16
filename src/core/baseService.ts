@@ -53,6 +53,7 @@ export abstract class BaseService<T extends Model> {
       ...options,
       order: [['createdAt', 'desc']],
     });
+
     return res;
   }
 

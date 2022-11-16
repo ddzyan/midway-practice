@@ -11,7 +11,7 @@ import { AdminLoginDTO } from '../../app/model/dto/admin';
 })
 export class AdminController extends BaseController {
   @Inject()
-  protected adminService: AdminService;
+  protected service: AdminService;
 
   @Validate()
   @Post('/login', { summary: '管理员登录' })
@@ -19,7 +19,7 @@ export class AdminController extends BaseController {
     @Body()
     param: AdminLoginDTO
   ) {
-    const res = await this.adminService.login(param);
+    const res = await this.service.login(param);
     return this.success(res);
   }
 }

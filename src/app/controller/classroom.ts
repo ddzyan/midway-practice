@@ -32,15 +32,15 @@ export class ClassroomController extends BaseController {
     return classroom;
   }
 
-  @Get('/', { summary: '分页获取班级列表' })
+  @Get('/', { summary: '获取全部班级信息' })
   @Validate()
   async index(
     @Query()
     queryParam: QueryParamDTO
   ) {
     const { page, limit } = queryParam;
-    const users = await this.service.findAll(page, limit);
-    return users;
+    const res = await this.service.findAll(page, limit);
+    return res;
   }
 
   @ApiResponse({

@@ -9,6 +9,7 @@ import { Context, NextFunction } from '@midwayjs/koa';
 import { JwtService } from '@midwayjs/jwt';
 
 import { PathToRegexp } from '../app/comm/pathToRegexp';
+import { UserContext } from '../app/comm/userContext';
 
 @Middleware()
 export class JwtMiddleware implements IMiddleware<Context, NextFunction> {
@@ -32,9 +33,12 @@ export class JwtMiddleware implements IMiddleware<Context, NextFunction> {
         throw new httpError.UnauthorizedError();
       }
       try {
-        const user = await this.jwtService.verify(token, { complete: true });
-        ctx.state.token = token;
-        ctx.state.user = user;
+        const userStr = await this.jwtService.verify(token, {
+          complete: true,
+        });
+
+        const payload: UserContext = userStr['payload'];
+        ctx.userContext = payload;
       } catch (error) {
         throw new httpError.UnauthorizedError();
       }
