@@ -66,6 +66,13 @@ additional.json
 
 具体请参考 [sequelize-auto-midway](https://github.com/happyNode/sequelize-auto-midway)
 
+## 生成数据库说明文件
+
+```
+npx db2md g -u root -p 3306 -pwd 123456 -h 127.0.0.1 test
+
+```
+
 # 更新记录
 
 - [2022-11-10] 通用模块化，使用 happy-node-utils 集成
