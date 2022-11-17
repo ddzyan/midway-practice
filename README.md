@@ -51,8 +51,8 @@ swagger 文档地址：http://127.0.0.1:7001/swagger-ui/index.html
 
 ## 根据数据库表快速生产 Midway Sequelize Entity
 
-```
-npx sequelize-auto-midway -h localhost -d yourDBname -u root -x yourPassword -p 13306  --dialect mysql -o ./src/app/entity --noInitModels true --caseModel c --caseProp c --caseFile c --indentation 1 -a ./additional.json
+```shell
+$ npx sequelize-auto-midway -h localhost -d yourDBname -u root -x yourPassword -p 13306  --dialect mysql -o ./src/app/entity --noInitModels true --caseModel c --caseProp c --caseFile c --indentation 1 -a ./additional.json
 ```
 
 additional.json
@@ -68,11 +68,12 @@ additional.json
 
 ## 生成数据库说明文件
 
-```
-npx db2md g -u root -p 3306 -pwd 123456 -h 127.0.0.1 test
+```shell
+$ npx db2md g -u root -p 3306 -pwd 123456 -h 127.0.0.1 test -o ./sql
 
 ```
 
 # 更新记录
 
 - [2022-11-10] 通用模块化，使用 happy-node-utils 集成
+- [2022-11-17] 添加自动化生产 Mysql 数据库表说明文件
