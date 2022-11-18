@@ -1,7 +1,6 @@
 import { App, Inject } from '@midwayjs/core';
 import { Application, Context } from '@midwayjs/koa';
-import { DatabaseError, ValidationError } from 'sequelize';
-
+import { DatabaseError, ValidationError, Transaction } from 'sequelize';
 import { Model, Repository } from 'sequelize-typescript';
 
 export abstract class BaseService<T extends Model> {
@@ -33,6 +32,11 @@ export abstract class BaseService<T extends Model> {
       (this as any).ctx.logger.error(logText);
       throw error;
     }
+  }
+
+  async getTransaction(): Promise<Transaction> {
+    const t = await this.getModel().sequelize.transaction();
+    return t;
   }
 
   async findAndCountAll(page: number, limit: number, where = {}) {
@@ -90,6 +94,16 @@ export abstract class BaseService<T extends Model> {
   async findByPk(id: number, options = {}) {
     const res = await this.getModel().findByPk(id, { ...options });
     return res;
+  }
+
+  async createMany(params, options = {}) {
+    const res = await this.getModel().bulkCreate(params, options);
+    return res;
+  }
+
+  async count(where) {
+    const number = await this.getModel().count({ where });
+    return number;
   }
 
   async queryRaw(sqlStr: string, option?: any) {

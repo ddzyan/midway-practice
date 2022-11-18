@@ -37,7 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
-    "@midwayjs/cli": "^1.3.16",
+    "@midwayjs/cli": "^1.3.17",
     "@midwayjs/luckyeye": "^1.1.0",
     "@midwayjs/mock": "^3.7.3",
     "@types/chai": "^4.3.3",
