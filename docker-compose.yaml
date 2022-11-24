@@ -1,12 +1,15 @@
-version: '2'
+version: '3'
 services:
-  lotus_gateway:
-    image: midwayexample:v1.0.4
-    container_name: midway-example
+  midway-practice:
+    image: midway-practice
+    container_name: midway-practice
     restart: unless-stopped
-    ports:
-      - 8001:7001
+    build:
+      context: ./ #表示dockerfile文件存在的目录
+      dockerfile: Dockerfile #表示dockerfile的文件名
     volumes:
       - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8001:7001
     env_file:
       - ./.env
