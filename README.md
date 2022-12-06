@@ -75,6 +75,9 @@ $ npx db2md g -u root -p 3306 -pwd 123456 -h 127.0.0.1 test -o ./sql
 
 # 更新记录
 
-- [2022-11-10] 通用模块化，使用 happy-node-utils 集成
-- [2022-11-17] 添加自动化生产 Mysql 数据库表说明文件
+- [2022-12-06]
+  - @midway 组件升级到 3.8.0，修改 sequelize 默认数据源获取方法
+  - 新增 serverTimeout 配置, 定义服务端超时时间。
 - [2022-11-18] baseService 添加 createMany,count,getTransaction 方法
+- [2022-11-17] 添加自动化生产 Mysql 数据库表说明文件
+- [2022-11-10] 通用模块化，使用 happy-node-utils 集成

@@ -1,7 +1,8 @@
 import { App, Inject } from '@midwayjs/core';
 import { Application, Context } from '@midwayjs/koa';
 import { DatabaseError, ValidationError, Transaction } from 'sequelize';
-import { Model, Repository } from 'sequelize-typescript';
+import { Model, Repository, Sequelize } from 'sequelize-typescript';
+import { InjectDataSource } from '@midwayjs/sequelize';
 
 export abstract class BaseService<T extends Model> {
   @App()
@@ -9,6 +10,10 @@ export abstract class BaseService<T extends Model> {
 
   @Inject()
   protected ctx: Context;
+
+  // 注入默认数据源
+  @InjectDataSource()
+  protected defaultDataSource: Sequelize;
 
   abstract getModel(): Repository<T>;
 

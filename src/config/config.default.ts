@@ -2,31 +2,38 @@ import { MidwayAppInfo, MidwayConfig } from '@midwayjs/core';
 
 export default (appInfo: MidwayAppInfo): MidwayConfig => {
   const config = {} as MidwayConfig;
+
   config.keys = appInfo.name + '_1640593084642_6476';
+
   config.accessLogConfig = {
     ignore: [/\/swagger-u.*/u],
   };
+
   config.security = {
     csrf: {
       enable: false,
     },
   };
+
   config.jwt = {
     secret: '123456',
     expiresIn: 1000 * 60 * 60 * 24,
   };
+
   config.jwtWhitelist = [
     '/swagger-ui',
     '/api/admin/login',
     '/api',
     '/api/user',
   ];
+
   config.cors = {
     allowHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
     allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
     credentials: true,
     origin: req => req.headers.origin,
   };
+
   config.sequelize = {
     dataSource: {
       default: {
@@ -59,6 +66,7 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
       },
     },
   };
+
   config.koa = {
     contextLoggerFormat: info => {
       const ctx = info.ctx;
@@ -68,6 +76,8 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     },
     port: 7001,
     globalPrefix: '/api',
+    serverTimeout: 30 * 1000,
   };
+
   return config;
 };
