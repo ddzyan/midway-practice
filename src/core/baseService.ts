@@ -1,6 +1,6 @@
 import { App, Inject } from '@midwayjs/core';
 import { Application, Context } from '@midwayjs/koa';
-import { DatabaseError, ValidationError, Transaction } from 'sequelize';
+import { DatabaseError, ValidationError } from 'sequelize';
 import { Model, Repository, Sequelize } from 'sequelize-typescript';
 import { InjectDataSource } from '@midwayjs/sequelize';
 
@@ -37,11 +37,6 @@ export abstract class BaseService<T extends Model> {
       (this as any).ctx.logger.error(logText);
       throw error;
     }
-  }
-
-  async getTransaction(): Promise<Transaction> {
-    const t = await this.getModel().sequelize.transaction();
-    return t;
   }
 
   async findAndCountAll(page: number, limit: number, where = {}) {
