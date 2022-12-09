@@ -75,7 +75,7 @@ export abstract class BaseService<T extends Model> {
     return res;
   }
 
-  async modify(param, where, options) {
+  async modify(param, where, options = {}) {
     const [effect] = await this.getModel().update(param, {
       where,
       ...options,
