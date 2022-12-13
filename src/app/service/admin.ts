@@ -1,11 +1,12 @@
 import { Provide, Inject } from '@midwayjs/core';
 import { JwtService } from '@midwayjs/jwt';
 
-import { AdminEntity } from '../entity/admin';
 import { BaseService } from '../../core/baseService';
 import { AdminLoginDTO } from '../../app/model/dto/admin';
 import MyError from '../../app/comm/myError';
 import Crypto from '../../app/comm/crypto';
+import { AdminMapping } from '../mapping/admin';
+import { AdminEntity } from '../entity/admin';
 
 enum ADMIN_STATUS {
   NORMAL = 1,
@@ -20,9 +21,8 @@ export class AdminService extends BaseService<AdminEntity> {
   @Inject()
   private jwtService: JwtService;
 
-  getModel() {
-    return AdminEntity;
-  }
+  @Inject()
+  mapping: AdminMapping;
 
   /**
    * @description 管理员
@@ -30,9 +30,10 @@ export class AdminService extends BaseService<AdminEntity> {
    */
   async login(param: AdminLoginDTO) {
     const { account, pwd } = param;
-    const admin = await this.findOne({
+    const admin = await this.mapping.findOne({
       account,
     });
+
     if (!admin) {
       throw new MyError('用户不存在');
     }

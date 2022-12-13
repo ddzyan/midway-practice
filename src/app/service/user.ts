@@ -1,49 +1,32 @@
-import { Provide } from '@midwayjs/core';
+import { Inject, Provide } from '@midwayjs/core';
 import { QueryTypes } from 'sequelize';
 
-import { UserEntity } from '../entity/user';
-import { ClassroomEntity } from '../entity/classroom';
-import { ParentInfoEntity } from '../entity/parentInfo';
+import { UserMapping } from '../mapping/user';
 import { BaseService } from '../../core/baseService';
-import { Page } from '../comm/page';
+import { UserEntity } from '../entity/user';
 
 @Provide()
 export class UserService extends BaseService<UserEntity> {
-  getModel() {
-    return UserEntity;
-  }
+  @Inject()
+  mapping: UserMapping;
 
   async getNumberUser() {
-    const res = await this.queryRaw('select count(1) as totalUser from user;', {
-      type: QueryTypes.SELECT,
-    });
+    const res = await this.mapping.queryRaw(
+      'select count(1) as totalUser from user;',
+      {
+        type: QueryTypes.SELECT,
+      }
+    );
     return res[0];
   }
 
-  async getUserAndClassroomAndParentList(
-    page: number,
-    limit: number
-  ): Promise<Page<UserEntity>> {
-    const res = await this.getModel().findAndCountAll({
-      attributes: ['id', 'firstName', 'lastName'],
-      include: [
-        {
-          model: ClassroomEntity,
-          attributes: ['grade', 'prom'],
-          required: true,
-        },
-        {
-          model: ParentInfoEntity,
-          attributes: ['username', 'tel'],
-          required: true,
-        },
-      ],
-      limit,
-      offset: (page - 1) * limit,
-    });
+  async getUserAndClassroomAndParentList(page: number, limit: number) {
+    const res = await this.mapping.getUserAndClassroomAndParentList(
+      page,
+      limit
+    );
 
-    const { rows, count } = res;
-    return Page.build<UserEntity>(rows, count);
+    return res;
   }
 
   getName() {

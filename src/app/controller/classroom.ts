@@ -28,7 +28,7 @@ export class ClassroomController extends BaseController {
     @Body()
     param: CreateClassroomDTO
   ) {
-    const classroom = await this.service.save(param);
+    const classroom = await this.service.saveNew(param);
     return classroom;
   }
 
@@ -39,7 +39,7 @@ export class ClassroomController extends BaseController {
     queryParam: QueryParamDTO
   ) {
     const { page, limit } = queryParam;
-    const res = await this.service.findAll(page, limit);
+    const res = await this.service.findAndCountAll(page, limit);
     return res;
   }
 

@@ -12,7 +12,7 @@ describe(filename, () => {
       .getApplicationContext()
       .getAsync<ClassroomService>(ClassroomService);
 
-    const res = await classroomService.save({ grade: 1, prom: 2 });
+    const res = await classroomService.saveNew({ grade: 1, prom: 2 });
     assert(res);
   });
 });
