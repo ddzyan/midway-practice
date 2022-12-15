@@ -28,8 +28,4 @@ export class UserService extends BaseService<UserEntity> {
 
     return res;
   }
-
-  getName() {
-    return 'user';
-  }
 }

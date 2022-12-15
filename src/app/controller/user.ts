@@ -1,6 +1,6 @@
 import { Validate } from '@midwayjs/validate';
 import { Inject, Controller, Query, Get, Post, Body } from '@midwayjs/core';
-import { CreateUserInput } from '../model/dto/user';
+import { CreateUserInputDTO } from '../model/dto/user';
 import { QueryParamDTO } from '../model/dto/base';
 import { UserService } from '../service/user';
 import { BaseController } from '../../core/baseController';
@@ -31,7 +31,7 @@ export class UserController extends BaseController {
   @Validate()
   async create(
     @Body()
-    createParams: CreateUserInput
+    createParams: CreateUserInputDTO
   ) {
     const res = await this.service.saveNew(createParams);
     return this.success(res);

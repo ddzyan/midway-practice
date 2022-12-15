@@ -5,6 +5,8 @@ import { Model, Repository } from 'sequelize-typescript';
 import { Sequelize } from 'sequelize-typescript';
 import { InjectDataSource } from '@midwayjs/sequelize';
 
+type Reverse<T> = (state: any, action: any) => T;
+
 export abstract class BaseMapping<T extends Model> {
   @Inject()
   protected ctx: Context;
@@ -14,10 +16,10 @@ export abstract class BaseMapping<T extends Model> {
 
   abstract getModel(): Repository<T>;
 
-  async execSql(func) {
+  async execSql<T>(func: Reverse<T>): Promise<T> {
     try {
       const res = await func;
-      return res;
+      return res as T;
     } catch (error) {
       let logText;
       if (error instanceof DatabaseError) {

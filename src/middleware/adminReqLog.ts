@@ -17,10 +17,12 @@ export class AdminReqLogMiddleware
       const reportTime = Date.now() - startTime;
       ctx.set('X-Response-Time', reportTime.toString());
       const { url } = ctx;
+      const params =
+        ctx.req.method === 'GET' ? ctx.request.query : ctx.request.body;
       ctx.requestContext.getAsync(SysReqLogService).then(service => {
         service.create(
           url.split('?')[0],
-          ctx.req.method === 'GET' ? ctx.request.query : ctx.request.body,
+          params as object,
           ctx.status,
           reportTime,
           ctx.req.method,

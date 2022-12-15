@@ -1,5 +1,3 @@
-import 'tsconfig-paths/register';
-
 import { join } from 'path';
 import * as WEB from '@midwayjs/koa';
 import { createApp, close, createHttpRequest } from '@midwayjs/mock';

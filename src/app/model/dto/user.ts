@@ -1,6 +1,6 @@
 import { Rule, RuleType } from '@midwayjs/validate';
 import { ApiProperty } from '@midwayjs/swagger';
-export class CreateUserInput {
+export class CreateUserInputDTO {
   @ApiProperty({
     type: 'string',
     description: '姓',

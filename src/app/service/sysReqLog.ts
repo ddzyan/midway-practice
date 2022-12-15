@@ -12,7 +12,7 @@ export class SysReqLogService extends BaseService<SysReqLogEntity> {
 
   async create(
     url: string,
-    params: string,
+    params: object,
     status: number,
     consumeTime: number,
     method: string | undefined,

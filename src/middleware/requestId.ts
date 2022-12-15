@@ -1,5 +1,4 @@
 import { Middleware, IMiddleware } from '@midwayjs/core';
-import { HeadersKey } from '@mw-components/jaeger';
 import { KoidComponent } from '@mw-components/koid';
 import { Context, NextFunction } from '@midwayjs/koa';
 
@@ -11,7 +10,7 @@ export class RequestIdMiddleware implements IMiddleware<Context, NextFunction> {
 
   public resolve() {
     return async (ctx: Context, next: NextFunction) => {
-      const key = HeadersKey.reqId;
+      const key = 'x-request-id';
       let reqId = ctx.get(key);
 
       if (reqId) {
