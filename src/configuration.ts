@@ -14,7 +14,6 @@ import {
 } from '@midwayjs/core';
 import { IMidwayLogger } from '@midwayjs/logger';
 import * as swagger from '@midwayjs/swagger';
-import * as koid from '@mw-components/koid';
 import * as redis from '@midwayjs/redis';
 import * as sequlize from '@midwayjs/sequelize';
 import { join } from 'path';
@@ -33,7 +32,6 @@ import { NotFoundFilter } from './filter/notfound';
   imports: [
     crossDomain,
     koa,
-    koid,
     bull,
     { component: swagger, enabledEnvironment: ['local'] },
     redis,

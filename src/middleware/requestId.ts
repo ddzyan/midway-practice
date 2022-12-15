@@ -1,6 +1,6 @@
 import { Middleware, IMiddleware } from '@midwayjs/core';
-import { KoidComponent } from '@mw-components/koid';
 import { Context, NextFunction } from '@midwayjs/koa';
+import * as utils from 'happy-node-utils';
 
 @Middleware()
 export class RequestIdMiddleware implements IMiddleware<Context, NextFunction> {
@@ -16,8 +16,7 @@ export class RequestIdMiddleware implements IMiddleware<Context, NextFunction> {
       if (reqId) {
         ctx.reqId = reqId;
       } else {
-        const koid = await ctx.requestContext.getAsync(KoidComponent);
-        reqId = koid.idGenerator.toString();
+        reqId = utils.getRandom(32, 'alphanumeric');
         ctx.reqId = reqId;
       }
       ctx.set(key, reqId);
