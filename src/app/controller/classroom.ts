@@ -7,8 +7,9 @@ import {
   Get,
   Param,
 } from '@midwayjs/core';
-import { Validate } from '@midwayjs/validate';
 import { ApiResponse } from '@midwayjs/swagger';
+import { ParseIntPipe } from '@midwayjs/validate';
+
 import { CreateClassroomDTO } from '../model/dto/class';
 import { QueryParamDTO } from '../model/dto/base';
 import { ClassroomService } from '../service/classroom';
@@ -23,7 +24,6 @@ export class ClassroomController extends BaseController {
   protected service: ClassroomService;
 
   @Post('/', { summary: '添加班级' })
-  @Validate()
   async create(
     @Body()
     param: CreateClassroomDTO
@@ -33,7 +33,6 @@ export class ClassroomController extends BaseController {
   }
 
   @Get('/', { summary: '获取全部班级信息' })
-  @Validate()
   async index(
     @Query()
     queryParam: QueryParamDTO
@@ -51,8 +50,7 @@ export class ClassroomController extends BaseController {
     summary: '删除管理员',
     description: '删除管理员',
   })
-  @Validate()
-  async destroy(@Param('classroomId') classroomId: number) {
+  async destroy(@Param('classroomId', [ParseIntPipe]) classroomId: number) {
     const res = await this.service.destroyClassroomAndUser(classroomId);
     return this.success(res);
   }

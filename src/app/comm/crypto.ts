@@ -1,9 +1,8 @@
-import { Provide, Scope, ScopeEnum, Config } from '@midwayjs/core';
+import { Singleton, Config } from '@midwayjs/core';
 import * as bcrypt from 'bcryptjs';
 import * as crypto from 'crypto';
 
-@Provide()
-@Scope(ScopeEnum.Singleton)
+@Singleton()
 export default class Crypto {
   @Config('keys')
   private cipherKey: string;

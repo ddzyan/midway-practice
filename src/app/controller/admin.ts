@@ -1,5 +1,4 @@
 import { Inject, Controller, Post, Body } from '@midwayjs/core';
-import { Validate } from '@midwayjs/validate';
 
 import { AdminService } from '../../app/service/admin';
 import { BaseController } from '../../core/baseController';
@@ -13,7 +12,6 @@ export class AdminController extends BaseController {
   @Inject()
   protected service: AdminService;
 
-  @Validate()
   @Post('/login', { summary: '管理员登录' })
   async login(
     @Body()

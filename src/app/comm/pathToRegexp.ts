@@ -1,8 +1,7 @@
-import { Provide, Scope, ScopeEnum } from '@midwayjs/core';
+import { Singleton } from '@midwayjs/core';
 import { pathToRegexp } from 'path-to-regexp';
 
-@Provide()
-@Scope(ScopeEnum.Singleton)
+@Singleton()
 export class PathToRegexp {
   public pathMatch(
     pattern: string | RegExp | (string | RegExp)[],
