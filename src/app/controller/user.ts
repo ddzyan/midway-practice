@@ -1,4 +1,5 @@
 import { Inject, Controller, Query, Get, Post, Body } from '@midwayjs/core';
+
 import { CreateUserInputDTO } from '../model/dto/user';
 import { QueryParamDTO } from '../model/dto/base';
 import { UserService } from '../service/user';
