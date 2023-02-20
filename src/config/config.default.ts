@@ -67,6 +67,16 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     },
   };
 
+  config.midwayLogger = {
+    default: {
+      enableJSON: false,
+      enableConsole: true,
+      enableError: true,
+      level: 'info',
+      consoleLevel: 'info',
+    },
+  };
+
   config.koa = {
     contextLoggerFormat: info => {
       const ctx = info.ctx;
