@@ -74,26 +74,6 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
         level: 'info',
         consoleLevel: 'info',
       },
-      appLogger: {
-        enableJSON: true,
-        enableFile: true,
-        jsonFormat: (info, meta) => {
-          const { timestamp, message } = info;
-          const { ctx, pid, level } = meta;
-          const { reqId, startTime, method, url } = ctx;
-          const obj = {
-            timestamp,
-            level,
-            pid,
-            message,
-            reqId,
-            startTime,
-            method,
-            url,
-          };
-          return obj;
-        },
-      },
     },
   };
 

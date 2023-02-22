@@ -50,11 +50,6 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
 
   config.midwayLogger = {
     clients: {
-      default: {
-        fileLogName: 'midway-practice',
-        level: 'info',
-        consoleLevel: 'info',
-      },
       appLogger: {
         enableJSON: true,
         enableFile: false,
