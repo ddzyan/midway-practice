@@ -48,5 +48,19 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     secret: process.env.SECRET,
   };
 
+  config.midwayLogger = {
+    clients: {
+      default: {
+        fileLogName: 'midway-practice',
+        level: 'info',
+        consoleLevel: 'info',
+      },
+      appLogger: {
+        enableJSON: false,
+        enableFile: true,
+      },
+    },
+  };
+
   return config;
 };
