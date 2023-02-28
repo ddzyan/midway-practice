@@ -73,5 +73,23 @@ export default (appInfo: MidwayAppInfo): MidwayConfig => {
     },
   };
 
+  config.koa = {
+    contextLoggerFormat: info => {
+      const { ctx, timestamp, LEVEL: level, pid, message } = info;
+      const { startTime, method, url, reqId } = ctx;
+      const obj = {
+        timestamp,
+        level,
+        pid,
+        message,
+        reqId,
+        startTime,
+        method,
+        url,
+      };
+      return JSON.stringify(obj);
+    },
+  };
+
   return config;
 };
