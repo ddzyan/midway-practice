@@ -91,8 +91,8 @@ export abstract class BaseMapping<T extends Model> {
   }
 
   async findAndCountAll(
-    limit: number,
     page: number,
+    limit: number,
     where = {}
   ): Promise<{
     rows: T[];
